@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DriverAccessor_Hazelab {
 
-	private final static String DRIVER_URL="jdbc:mysql://localhost:3306/lab_members?useUnicode=true&characterEncoding=Windows-31J";
+	private final static String DRIVER_URL="jdbc:mysql://localhost:3306/awaretweet?useUnicode=true&characterEncoding=Windows-31J";
 
 
 	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
