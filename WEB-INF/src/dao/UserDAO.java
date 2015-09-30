@@ -16,7 +16,7 @@ public class UserDAO extends DriverAccessor_Hazelab{
 		con = createConnection();
 		try{
 			
-			String sql="select * from user where user_id = (?) and password = (?) ";
+			String sql="select * from profile where id = (?) and password = (?) ";
 			
 			//PreparedStatementの利用
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -27,8 +27,8 @@ public class UserDAO extends DriverAccessor_Hazelab{
 			rs.first();
 			
 			User user = new User();
-			user.setUser_id(rs.getString("user_id"));
-			user.setUser_name(rs.getString("user_name"));
+			user.setUser_id(rs.getString("id"));
+			user.setUser_name(rs.getString("name"));
 			user.setUser_password(rs.getString("password"));
 			
 			stmt.close();

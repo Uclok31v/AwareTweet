@@ -51,7 +51,7 @@ public class LoginServlet extends HttpServlet{
 		//もし10回以上パスワード間違った場合はシステムにはアクセスできなくなる
 		if(failCount >= 10){
 			request.setAttribute("error", "You don't access to this system.");
-			getServletContext().getRequestDispatcher("/jsp/hazelab/login.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/jsp/common/login.jsp").forward(request, response);
 		}
 			
 		else{
@@ -72,7 +72,7 @@ public class LoginServlet extends HttpServlet{
 			else{
 				//失敗してるからincrementする
 				loginManager.incrementIpHistoryFailCountByIp(ip);
-				getServletContext().getRequestDispatcher("/jsp/hazelab/login.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/jsp/common/login.jsp").forward(request, response);
 			}
 					
 		}
