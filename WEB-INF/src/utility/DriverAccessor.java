@@ -5,7 +5,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class DriverAccessor{
+public class DriverAccessor {
 
 	private final static String DRIVER_URL="jdbc:mysql://localhost:3306/awaretweet?useUnicode=true&characterEncoding=Windows-31J";
 
