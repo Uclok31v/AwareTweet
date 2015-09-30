@@ -21,8 +21,8 @@
 <div class="container">
   <div class="col-sm-12 col-md-6 col-md-offset-3">
     <div class="form-group">
-		<input type="text" class="form-control" placeholder="UserID" name="id">
-		<input type="password" class="form-control" placeholder="Password" name="pass">
+		<input type="text" class="form-control" placeholder="UserID" name="user_id">
+		<input type="password" class="form-control" placeholder="Password" name="password">
     </div>
 		<button class="btn btn-lg btn-primary btn-block" type="submit">
 			Log In
