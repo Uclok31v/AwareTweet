@@ -2,6 +2,7 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
+<% User LoginUser = (User)session.getAttribute("user"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -48,7 +49,7 @@
     <div class="container">
      <div class="col-md-3">
       <div class="well">
-       <p>ログインユーザ</p>
+       <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
