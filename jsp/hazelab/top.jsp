@@ -13,7 +13,7 @@
        <title>AwareTweet Top</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/flatUi/flat-ui.css" rel="stylesheet">
+    <link href="../../css/flatUI/flat-ui.css" rel="stylesheet">
    
   </head>
   
@@ -59,9 +59,19 @@
        <li><a href="#">menue5</a></li>
       </ul>
      </div>
+     
+     <div class="col-md-9">
+      <div class="form-group">
+       <label for="tweet">ツイート</label>
+       <textarea rows="5" class="form-control" id="tweet" placeholder="ツイート"></textarea>
+      </div>
+      <div class="col-sm-offset-10 text-center">
+      <input type="submit" value="ツイート" class="btn btn-info">
+      </div>
+     </div>
     </div>
     
-    
+ 　　  
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
