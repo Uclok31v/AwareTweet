@@ -12,6 +12,7 @@
        <title>AwareTweet Top</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/flat-ui.css" rel="stylesheet">
    
   </head>
   <body style="padding-top:70px;">
@@ -22,13 +23,13 @@
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="./top.jsp"><span class="glyphicon glyphicon-home"></span> トップ</a></li>
+	<li class="active"><a href="./top.jsp"><span class="fui-home"></span> トップ</a></li>
     </ul>
     <form class="navbar-form navbar-left">
      <div class="form-group">
       <input type="text" class="form-control" placeholder="AwareTweetを検索">
      </div>
-     <button class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+     <button class="btn btn-default"><span class="fui-search"></span></button>
     </form>
     <ul class="nav navbar-nav navbar-right">
     <li><a>設定</a></li>
