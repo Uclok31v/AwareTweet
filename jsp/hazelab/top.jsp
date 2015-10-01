@@ -13,7 +13,7 @@
        <title>AwareTweet Top</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
-    <link href="../../css/flatUI/flat-ui.css" rel="stylesheet">
+    <link href="../../css/flat-ui.css" rel="stylesheet">
    
   </head>
   
