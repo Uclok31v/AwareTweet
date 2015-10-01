@@ -22,4 +22,13 @@
 		<url-pattern>/jsp/common/LogOutServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>TweetServlet</servlet-name>
+		<servlet-class>servlet.TweetServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>TweetServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/TweetServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
