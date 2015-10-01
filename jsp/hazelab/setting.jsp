@@ -61,6 +61,48 @@
       </ul>
      </div>
      
+	 <div class="row">
+	 	<p>Password(change password?)</p>
+        <div class="col-xs-3">
+          <div class="form-group">
+            <input type="password" value="" placeholder="Password" class="form-control" />
+          </div>
+        </div>
+        <p>Your avator</p>
+        <div id="avatar" class="muted">
+        	<img src="/avator/<%=LoginUser.getUser_id()%>/avatar.png" style="with: 120px; height: 120px;"/>
+        </div>
+        
+        <style type="text/css">
+div.dz-filename, div.dz-size, div.dz-progress, div.dz-success-mark, div.dz-error-mark, div.dz-error-message {
+  display: none;
+}
+
+div#clickable {
+  width: 100%;
+  text-align: center;
+  line-height: 120px;
+}
+
+div.dz-message, div.dz-fallback {
+  width: 240px;
+  color: #000000;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+div#avatar {
+  background-color: #f8f8f8;
+  border: 1px dashed silver;
+  width: 120px;
+  height: 120px;
+}
+        	
+    </div>
+    
+    
+     
+     
      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
   </body>
