@@ -26,7 +26,7 @@
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="./top.jsp"><span class="fui-home"></span></a></li>
+	<li class="active"><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -39,7 +39,7 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="./setting.jsp"><span class="fui-gear"></span></a></li>
+    <li><a href="../hazelab/setting.jsp"><span class="fui-gear"></span></a></li>
 	<li><a href="./LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
