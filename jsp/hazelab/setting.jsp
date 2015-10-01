@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-       <title>AwareTweet Top</title>
+       <title>Setting</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
@@ -26,7 +26,7 @@
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="./top.jsp"><span class="fui-home"></span></a></li>
+	<li><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -39,14 +39,14 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="./setting.jsp"><span class="fui-gear"></span></a></li>
+    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-gear"></span></a></li>
 	<li><a href="./LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
     </div>
    </nav>
-	
-    <div class="container">
+   
+   <div class="container">
      <div class="col-md-3">
       <div class="well">
        <p><%=LoginUser.getUser_name()%></p>
@@ -61,20 +61,7 @@
       </ul>
      </div>
      
-     <div class="col-md-9">
-      <div class="form-group">
-       <label for="tweet">ツイート</label>
-       <textarea rows="5" class="form-control" id="tweet" placeholder="ツイート"></textarea>
-      </div>
-      <div class="col-sm-offset-10 text-center">
-      <input type="submit" value="ツイート" class="btn btn-info">
-      </div>
-     </div>
-    </div>
-    
- 　　  
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
   </body>
 </html>
