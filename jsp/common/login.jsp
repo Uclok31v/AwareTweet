@@ -19,11 +19,11 @@
 	        <div class="col-md-12">
 	            <div class="wrap">
 	                <p class="form-title">
-	                    Sign In</p>
+	                    Aware Tweet</p>
 	                <form class="login" method="post" action="./LoginServlet">
 	                <input type="text" placeholder="UserID" name="user_id" />
 	                <input type="password" placeholder="Password" name="password" />
-	                <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+	                <input type="submit" value="Log In" class="btn btn-success btn-sm" />
 	                </form>
 	            </div>
 	        </div>
