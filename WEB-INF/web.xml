@@ -31,12 +31,13 @@
 		<url-pattern>/jsp/hazelab/TweetServlet</url-pattern>
 	</servlet-mapping>
 	
+	
 	<servlet>
-		<servlet-name>SettingServlet</servlet-name>
+		<servlet-name>UploadServlet</servlet-name>
 		<servlet-class>servlet.SettingServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>SettingServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/SettingServlet</url-pattern>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/UploadServlet</url-pattern>
 	</servlet-mapping>
 </web-app>

@@ -72,7 +72,7 @@
 
 
       
-      <form action="./SettingServlet" method="POST" enctype="multipart/form-data">
+
       <div class="box">
         <div class="box-header">Profile</div>
         <div class="box-content">
@@ -91,15 +91,18 @@
                 <input type="text" name="userName" id="userName" value=<%=LoginUser.getUser_name() %> />
               </fieldset>
             </div>
+            <form action="./UploadServlet" method="post" enctype="multipart/form-data">
             <div class="span6">
               <fieldset>
                 <label for="avatar" class="strong">Image (optional):</label>
 				<div id="avatar" class="muted">
 					<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
  				</div>
- 				<input type="file" name="filePath" />
+ 				<input type="file" name="filname" />
+ 				<input type="submit" class="btn btn-success" value="change"/>
               </fieldset>
             </div>
+            </form>
           </div>
           <div style="margin-top: 20px;">
             <input type="submit" class="btn btn-success" value="Save"/>
@@ -107,7 +110,6 @@
           </div>
         </div>
       </div>
-    </form>
   </div>
 </div>
     
