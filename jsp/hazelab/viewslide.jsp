@@ -102,7 +102,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	+ slideName + "/";%>
 		   	<%for(int i=1; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
-			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="500" height="300" /></li>
+			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="720" height="540" /></li>
 			<%} %>
 			</ul>
 		</div>

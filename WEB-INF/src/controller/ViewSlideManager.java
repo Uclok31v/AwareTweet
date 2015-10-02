@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import com.ibm.icu.text.Transliterator;
+
 public class ViewSlideManager {
 
 	public ViewSlideManager(){
@@ -23,18 +25,20 @@ public class ViewSlideManager {
 		File[] files = file.listFiles();
 		for(int i=1;i<files.length;i++){
 			Path src = Paths.get(basePath + files[i].getName());
-			String reName = files[i].getName().toUpperCase();
+			Transliterator transliterator = Transliterator.getInstance("Katakana-Latin");
+			String reName = transliterator.transliterate(files[i].getName());
 			System.out.println(reName);
 			Path srcRename = Paths.get(basePath + reName);
 			try {
 				System.out.println("変更前"+ files[i].getName());
 				Files.move(src, srcRename);
-				System.out.println(files[i].getName());
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
 		}
+		System.out.println("変更後"+files[1].getName());
 		return files;
 	}
 
