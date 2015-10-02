@@ -98,7 +98,7 @@
           </div>
           <div style="margin-top: 20px;">
             <input type="submit" class="btn btn-success" value="Save"/>
-            <a href="./top.jsp" class="btn">Cancel</a>
+            <a href="./top.jsp" class="btn">OK</a>
           </div>
         </div>
         </form>
@@ -111,13 +111,7 @@
      
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
-    <script>
-      $(function(){
-        $('#search').submit(function(){
-          return $.trim($(this).find('input[name=query]').val()) != '';
-        });
-      });
-    </script>
+    
     
   </body>
 </html>

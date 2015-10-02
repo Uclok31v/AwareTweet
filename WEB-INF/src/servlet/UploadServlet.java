@@ -3,7 +3,6 @@ package servlet;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Iterator;
 import java.util.List;
 
@@ -27,24 +26,29 @@ public class UploadServlet extends HttpServlet{
 		doPost(request, response);
 	}
 	
+	
 	protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
  
-		PrintWriter out = response.getWriter();
 
-		request.setCharacterEncoding("utf-8");
 		
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
 		
+		File path = new File("/Users/shu920921/Documents/workspace/AwareTweet/avator/"+userId);
 		
-		DiskFileItemFactory factory = new DiskFileItemFactory();
+		DiskFileItemFactory factory   = new DiskFileItemFactory();
+		factory.setRepository(path);
+		factory.setSizeThreshold(1024);
+		
 		ServletFileUpload upload = new ServletFileUpload(factory);
+		upload.setSizeMax(-1); //-1は無限
+		upload.setHeaderEncoding("utf-8");
 		
 		try {
-		    List<FileItem> list = upload.parseRequest(request);
+			List<FileItem> list = upload.parseRequest(request);
 		    Iterator<FileItem> iterator = list.iterator();
 
 		    while(iterator.hasNext()){
@@ -54,7 +58,7 @@ public class UploadServlet extends HttpServlet{
 		          String fileName = fileItem.getName();
 
 		          if ((fileName != null) && (!fileName.equals(""))){
-		            System.out.println("ok");
+		            fileItem.write(new File(path + "/avator.png"));
 		          }
 		      }
 		    }
@@ -64,5 +68,8 @@ public class UploadServlet extends HttpServlet{
 		  }catch (Exception e) {
 			  e.printStackTrace();
 		  }
+		session.setAttribute("user",user);
+		getServletContext().getRequestDispatcher("/jsp/hazelab/setting.jsp").forward(request, response);
 	}
 }
+

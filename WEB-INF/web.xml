@@ -34,7 +34,7 @@
 	
 	<servlet>
 		<servlet-name>UploadServlet</servlet-name>
-		<servlet-class>servlet.SettingServlet</servlet-class>
+		<servlet-class>servlet.UploadServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UploadServlet</servlet-name>
