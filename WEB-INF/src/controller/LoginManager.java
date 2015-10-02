@@ -80,7 +80,6 @@ public class LoginManager {
 		else{
 			file.mkdir();
 			
-			File avator = new File(hostPath +"AwareTweet/avator/"+user_id);
 			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
 	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
 	        try {
