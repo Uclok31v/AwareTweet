@@ -63,13 +63,13 @@ public class LoginServlet extends HttpServlet{
 				
 				//avatorディレクトリの作成
 				String avatorPath = loginManager.createAvator(user.getUser_id());
-				avatorPath = "file://" + avatorPath;
-				
-				
 				
 				//userオブジェクトにアバターのパスを追加
 			    user.setAvator_path(avatorPath);
-			    System.out.println(user.getAvator_path());
+			    
+//			    htmlのimgタグがどうも絶対パスだとうまくいかなくて必要ないかもしれないけど，
+//			    とりあえずuserオブジェクトにいれとく(file://絶対パスもためした．)
+			    
 			    
 				session.setAttribute("user",user);
 	
