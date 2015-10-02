@@ -92,5 +92,14 @@ public class LoginManager {
 		}
 	}
 
+	public File[] getUserList(String userListPath) {
+		// TODO Auto-generated method stub
+		File userList = new File(userListPath);
+		File[] users = userList.listFiles();
+		return users;
+	}
+
+	
+
 
 }
