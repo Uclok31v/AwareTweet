@@ -49,4 +49,13 @@
 		<servlet-name>GetSlideServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/GetSlideServlet</url-pattern>
 	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ViewSlideServlet</servlet-name>
+		<servlet-class>servlet.ViewSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

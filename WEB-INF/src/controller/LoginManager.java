@@ -74,8 +74,7 @@ public class LoginManager {
 		String hostPath = "/Users/shu920921/Documents/workspace/";
 		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
 		if(file.exists()){
-			String avatorName = file.getName();
-			return avatorName;
+			return "avator.png";
 		}
 		else{
 			file.mkdir();

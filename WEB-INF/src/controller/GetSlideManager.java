@@ -17,12 +17,20 @@ public class GetSlideManager {
 			
 		}
 		else{
-			System.out.println("ない");
 			file.mkdir();
-			System.out.println("つくった");
 		}
 	}
 
-	
+	public File[] getSlideList(String user_id) {
+		// TODO Auto-generated method stub
+		String hostPath = "/Users/shu920921/Documents/workspace/";
+		
+		//探索するパス
+		String basePath = hostPath + "AwareTweet/slide/" + user_id;
+		
+		File dir = new File(basePath);
+		File[] files = dir.listFiles();
+		return files;
+	}
 
 }
