@@ -75,23 +75,17 @@
 
       <div class="box">
         <div class="box-header">Profile</div>
+        <form action="./UploadServlet" method="post" enctype="multipart/form-data">
         <div class="box-content">
           <div class="row-fluid">
             <div class="span6">
               
-                <fieldset>
-                  <label for="password" class="strong">
-                    Password (input to change password):
-                  </label>
-                  <input type="password" name="password" id="password" value="" autocomplete="off"/>
-                </fieldset>
               
               <fieldset>
-                <label for="fullName" class="strong">Full Name:</label>
-                <input type="text" name="userName" id="userName" value=<%=LoginUser.getUser_name() %> />
+                <label for="fullName" class="strong">Full Name: <%=LoginUser.getUser_name() %></label>
+             
               </fieldset>
             </div>
-            <form action="./UploadServlet" method="post" enctype="multipart/form-data">
             <div class="span6">
               <fieldset>
                 <label for="avatar" class="strong">Image (optional):</label>
@@ -99,16 +93,15 @@
 					<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
  				</div>
  				<input type="file" name="filname" />
- 				<input type="submit" class="btn btn-success" value="change"/>
               </fieldset>
             </div>
-            </form>
           </div>
           <div style="margin-top: 20px;">
             <input type="submit" class="btn btn-success" value="Save"/>
             <a href="./top.jsp" class="btn">Cancel</a>
           </div>
         </div>
+        </form>
       </div>
   </div>
 </div>
