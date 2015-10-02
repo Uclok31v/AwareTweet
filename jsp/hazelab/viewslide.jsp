@@ -91,10 +91,9 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </ul>
      </div>
     
-     <div class="span9">
+     <div class="span12">
      <div class="box">
      <div class="box-content">
-     	<div class="span6">
      	<div class="frameLine">
 		   	<ul class="bxslider">
 		   	<%String hostPath = "http://localhost:8080/";%>
@@ -102,10 +101,9 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	+ slideName + "/";%>
 		   	<%for(int i=1; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
-			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="720" height="540" /></li>
+			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="400" height="300" /></li>
 			<%} %>
 			</ul>
-		</div>
 		</div>
 	 </div>
      </div>
