@@ -42,7 +42,7 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-gear"></span></a></li>
+    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
 	<li><a href="./LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
@@ -74,7 +74,7 @@
       
 
       <div class="box">
-        <div class="box-header">Profile</div>
+        <div class="box-header">Change Avator</div>
         <form action="./UploadServlet" method="post" enctype="multipart/form-data">
         <div class="box-content">
           <div class="row-fluid">
