@@ -42,6 +42,7 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
+    <li><a href="../hazelab/selectslide.jsp"><span class="fui-play"></span></a>
     <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
