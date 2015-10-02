@@ -88,50 +88,17 @@
               
               <fieldset>
                 <label for="fullName" class="strong">Full Name:</label>
-                <input type="text" name="fullName" id="fullName" value="Shu Kutsuzawa"/>
+                <input type="text" name="fullName" id="fullName" value=<%=LoginUser.getUser_name() %> />
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
                 <label for="avatar" class="strong">Image (optional):</label>
-                
-<div id="avatar" class="muted">
-  
-    <img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
-  
-</div>
-
-  <label>
-    <input type="checkbox" name="clearImage"/> Clear image
-  </label>
-
-<input type="hidden" name="fileId" value=""/>
-
-<style type="text/css">
-div.dz-filename, div.dz-size, div.dz-progress, div.dz-success-mark, div.dz-error-mark, div.dz-error-message {
-  display: none;
-}
-
-div#clickable {
-  width: 100%;
-  text-align: center;
-  line-height: 120px;
-}
-
-div.dz-message, div.dz-fallback {
-  width: 240px;
-  color: #000000;
-  font-size: 12px;
-  line-height: 14px;
-}
-
-div#avatar {
-  background-color: #f8f8f8;
-  border: 1px dashed silver;
-  width: 120px;
-  height: 120px;
-}
-</style>
+                <form action="./AvatorUpload" method="post" enctype="multipart/form-data">
+				<div id="avatar" class="muted">
+					<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
+ 				</div>
+ 				<input type="file" name="filePath" />
               </fieldset>
             </div>
           </div>
