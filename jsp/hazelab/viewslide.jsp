@@ -2,7 +2,12 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
+<%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
+<%
+File[] jpegList =  (File[])request.getAttribute("jpeg-list");
+%>
+<% String slideName = (String)request.getAttribute("slideName");%>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -11,13 +16,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
-       <title>Setting</title>
+       <title>Slide</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-    
+    <link href="../../bxslider/jquery.bxslider.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
+    <script src="../../bxslider/jquery.bxslider.min.js"></script>
     <script type="../../js/dropzone.js"></script>
+    <script src="../../js/vendor/bootstrap.min.js"></script>
+
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('.bxslider').bxSlider({
+                auto: true,
+                pause:  5500,
+                speed: 800,
+                mode: 'fade',
+                pager:true,
+                prevText: '<',
+                nextText: '>'
+            });
+        });
+	</script>
    
   </head>
   
@@ -42,8 +65,8 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="../hazelab/GetSlideServlet"><span class="fui-play"></span></a>
-    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
+    <li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"></span></a>
+    <li><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
@@ -68,52 +91,29 @@
       </ul>
      </div>
     
-    <div class="span9">
-      
+     <div class="span9">
+     <div class="box">
+     <div class="box-content">
+     	<div class="span6">
+     	<div class="frameLine">
+		   	<ul class="bxslider">
+		   	<%String hostPath = "http://localhost:8080/";%>
+		   	<%String jpegdirPath = hostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
+		   	+ slideName + "/";%>
+		   	<%for(int i=1; i<jpegList.length; i++) {%>
+		   	<%File jpegs = jpegList[i]; %>
+			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="500" height="300" /></li>
+			<%} %>
+			</ul>
+		</div>
+		</div>
+	 </div>
+     </div>
+     </div>
+    </div>
 
-
-      
-
-      <div class="box">
-        <div class="box-header">Change Avator</div>
-        <form action="./UploadServlet" method="post" enctype="multipart/form-data">
-        <div class="box-content">
-          <div class="row-fluid">
-            <div class="span6">
-              
-              
-              <fieldset>
-                <label for="fullName" class="strong">Full Name: <%=LoginUser.getUser_name() %></label>
-             
-              </fieldset>
-            </div>
-            <div class="span6">
-              <fieldset>
-                <label for="avatar" class="strong">Image (optional):</label>
-				<div id="avatar" class="muted">
-					<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
- 				</div>
- 				<input type="file" name="filname" />
-              </fieldset>
-            </div>
-          </div>
-          <div style="margin-top: 20px;">
-            <input type="submit" class="btn btn-success" value="Save"/>
-            <a href="./top.jsp" class="btn">OK</a>
-          </div>
-        </div>
-        </form>
-      </div>
-  </div>
-</div>
     
-    
-     
-     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../js/vendor/bootstrap.min.js"></script>
     
     
   </body>
 </html>
-
