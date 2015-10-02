@@ -3,10 +3,14 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
+<%@ page import= "utility.GetUserListCompornent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 <%
 File[] slideList =  (File[])request.getAttribute("slide-list");
 %>
+
+<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -46,7 +50,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../hazelab/selectslide.jsp"><span class="fui-play"></span></a>
+    <li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"></span></a>
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
@@ -64,11 +68,13 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-       <li class="active"><a href="#">menue1</a></li>
-       <li><a href="#">menue2</a></li>
-       <li><a href="#">menue3</a></li>
-       <li><a href="#">menue4</a></li>
-       <li><a href="#">menue5</a></li>
+      <%for(int i=0; i<userList.length; i++){ %>
+      <%if (!(userList[i].getName().startsWith("."))) {%>
+      <%if (!(userList[i].getName().equals("default"))) {%>
+       <li><a href="#"><%=userList[i].getName() %></a></li>
+       <%} %>
+       <%} %>
+       <%} %>
       </ul>
      </div>
      <div class="span9">
@@ -80,8 +86,9 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
         <font size="5" color="#FF00FF">You have no Slide</font>
         <%} %>
         <%if (slideList.length != 0) {%>
-        <%for(int i=1; i<slideList.length; i++){ %>
+        <%for(int i=0; i<slideList.length; i++){ %>
         <%File slides = slideList[i]; %>
+        <%if(!(slides.getName().startsWith("."))){ %>
           <div class="row-fluid">
             <div class="span6">
               <fieldset>
@@ -89,6 +96,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
               </fieldset>
             </div>
           </div>
+          <%} %>
           <%} %>
           </form>
         </div>

@@ -3,10 +3,12 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
+<%@ page import= "utility.GetUserListCompornent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
-<%
-File[] userList =  (File[])request.getAttribute("user-list");
-%>
+
+<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% File[] userList = listCompornent.getUserList(); %>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -62,9 +64,11 @@ File[] userList =  (File[])request.getAttribute("user-list");
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-      <%for(int i=1; i<userList.length; i++){ %>
+      <%for(int i=0; i<userList.length; i++){ %>
+      <%if (!(userList[i].getName().startsWith("."))) {%>
       <%if (!(userList[i].getName().equals("default"))) {%>
        <li><a href="#"><%=userList[i].getName() %></a></li>
+       <%} %>
        <%} %>
        <%} %>
       </ul>

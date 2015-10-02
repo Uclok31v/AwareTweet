@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utility.GetUserListCompornent;
 import utility.PasswordEncryption;
 import beans.User;
 import controller.LoginManager;
@@ -71,14 +72,7 @@ public class LoginServlet extends HttpServlet{
 				
 				//userオブジェクトにアバターのパスを追加
 			    user.setAvator_path(avatorPath);
-			    
-			    String hostFullPath = "/Users/shu920921/Documents/workspace/";
-			    String userListPath = hostFullPath + "AwareTweet/avator";
-			    
-			    //ユーザリストの追加
-			    File[] userList = loginManager.getUserList(userListPath);
-			    
-			    request.setAttribute("user-list", userList);
+			
 				session.setAttribute("user",user);
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);

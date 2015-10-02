@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
+<%@ page import= "utility.GetUserListCompornent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -8,6 +9,8 @@
 File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 %>
 <% String slideName = (String)request.getAttribute("slideName");%>
+<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -83,11 +86,13 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-       <li class="active"><a href="#">menue1</a></li>
-       <li><a href="#">menue2</a></li>
-       <li><a href="#">menue3</a></li>
-       <li><a href="#">menue4</a></li>
-       <li><a href="#">menue5</a></li>
+      <%for(int i=0; i<userList.length; i++){ %>
+      <%if (!(userList[i].getName().startsWith("."))) {%>
+      <%if (!(userList[i].getName().equals("default"))) {%>
+       <li><a href="#"><%=userList[i].getName() %></a></li>
+       <%} %>
+       <%} %>
+       <%} %>
       </ul>
      </div>
     
@@ -101,7 +106,9 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
+		   	<%if(!(jpegs.getName().startsWith("."))) {%>
 			<li><img title="スライド<%=i+1%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="400" height="300" /></li>
+			<%} %>
 			<%} %>
 			</ul>
 		</div>

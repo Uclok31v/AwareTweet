@@ -2,7 +2,12 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
+<%@ page import= "utility.GetUserListCompornent" %>
+<%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
+
+<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -60,11 +65,13 @@
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-       <li class="active"><a href="#">menue1</a></li>
-       <li><a href="#">menue2</a></li>
-       <li><a href="#">menue3</a></li>
-       <li><a href="#">menue4</a></li>
-       <li><a href="#">menue5</a></li>
+      <%for(int i=0; i<userList.length; i++){ %>
+      <%if (!(userList[i].getName().startsWith("."))) {%>
+      <%if (!(userList[i].getName().equals("default"))) {%>
+       <li><a href="#"><%=userList[i].getName() %></a></li>
+       <%} %>
+       <%} %>
+       <%} %>
       </ul>
      </div>
     
