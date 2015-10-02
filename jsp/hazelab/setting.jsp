@@ -43,7 +43,7 @@
     </form>
     <ul class="nav navbar-nav navbar-right">
     <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
-	<li><a href="./LogOutServlet"><span class="fui-power"></span></a></li>
+	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
     </div>
