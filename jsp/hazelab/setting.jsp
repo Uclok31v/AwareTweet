@@ -72,7 +72,7 @@
 
 
       
-      <form action="./SettingServlet" method="POST" validate="true">
+      <form action="./SettingServlet" method="POST" enctype="multipart/form-data">
       <div class="box">
         <div class="box-header">Profile</div>
         <div class="box-content">
@@ -88,13 +88,12 @@
               
               <fieldset>
                 <label for="fullName" class="strong">Full Name:</label>
-                <input type="text" name="fullName" id="fullName" value=<%=LoginUser.getUser_name() %> />
+                <input type="text" name="userName" id="userName" value=<%=LoginUser.getUser_name() %> />
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
                 <label for="avatar" class="strong">Image (optional):</label>
-                <form action="./AvatorUpload" method="post" enctype="multipart/form-data">
 				<div id="avatar" class="muted">
 					<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
  				</div>
