@@ -72,21 +72,15 @@ public class LoginManager {
 		// TODO Auto-generated method stub
 		// hostPathはホストによって異なるパス
 		String hostPath = "/Users/shu920921/Documents/workspace/";
-		File file = new File(hostPath +"AwareTweet/avator/"+user_id+"/avator.png" ); //フルパス指定
+		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
 		if(file.exists()){
 			String avatorName = file.getName();
 			return avatorName;
 		}
 		else{
-			String avatorName = mkdirbyUserID(user_id, hostPath);
-			return avatorName;
-		}
-	}
-
-	private String mkdirbyUserID(String user_id, String hostPath) {
-		// TODO Auto-generated method stub
-		File file = new File(hostPath +"AwareTweet/avator/"+user_id);
-		if(file.mkdir()){
+			file.mkdir();
+			
+			File avator = new File(hostPath +"AwareTweet/avator/"+user_id);
 			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
 	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
 	        try {
@@ -97,9 +91,6 @@ public class LoginManager {
 	            e.printStackTrace();
 	            return null;
 	        }
-	    }
-		else{
-			return null;
 		}
 	}
 
