@@ -5,7 +5,12 @@ import dao.UserDAO;
 import beans.User;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.channels.*;
+
+import org.apache.commons.io.FileUtils;
 
 public class LoginManager {
 
@@ -82,25 +87,21 @@ public class LoginManager {
 		// TODO Auto-generated method stub
 		File file = new File(hostPath +"AwareTweet/avator/"+user_id);
 		if(file.mkdir()){
-			String avatorName = createAvatorFile(user_id, hostPath);
-			return avatorName;
-		}
+			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
+	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
+	        try {
+	            FileUtils.copyFile(in, out);
+	            return "avator.png";
+	            
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+	    }
 		else{
 			return null;
 		}
 	}
 
-	private String createAvatorFile(String user_id, String hostPath) {
-		// TODO Auto-generated method stub
-		File file = new File(hostPath +"AwareTweet/avator/"+user_id+"/avator.png");
-		try{
-			file.createNewFile();
-			return file.getName();
-		}catch(IOException e){
-			e.printStackTrace();
-			return null;
-		}
-		
-	}
 
 }

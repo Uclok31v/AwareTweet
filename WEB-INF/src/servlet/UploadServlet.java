@@ -37,7 +37,9 @@ public class UploadServlet extends HttpServlet{
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
 		
-		File path = new File("/Users/shu920921/Documents/workspace/AwareTweet/avator/"+userId);
+		//hostによって異なるパス
+		String hostPath = "/Users/shu920921/Documents/workspace/";
+		File path = new File(hostPath + "AwareTweet/avator/"+userId);
 		
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
 		factory.setRepository(path);
