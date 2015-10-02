@@ -15,15 +15,9 @@ public class SettingServlet extends HttpServlet{
 		doPost(request, response);
 	}
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException{
-		
-		request.setCharacterEncoding("UTF-8");
-		
-		String password = request.getParameter("password");
-		String userName = request.getParameter("userName");
-		String filePath = request.getParameter("filePath");
-		
-		System.out.print(filePath);
+	protected void doPost(HttpServletRequest request,
+            HttpServletResponse response) throws ServletException, IOException {
+ 
+	
 	}
 }
