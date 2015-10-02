@@ -14,7 +14,10 @@
        <title>Setting</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
+    
+    <script type="../../js/dropzone.js"></script>
    
   </head>
   
@@ -60,20 +63,48 @@
        <li><a href="#">menue5</a></li>
       </ul>
      </div>
-     
-	 <div class="row">
-	 	<p>Password(change password?)</p>
-        <div class="col-xs-3">
-          <div class="form-group">
-            <input type="password" value="" placeholder="Password" class="form-control" />
-          </div>
-        </div>
-        <p>Your avator</p>
-        <div id="avatar" class="muted">
-        	<img src="/avator/<%=LoginUser.getUser_id()%>/avatar.png" style="with: 120px; height: 120px;"/>
-        </div>
-        
-        <style type="text/css">
+    
+    <div class="span9">
+      
+
+
+      
+      <form action="./SettingServlet" method="POST" validate="true">
+      <div class="box">
+        <div class="box-header">Profile</div>
+        <div class="box-content">
+          <div class="row-fluid">
+            <div class="span6">
+              
+                <fieldset>
+                  <label for="password" class="strong">
+                    Password (input to change password):
+                  </label>
+                  <input type="password" name="password" id="password" value="" autocomplete="off"/>
+                </fieldset>
+              
+              <fieldset>
+                <label for="fullName" class="strong">Full Name:</label>
+                <input type="text" name="fullName" id="fullName" value="Shu Kutsuzawa"/>
+              </fieldset>
+            </div>
+            <div class="span6">
+              <fieldset>
+                <label for="avatar" class="strong">Image (optional):</label>
+                
+<div id="avatar" class="muted">
+  
+    <img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
+  
+</div>
+
+  <label>
+    <input type="checkbox" name="clearImage"/> Clear image
+  </label>
+
+<input type="hidden" name="fileId" value=""/>
+
+<style type="text/css">
 div.dz-filename, div.dz-size, div.dz-progress, div.dz-success-mark, div.dz-error-mark, div.dz-error-message {
   display: none;
 }
@@ -97,13 +128,40 @@ div#avatar {
   width: 120px;
   height: 120px;
 }
-        	
-    </div>
+</style>
+              </fieldset>
+            </div>
+          </div>
+          <div style="margin-top: 20px;">
+            <input type="submit" class="btn btn-success" value="Save"/>
+            <a href="./top.jsp" class="btn">Cancel</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
     
     
      
      
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
+    <script>
+      $(function(){
+        $('#search').submit(function(){
+          return $.trim($(this).find('input[name=query]').val()) != '';
+        });
+      });
+    </script>
+    
   </body>
 </html>
+
+<script>
+$(function(){
+  $('#delete').click(function(){
+    return confirm('Once you delete your account, there is no going back.\nAre you sure?');
+  });
+});
+</script>

@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.File;
 import java.net.InetAddress;
 
 import javax.servlet.ServletException;
@@ -60,9 +61,13 @@ public class LoginServlet extends HttpServlet{
 				//一回でもログインに成功したら失敗回数のリセット
 				loginManager.resetIpHistoryFailCountByIp(ip);
 				HttpSession session = request.getSession();
-					
 				
-				//user.roleがcustomerの場合，customerというsessionを保持
+				//avatorディレクトリの作成
+				String avatorPath = loginManager.createAvator(user.getUser_id());
+				
+				//userオブジェクトにアバターのパスを追加
+			    user.setAvator_path(avatorPath);
+			    
 				session.setAttribute("user",user);
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
