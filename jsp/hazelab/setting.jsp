@@ -52,6 +52,9 @@
    <div class="container">
      <div class="col-md-3">
       <div class="well">
+      	<div id="avatar" class="muted">
+  			<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
+ 		</div>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
