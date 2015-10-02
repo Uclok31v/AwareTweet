@@ -65,35 +65,37 @@ public class LoginManager {
 
 	public String createAvator(String user_id) {
 		// TODO Auto-generated method stub
-		 File file = new File("/Users/shu920921/Documents/workspace/AwareTweet/avator/"+user_id+"/avator.png" ); //フルパス指定
-		 if(file.exists()){
-			 String avatorPath = file.getPath();
-			 return avatorPath;
-		 }
-		 else{
-			 String avatorPath = mkdirbyUserID(user_id);
-			 return avatorPath;
-		 }
+		// hostPathはホストによって異なるパス
+		String hostPath = "/Users/shu920921/Documents/workspace/";
+		File file = new File(hostPath +"AwareTweet/avator/"+user_id+"/avator.png" ); //フルパス指定
+		if(file.exists()){
+			String avatorName = file.getName();
+			return avatorName;
+		}
+		else{
+			String avatorName = mkdirbyUserID(user_id, hostPath);
+			return avatorName;
+		}
 	}
 
-	private String mkdirbyUserID(String user_id) {
+	private String mkdirbyUserID(String user_id, String hostPath) {
 		// TODO Auto-generated method stub
-		File file = new File("/Users/shu920921/Documents/workspace/AwareTweet/avator/"+user_id);
+		File file = new File(hostPath +"AwareTweet/avator/"+user_id);
 		if(file.mkdir()){
-			String avatorPath = createAvatorFile(user_id);
-			return avatorPath;
+			String avatorName = createAvatorFile(user_id, hostPath);
+			return avatorName;
 		}
 		else{
 			return null;
 		}
 	}
 
-	private String createAvatorFile(String user_id) {
+	private String createAvatorFile(String user_id, String hostPath) {
 		// TODO Auto-generated method stub
-		File file = new File("/Users/shu920921/Documents/workspace/AwareTweet/avator/"+user_id+"/avator.png");
+		File file = new File(hostPath +"AwareTweet/avator/"+user_id+"/avator.png");
 		try{
 			file.createNewFile();
-			return file.getPath();
+			return file.getName();
 		}catch(IOException e){
 			e.printStackTrace();
 			return null;

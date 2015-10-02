@@ -51,7 +51,7 @@
      	
       <div class="well">
       	<div id="avatar" class="muted">
-  			<img src="../../avator/<%=LoginUser.getUser_id()%>/avator.png" style="with: 120px; height: 120px;"/>
+  			<img src=<%=LoginUser.getAvator_path() %> style="with: 120px; height: 120px;"/>
  		</div>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
