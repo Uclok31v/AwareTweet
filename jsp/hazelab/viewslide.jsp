@@ -99,9 +99,9 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	<%String hostPath = "http://localhost:8080/";%>
 		   	<%String jpegdirPath = hostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
 		   	+ slideName + "/";%>
-		   	<%for(int i=1; i<jpegList.length; i++) {%>
+		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
-			<li><img title="スライド<%=i%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="400" height="300" /></li>
+			<li><img title="スライド<%=i+1%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="400" height="300" /></li>
 			<%} %>
 			</ul>
 		</div>

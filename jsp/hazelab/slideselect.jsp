@@ -80,7 +80,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
         <font size="5" color="#FF00FF">You have no Slide</font>
         <%} %>
         <%if (slideList.length != 0) {%>
-        <%for(int i=0; i<slideList.length; i++){ %>
+        <%for(int i=1; i<slideList.length; i++){ %>
         <%File slides = slideList[i]; %>
           <div class="row-fluid">
             <div class="span6">
