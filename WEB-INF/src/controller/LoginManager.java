@@ -4,6 +4,14 @@ import dao.IpHistoryDAO;
 import dao.UserDAO;
 import beans.User;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.*;
+
+import org.apache.commons.io.FileUtils;
+
 public class LoginManager {
 
 	public LoginManager(){
@@ -59,5 +67,30 @@ public class LoginManager {
 		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
 		ipHistoryDAO.incrementIpHistoryFailCountByIp(ip);
 	}
+
+	public String createAvator(String user_id) {
+		// TODO Auto-generated method stub
+		// hostPathはホストによって異なるパス
+		String hostPath = "/Users/shu920921/Documents/workspace/";
+		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
+		if(file.exists()){
+			return "avator.png";
+		}
+		else{
+			file.mkdir();
+			
+			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
+	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
+	        try {
+	            FileUtils.copyFile(in, out);
+	            return "avator.png";
+	            
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return null;
+	        }
+		}
+	}
+
 
 }

@@ -2,7 +2,13 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
+<%@ page import= "java.io.File" %>
+<%@ page import= "utility.GetUserListCompornent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
+
+<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% File[] userList = listCompornent.getUserList(); %>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -26,7 +32,7 @@
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="./top.jsp"><span class="fui-home"></span> トップ</a></li>
+	<li class="active"><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -39,8 +45,9 @@
      </div>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a>設定</a></li>
-	<li><a href="./LogOutServlet">ログアウト</a></li>
+    <li><a href="../hazelab/GetSlideServlet"><span class="fui-play"></span></a>
+    <li><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
+	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
 	
     </div>
@@ -48,16 +55,22 @@
 	
     <div class="container">
      <div class="col-md-3">
+     	
       <div class="well">
+      	<div id="avatar" class="muted">
+  			<img src=<%=LoginUser.getAvator_path() %> style="with: 120px; height: 120px;"/>
+ 		</div>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-       <li class="active"><a href="#">menue1</a></li>
-       <li><a href="#">menue2</a></li>
-       <li><a href="#">menue3</a></li>
-       <li><a href="#">menue4</a></li>
-       <li><a href="#">menue5</a></li>
+      <%for(int i=0; i<userList.length; i++){ %>
+      <%if (!(userList[i].getName().startsWith("."))) {%>
+      <%if (!(userList[i].getName().equals("default"))) {%>
+       <li><a href="#"><%=userList[i].getName() %></a></li>
+       <%} %>
+       <%} %>
+       <%} %>
       </ul>
      </div>
      

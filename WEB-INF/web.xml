@@ -31,4 +31,31 @@
 		<url-pattern>/jsp/hazelab/TweetServlet</url-pattern>
 	</servlet-mapping>
 	
+	
+	<servlet>
+		<servlet-name>UploadServlet</servlet-name>
+		<servlet-class>servlet.UploadServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UploadServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/UploadServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>GetSlideServlet</servlet-name>
+		<servlet-class>servlet.GetSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>GetSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/GetSlideServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>ViewSlideServlet</servlet-name>
+		<servlet-class>servlet.ViewSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ViewSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
+	</servlet-mapping>
 </web-app>
