@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import= "beans.User" %>
+<%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
@@ -9,6 +10,7 @@
 <% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
+<% ArrayList tweetList = (ArrayList)request.getAttribute("tweet-list"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -63,26 +65,40 @@
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
-      <ul class="nav navbar-default nav-stacked">
+      <table class="table table-bordered table-hover table-condensed">
       <%for(int i=0; i<userList.length; i++){ %>
       <%if (!(userList[i].getName().startsWith("."))) {%>
-      <%if (!(userList[i].getName().equals("default"))) {%>
-       <li><a href="#"><%=userList[i].getName() %></a></li>
-       <%} %>
-       <%} %>
-       <%} %>
-      </ul>
+      <%if (!(userList[i].getName().equals("default"))) {%>      
+       <thead>
+        <tr><th>member</th></tr>
+       </thead>
+       <tbody>
+        <tr><td><a href="#"><%=userList[i].getName() %></a></td></tr>
+       </tbody>
+       <% } %>
+       <% } %>
+       <% } %>       
+      </table>
      </div>
      
      <div class="col-md-9">
       <div class="form-group">
-       <label for="tweet">ツイート</label>
-       <textarea rows="5" class="form-control" id="tweet" placeholder="ツイート"></textarea>
+       <textarea name="tweet" id="tweet" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
       </div>
       <div class="col-sm-offset-10 text-center">
-      <input type="submit" value="ツイート" class="btn btn-info">
+       <input type="submit" value="ツイート" class="btn btn-info">
       </div>
-     </div>
+      <br>
+      <div class="panel panel-primary">
+       <% for(int i=0; i<tweetList.size(); i++){ %>
+       <% Tweet tweet = (Tweet)tweetList.get(i); %>
+       <div class="panel-heading"><%=tweet.getCommenter()%></div>
+       <div class="panel-body"><p><%=tweet.getComment()%></p></div>
+       <div class="panel-footer"><%=tweet.getDate()%></div>
+       <% } %>
+      </div>
+         
+     </div>     
     </div>
     
  　　  

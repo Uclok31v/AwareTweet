@@ -2,17 +2,16 @@ package servlet;
 
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import beans.User;
-import controller.TweetManager;
+import controller.GetTweetManager;
 
-public class TweetServlet extends HttpServlet{
+public class GetTweetServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 		throws ServletException,IOException{
@@ -24,17 +23,13 @@ public class TweetServlet extends HttpServlet{
 
 		request.setCharacterEncoding("UTF-8");
 
-		String presenter=request.getParameter("presenter");
-		String comment=request.getParameter("tweet");
+		GetTweetManager manager=new GetTweetManager();
 
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
-		String commenter = user.getUser_name();
+		ArrayList list = manager.GetList();
 
-		TweetManager manager=new TweetManager();
+		//取得したlistをdiary_listと名付けjspに受け渡せる形にする
+        request.setAttribute("tweet-list",list);
+		getServletContext().getRequestDispatcher("/jsp/top.jsp").forward(request, response);
 
-		manager.Tweet(commenter,presenter,comment);
-
-     	response.sendRedirect(response.encodeRedirectURL("./top.jsp"));
 		}
 	}
