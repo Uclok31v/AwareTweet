@@ -24,32 +24,35 @@
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
- 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+ 	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    	<script type="text/javascript">
    	$(function() {
    		
    		var replyUsers = [
-   		       		   	'@hazeyama ',
-   		              '@takafumi ',
-   		              '@shu- ',
-   		              '@naveC',
-   		              '@fumiya ',
-   		              '@j128011 ',
-   		              '@j128017p',
-   		              'shunichi',
-   		              '@kentaro ',
-   		              '@yuri ',
-   		              '@mio ',
-   		              '@wakana ',
-   		              '@j138011x '
-   		       		   	];
+     		       		   	'@hazeyama ',
+     		              '@takafumi ',
+     		              '@shu- ',
+     		              '@naveC',
+     		              '@fumiya ',
+     		              '@j128011 ',
+     		              '@j128017p',
+     		              'shunichi',
+     		              '@kentaro ',
+     		              '@yuri ',
+     		              '@mio ',
+     		              '@wakana ',
+     		              '@j138011x '
+     		       		   	];
+	   		
+   		
 
    	 $( "#comment" ).autocomplete({
          //リストを指定
-         source: replayUsers
+         source: replyUsers
        });
      });
      </script>
@@ -111,6 +114,7 @@
      <form action="../hazelab/TweetServlet" method="post">
       <div class="ui-widget">
       <div class="form-group">
+       <label for="comment"></label>
        <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
       </div>
       </div>
