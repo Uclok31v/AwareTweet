@@ -18,32 +18,51 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
        <title>AwareTweet Top</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/autoSuggest.css" type="text/css">
-   	<script type="text/javascript" src="../../js/jquery.autoSuggest.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function() {
-		var data = {items: [
-		    {value: "1", name: "@候補1"},
-		    {value: "2", name: "@候補2"},
-		    {value: "3", name: "@候補3"}
-		]};
-		$("input[type=text]").autoSuggest(data.items, {selectedItem: "name", searchObj: "name"});
-	});
+     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="../../js/vendor/bootstrap.min.js"></script>
+ 	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+   	<script type="text/javascript">
+   	$(function() {
+   		var replayUsers = [
+   		   	'@hazeyama ',
+          '@takafumi ',
+          '@shu- ',
+          '@naveC',
+          '@fumiya ',
+          '@j128011 ',
+          '@j128017p',
+          'shunichi',
+          '@kentaro ',
+          '@yuri ',
+          '@mio ',
+          '@wakana ',
+          '@j138011x '
+   		   	];
+
+
+   	 $( "#comment" ).autocomplete({
+         //リストを指定
+         source: replayUsers
+       });
+     });
+
 	</script>
-  </head>
-  
+</head>
+<body>
+
   <body style="padding-top:70px;">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
 	 <a class="navbar-brand">AwareTweet</a>
 	</div>
-	
+
 	<ul class="nav navbar-nav navbar-left">
 	<li class="active"><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
     </ul>
@@ -62,13 +81,13 @@
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
 	</ul>
-	
+
     </div>
    </nav>
-	
+
     <div class="container">
      <div class="col-md-3">
-     	
+
       <div class="well">
       	<div id="avatar" class="muted">
   			<img src=<%=LoginUser.getAvator_path() %> style="with: 120px; height: 120px;"/>
@@ -83,26 +102,28 @@
        <tbody>
        <%for(int i=0; i<userList.length; i++){ %>
        <%if (!(userList[i].getName().startsWith("."))) {%>
-       <%if (!(userList[i].getName().equals("default"))) {%>      
+       <%if (!(userList[i].getName().equals("default"))) {%>
         <tr><td><a href="#"><%=userList[i].getName() %></a></td></tr>
        </tbody>
        <% } %>
        <% } %>
-       <% } %>       
+       <% } %>
       </table>
      </div>
-     
+
      <div class="col-md-9">
      <form action="../hazelab/TweetServlet" method="post">
+      <div class="ui-widget">
       <div class="form-group">
        <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
+      </div>
       </div>
       <div class="col-sm-offset-10 text-center">
        <input type="submit" value="ツイート" class="btn btn-info">
       </div>
      </form>
       <br>
-           
+
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
@@ -111,13 +132,9 @@
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <% } %>
       </div>
-         
-     </div>     
-    </div>
-    
- 　　  
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../js/vendor/bootstrap.min.js"></script>
+     </div>
+    </div>
+
   </body>
 </html>
