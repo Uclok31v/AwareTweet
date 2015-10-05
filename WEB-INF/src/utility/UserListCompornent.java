@@ -6,8 +6,10 @@ public class UserListCompornent{
 
 	public File[] getUserList() {
 		// TODO Auto-generated method stub
-		String hostFullPath = "/Users/KentaroUdonishi/Documents/workspace/";
-	    String userListPath = hostFullPath + "AwareTweet/avator";
+		
+		HostPathCompornent createHostPath = new HostPathCompornent();
+		String hostPath = createHostPath.createHostPath();
+	    String userListPath = hostPath + "AwareTweet/avator";
 	    
 	    File userList = new File(userListPath);
 	    File[] users = userList.listFiles();

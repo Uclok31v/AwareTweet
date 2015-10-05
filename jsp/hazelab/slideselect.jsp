@@ -3,13 +3,13 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
-<%@ page import= "utility.GetUserListCompornent" %>
+<%@ page import= "utility.UserListCompornent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 <%
 File[] slideList =  (File[])request.getAttribute("slide-list");
 %>
 
-<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% UserListCompornent listCompornent = new UserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>

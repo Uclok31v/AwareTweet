@@ -2,11 +2,11 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
-<%@ page import= "utility.GetUserListCompornent" %>
+<%@ page import= "utility.UserListCompornent" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 
-<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% UserListCompornent listCompornent = new UserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>

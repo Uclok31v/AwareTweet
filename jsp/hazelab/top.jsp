@@ -4,10 +4,10 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
-<%@ page import= "utility.GetUserListCompornent" %>
+<%@ page import= "utility.UserListCompornent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 
-<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% UserListCompornent listCompornent = new UserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
@@ -23,7 +23,18 @@
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-   
+    <link rel="stylesheet" href="../../css/autoSuggest.css" type="text/css">
+   	<script type="text/javascript" src="../../js/jquery.autoSuggest.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var data = {items: [
+		    {value: "1", name: "@候補1"},
+		    {value: "2", name: "@候補2"},
+		    {value: "3", name: "@候補3"}
+		]};
+		$("input[type=text]").autoSuggest(data.items, {selectedItem: "name", searchObj: "name"});
+	});
+	</script>
   </head>
   
   <body style="padding-top:70px;">

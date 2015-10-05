@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
-<%@ page import= "utility.GetUserListCompornent" %>
+<%@ page import= "utility.UserListCompornent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -9,7 +9,7 @@
 File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 %>
 <% String slideName = (String)request.getAttribute("slideName");%>
-<% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
+<% UserListCompornent listCompornent = new UserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
 <!DOCTYPE html>
