@@ -3,17 +3,17 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+import java.util.ArrayList;
 
 import utility.DriverAccessor;
 import beans.Tweet;
 
 public class TweetDAO extends DriverAccessor{
 
-	public void Tweet(Tweet tweet,Connection connection){
+	public void insertTweet(Tweet tweet,Connection connection){
 
 		try{
-			String sql = "insert into awaretweet(date,commenter,presenter,comment) values(?,?,?,?)";
+			String sql = "insert into tweet(date,commenter,presenter,comment) values(?,?,?,?)";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -30,7 +30,45 @@ public class TweetDAO extends DriverAccessor{
 			e.printStackTrace();
 
 		} finally {
+	         }
+    }
+	
+	public ArrayList GetList(Connection connection){
+
+		try{
+			String sql="select * from tweet";
+
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			ResultSet rs=stmt.executeQuery();
+
+			ArrayList list = new ArrayList();
+
+			//登録されている日記の数だけ繰り返す
+			while(rs.next())
+		    {
+			Tweet tweet = new Tweet();
+			tweet.setDate( rs.getString("date") );
+			tweet.setCommenter( rs.getString("commenter") );
+			tweet.setPresenter( rs.getString("presenter") );
+			tweet.setComment( rs.getString("comment") );
+			list.add(tweet);
+			}
+
+			stmt.close();
+			rs.close();
+
+			return list;
+
+		}catch(SQLException e){
+
+			e.printStackTrace();
+
+			return null;
+
+	    }finally{
+		    }
 	}
-	}
+
 
 }

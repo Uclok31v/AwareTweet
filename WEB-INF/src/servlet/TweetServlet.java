@@ -24,19 +24,16 @@ public class TweetServlet extends HttpServlet{
 
 		request.setCharacterEncoding("UTF-8");
 
-		//getParameterの引数はjspのnameの中身と同じ
 		String presenter=request.getParameter("presenter");
-		String comment=request.getParameter("tweet");
+		String comment=request.getParameter("comment");
 
-		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_name();
 
 		TweetManager manager=new TweetManager();
 
-		//DiaryManagerのRegistメソッドへ
-		manager.Tweet(commenter,presenter,comment);
+		manager.insertTweet(commenter,presenter,comment);
 
      	response.sendRedirect(response.encodeRedirectURL("./top.jsp"));
 		}

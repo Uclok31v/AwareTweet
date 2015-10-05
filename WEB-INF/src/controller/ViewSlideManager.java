@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+import utility.HostPathCompornent;
+
 import com.ibm.icu.text.Transliterator;
 
 public class ViewSlideManager {
@@ -16,7 +18,8 @@ public class ViewSlideManager {
 	
 	public File[] getJpegList(String userId, String slideName) {
 		// TODO Auto-generated method stub
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+		HostPathCompornent createHostPath = new HostPathCompornent();
+		String hostPath = createHostPath.createHostPath();
 		
 		//探索するパス
 		String basePath = hostPath + "AwareTweet/slide/" + userId +"/"+ slideName + "/";

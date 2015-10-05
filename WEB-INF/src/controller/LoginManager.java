@@ -1,6 +1,7 @@
 package controller;
 
 import dao.IpHistoryDAO;
+import dao.TweetDAO;
 import dao.UserDAO;
 import beans.User;
 
@@ -9,6 +10,10 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.*;
+import java.sql.Connection;
+import java.util.ArrayList;
+
+import utility.HostPathCompornent;
 
 import org.apache.commons.io.FileUtils;
 
@@ -71,7 +76,8 @@ public class LoginManager {
 	public String createAvator(String user_id) {
 		// TODO Auto-generated method stub
 		// hostPathはホストによって異なるパス
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+		HostPathCompornent createHostPath = new HostPathCompornent();
+		String hostPath = createHostPath.createHostPath();
 		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
 		if(file.exists()){
 			return "avator.png";
@@ -92,5 +98,22 @@ public class LoginManager {
 		}
 	}
 
+	//tweetList
+	private Connection connection = null;
+	public ArrayList GetTweetList() {
+
+		TweetDAO dao = new TweetDAO();
+
+		this.connection = dao.createConnection();
+
+		ArrayList list = dao.GetList(this.connection);
+
+		dao.closeConnection(this.connection);
+
+		this.connection = null;
+
+		return list;
+	}
+	//
 
 }
