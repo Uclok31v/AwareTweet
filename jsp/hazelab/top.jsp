@@ -8,9 +8,10 @@
 <% User LoginUser = (User)session.getAttribute("user"); %>
 
 <% UserListCompornent listCompornent = new UserListCompornent(); %>
-<% File[] userList = listCompornent.getUserList(); %>
+<% ArrayList<String> userList = listCompornent.getUserList(); %>
 
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -29,33 +30,31 @@
  	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
    	<script type="text/javascript">
    	$(function() {
-   		var replayUsers = [
-   		   	'@hazeyama ',
-          '@takafumi ',
-          '@shu- ',
-          '@naveC',
-          '@fumiya ',
-          '@j128011 ',
-          '@j128017p',
-          'shunichi',
-          '@kentaro ',
-          '@yuri ',
-          '@mio ',
-          '@wakana ',
-          '@j138011x '
-   		   	];
-
+   		
+   		var replyUsers = [
+   		       		   	'@hazeyama ',
+   		              '@takafumi ',
+   		              '@shu- ',
+   		              '@naveC',
+   		              '@fumiya ',
+   		              '@j128011 ',
+   		              '@j128017p',
+   		              'shunichi',
+   		              '@kentaro ',
+   		              '@yuri ',
+   		              '@mio ',
+   		              '@wakana ',
+   		              '@j138011x '
+   		       		   	];
 
    	 $( "#comment" ).autocomplete({
          //リストを指定
          source: replayUsers
        });
      });
-
-	</script>
+     </script>
 </head>
-<body>
-
+	
   <body style="padding-top:70px;">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
@@ -100,13 +99,10 @@
         <tr><th>メンバー</th></tr>
        </thead>
        <tbody>
-       <%for(int i=0; i<userList.length; i++){ %>
-       <%if (!(userList[i].getName().startsWith("."))) {%>
-       <%if (!(userList[i].getName().equals("default"))) {%>
-        <tr><td><a href="#"><%=userList[i].getName() %></a></td></tr>
+       <%for(int i=0; i<userList.size(); i++){ %>
+       <%String userName = (String)userList.get(i);%>
+        <tr><td><a href="#"><%=userName %></a></td></tr>
        </tbody>
-       <% } %>
-       <% } %>
        <% } %>
       </table>
      </div>
