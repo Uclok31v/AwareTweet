@@ -11,5 +11,6 @@
 	<classpathentry kind="lib" path="WEB-INF/lib/commons-io-2.4.jar"/>
 	<classpathentry kind="lib" path="WEB-INF/lib/icu4j-56rc.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="WEB-INF/lib/gson-2.4.jar"/>
 	<classpathentry kind="output" path="WEB-INF/classes"/>
 </classpath>

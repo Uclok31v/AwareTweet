@@ -4,5 +4,6 @@ work/
 .project
 .DS_Store
 WEB-INF/classes/
-WEB-INF/src/utility/GetUserListCompornent.java
 dist/
+slide/
+avator/

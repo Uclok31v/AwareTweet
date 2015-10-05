@@ -10,8 +10,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 %>
 <% String slideName = (String)request.getAttribute("slideName");%>
 <% UserListCompornent listCompornent = new UserListCompornent(); %>
-<% File[] userList = listCompornent.getUserList(); %>
-
+<% ArrayList<String> userList = listCompornent.getUserList(); %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -86,12 +85,10 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </div>
      <br>
       <ul class="nav navbar-default nav-stacked">
-      <%for(int i=0; i<userList.length; i++){ %>
-      <%if (!(userList[i].getName().startsWith("."))) {%>
-      <%if (!(userList[i].getName().equals("default"))) {%>
-       <li><a href="#"><%=userList[i].getName() %></a></li>
-       <%} %>
-       <%} %>
+      <%for(int i=0; i<userList.size(); i++){ %>
+
+       <li><a href="#"><%=userList.get(i) %></a></li>
+   
        <%} %>
       </ul>
      </div>
