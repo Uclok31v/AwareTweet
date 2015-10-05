@@ -3,6 +3,7 @@ package servlet;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -74,6 +75,12 @@ public class LoginServlet extends HttpServlet{
 			    user.setAvator_path(avatorPath);
 			
 				session.setAttribute("user",user);
+				
+				//tweetList
+				ArrayList list = loginManager.GetTweetList();
+
+		        request.setAttribute("tweetList",list);
+				//
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 				}

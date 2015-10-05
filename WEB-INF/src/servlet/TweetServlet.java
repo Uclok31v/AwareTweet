@@ -25,7 +25,7 @@ public class TweetServlet extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 
 		String presenter=request.getParameter("presenter");
-		String comment=request.getParameter("tweet");
+		String comment=request.getParameter("comment");
 
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -33,7 +33,7 @@ public class TweetServlet extends HttpServlet{
 
 		TweetManager manager=new TweetManager();
 
-		manager.Tweet(commenter,presenter,comment);
+		manager.insertTweet(commenter,presenter,comment);
 
      	response.sendRedirect(response.encodeRedirectURL("./top.jsp"));
 		}

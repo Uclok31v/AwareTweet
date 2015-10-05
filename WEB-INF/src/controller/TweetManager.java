@@ -14,7 +14,7 @@ public class TweetManager{
 	public TweetManager(){
 	}
 
-	public void Tweet(String commenter,String presenter,String comment){
+	public void insertTweet(String commenter,String presenter,String comment){
 
 		DecimalFormat decimal =new DecimalFormat("00");
 		Calendar cal = Calendar.getInstance();
@@ -24,7 +24,7 @@ public class TweetManager{
 		String hour = decimal.format(cal.get(Calendar.HOUR_OF_DAY));
 		String minute = decimal.format(cal.get(Calendar.MINUTE));
 		String second = decimal.format(cal.get(Calendar.SECOND));
-		String date=year+"/"+month+"/"+day+"-"+hour+":"+minute+":"+second;
+		String date=year+"/"+month+"/"+day+"-"+hour+":"+minute+":"+second; 
 
 		Tweet tweet = new Tweet();
 		tweet.setDate(date);
@@ -35,7 +35,7 @@ public class TweetManager{
 		TweetDAO dao = new TweetDAO();
 		this.connection = dao.createConnection();
 
-		dao.Tweet(tweet, this.connection);
+		dao.insertTweet(tweet, this.connection);
 
 		dao.closeConnection(this.connection);
 

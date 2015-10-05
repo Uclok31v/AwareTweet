@@ -10,7 +10,7 @@
 <% GetUserListCompornent listCompornent = new GetUserListCompornent(); %>
 <% File[] userList = listCompornent.getUserList(); %>
 
-<% ArrayList tweetList = (ArrayList)request.getAttribute("tweet-list"); %>
+<% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -66,13 +66,13 @@
       </div>
      <br>
       <table class="table table-bordered table-hover table-condensed">
-      <%for(int i=0; i<userList.length; i++){ %>
-      <%if (!(userList[i].getName().startsWith("."))) {%>
-      <%if (!(userList[i].getName().equals("default"))) {%>      
        <thead>
-        <tr><th>member</th></tr>
+        <tr><th>メンバー</th></tr>
        </thead>
        <tbody>
+       <%for(int i=0; i<userList.length; i++){ %>
+       <%if (!(userList[i].getName().startsWith("."))) {%>
+       <%if (!(userList[i].getName().equals("default"))) {%>      
         <tr><td><a href="#"><%=userList[i].getName() %></a></td></tr>
        </tbody>
        <% } %>
@@ -82,17 +82,20 @@
      </div>
      
      <div class="col-md-9">
+     <form action="../hazelab/TweetServlet" method="post">
       <div class="form-group">
-       <textarea name="tweet" id="tweet" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
+       <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
       </div>
       <div class="col-sm-offset-10 text-center">
        <input type="submit" value="ツイート" class="btn btn-info">
       </div>
+     </form>
       <br>
+           
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><%=tweet.getCommenter()%></div>
+       <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <% } %>

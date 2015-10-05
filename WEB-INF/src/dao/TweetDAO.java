@@ -10,10 +10,10 @@ import beans.Tweet;
 
 public class TweetDAO extends DriverAccessor{
 
-	public void Tweet(Tweet tweet,Connection connection){
+	public void insertTweet(Tweet tweet,Connection connection){
 
 		try{
-			String sql = "insert into awaretweet(date,commenter,presenter,comment) values(?,?,?,?)";
+			String sql = "insert into tweet(date,commenter,presenter,comment) values(?,?,?,?)";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -36,7 +36,7 @@ public class TweetDAO extends DriverAccessor{
 	public ArrayList GetList(Connection connection){
 
 		try{
-			String sql="select * from awaretweet";
+			String sql="select * from tweet";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
