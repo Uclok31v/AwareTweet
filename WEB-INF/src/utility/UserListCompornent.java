@@ -2,7 +2,7 @@ package utility;
 
 import java.io.File;
 
-public class GetUserListCompornent{
+public class UserListCompornent{
 
 	public File[] getUserList() {
 		// TODO Auto-generated method stub

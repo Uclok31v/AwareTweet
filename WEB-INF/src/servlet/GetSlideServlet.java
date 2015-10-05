@@ -9,10 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import utility.GetUserListCompornent;
 import beans.User;
 import controller.GetSlideManager;
-import controller.LoginManager;
 
 public class GetSlideServlet extends HttpServlet{
 	
