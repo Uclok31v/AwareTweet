@@ -58,4 +58,5 @@
 		<servlet-name>ViewSlideServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
 	</servlet-mapping>
+	
 </web-app>

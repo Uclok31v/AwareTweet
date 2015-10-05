@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import utility.HostPathCompornent;
 import beans.User;
 
 public class UploadServlet extends HttpServlet{
@@ -38,7 +39,8 @@ public class UploadServlet extends HttpServlet{
 		String userId = user.getUser_id();
 		
 		//hostによって異なるパス
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+		HostPathCompornent createHostPath = new HostPathCompornent();
+		String hostPath = createHostPath.createHostPath();
 		File path = new File(hostPath + "AwareTweet/avator/"+userId);
 		
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
