@@ -80,6 +80,8 @@ public class LoginServlet extends HttpServlet{
 
 		        request.setAttribute("tweetList",list);
 				//
+		        
+
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 				}
