@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import utility.DriverAccessor;
@@ -108,17 +109,19 @@ public class TweetDAO extends DriverAccessor{
 	        }
     }
 
-	public ArrayList GetSlideweetList(String userId, String slideName,Connection connection) {
+	public ArrayList getSlideTweetList(String userId, String slideName,Connection connection) {
 		// TODO Auto-generated method stub
 		try{
-			String sql="select * from tweet where comment like '%@?%' and comment like '%#?%' ";
+			String sql="select * from tweet where comment like '%@"+userId+"%' and comment like '%#"+slideName+"%' ";
 
-			PreparedStatement stmt = connection.prepareStatement(sql);
+//			PreparedStatement stmt = connection.prepareStatement(sql);
+//			
+//			stmt.setString(1, userId);
+//			stmt.setString(2, slideName);
 			
-			stmt.setString(1, userId);
-			stmt.setString(2, slideName);
+			Statement stmt=connection.createStatement();
 			
-			ResultSet rs=stmt.executeQuery();
+			ResultSet rs=stmt.executeQuery(sql);
 
 			ArrayList list = new ArrayList();
 
@@ -129,7 +132,9 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			System.out.println(tweet.getComment());
 			list.add(tweet);
+			
 			}
 
 			stmt.close();
