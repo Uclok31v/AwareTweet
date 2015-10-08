@@ -37,7 +37,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
+	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -67,11 +67,19 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
-      <ul class="nav navbar-default nav-stacked">
-      <%for(int i=0; i<userList.size(); i++){ %>
-       <li><a href="#"><%=userList.get(i) %></a></li>
-       <%} %>
-      </ul>
+      <form>
+      <table class="table table-bordered table-hover table-condensed">
+       <thead>
+        <tr><th>メンバー</th></tr>
+       </thead>
+       <tbody>
+       <%for(int i=0; i<userList.size(); i++){ %>
+       <%String userName = (String)userList.get(i);%>
+        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+       </tbody>
+       <% } %>
+      </table>
+      </form>
      </div>
      <div class="span9">
       <div class="box">

@@ -108,7 +108,7 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
+	<li class="active"><a href="../hazelab/MoveTopServlet"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -146,7 +146,7 @@
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><a href="#"><%=userName %></a></td></tr>
+        <tr><td><<a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>
@@ -156,7 +156,7 @@
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <% } %>

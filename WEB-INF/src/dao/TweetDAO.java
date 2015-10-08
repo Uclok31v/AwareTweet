@@ -15,13 +15,14 @@ public class TweetDAO extends DriverAccessor{
 	public void insertTweet(Tweet tweet,Connection connection){
 
 		try{
-			String sql = "insert into tweet(date,commenter,comment) values(?,?,?)";
+			String sql = "insert into tweet(date,commenter,comment, avator_path) values(?,?,?,?)";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1,tweet.getDate());
 			stmt.setString(2,tweet.getCommenter());
 			stmt.setString(3,tweet.getComment());
+			stmt.setString(4, tweet.getAvator_path());
 			stmt.executeUpdate();
 
 			stmt.close();
@@ -52,6 +53,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			}
 
@@ -90,6 +92,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			}
 
@@ -128,7 +131,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
-			System.out.println(tweet.getComment());
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			
 			}

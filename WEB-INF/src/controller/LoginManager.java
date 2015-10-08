@@ -6,11 +6,7 @@ import dao.UserDAO;
 import beans.User;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.*;
-import java.sql.Connection;
 import java.util.ArrayList;
 
 import utility.HostPathComponent;
@@ -103,10 +99,10 @@ public class LoginManager {
 
 		TweetDAO dao = new TweetDAO();
 
-		ArrayList list = dao.selectTweet();
+		ArrayList tweetList = dao.selectTweet();
 
 
-		return list;
+		return tweetList;
 	}
 	//
 

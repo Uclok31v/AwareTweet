@@ -14,6 +14,7 @@ import beans.User;
 import controller.LoginManager;
 import controller.TweetManager;
 
+
 public class TweetServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
@@ -32,10 +33,14 @@ public class TweetServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_id();
+		
+		String hostPath = "http://localhost:8080/";
+		
+		String avatorPath = hostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
 
 		TweetManager tweetManager=new TweetManager();
 
-		tweetManager.insertTweet(commenter,comment);
+		tweetManager.insertTweet(commenter,comment,avatorPath);
 		
 		LoginManager loginManager = new LoginManager();
 		

@@ -35,7 +35,7 @@ CREATE TABLE `ip_history` (
 
 LOCK TABLES `ip_history` WRITE;
 /*!40000 ALTER TABLE `ip_history` DISABLE KEYS */;
-INSERT INTO `ip_history` VALUES ('157.105.55.27',1),('157.105.56.196',0),('169.254.46.97',0),('192.168.1.6',3);
+INSERT INTO `ip_history` VALUES ('127.0.0.1',0),('157.105.55.120',0),('157.105.55.27',1),('157.105.56.196',0),('169.254.23.214',0),('169.254.46.97',0),('192.168.1.6',3),('192.168.100.100',0),('192.168.100.101',0);
 /*!40000 ALTER TABLE `ip_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -49,8 +49,8 @@ DROP TABLE IF EXISTS `tweet`;
 CREATE TABLE `tweet` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `commenter` varchar(64) NOT NULL,
-  `presenter` varchar(64) NOT NULL,
   `comment` text NOT NULL,
+  `avator_path` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -61,6 +61,7 @@ CREATE TABLE `tweet` (
 
 LOCK TABLES `tweet` WRITE;
 /*!40000 ALTER TABLE `tweet` DISABLE KEYS */;
+INSERT INTO `tweet` VALUES ('2015-10-08 06:47:20','shu-','avatortest\r\n','http://localhost:8080/AwareTweet/avator/shu-/avator.png'),('2015-10-08 06:47:26','shu-','avatortest\r\n','http://localhost:8080/AwareTweet/avator/shu-/avator.png'),('2015-10-08 06:47:54','shu-','@shu- #slide pp.3 テスト','http://localhost:8080/AwareTweet/avator/shu-/avator.png');
 /*!40000 ALTER TABLE `tweet` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -73,4 +74,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-09-30 20:44:09
+-- Dump completed on 2015-10-08 16:09:21

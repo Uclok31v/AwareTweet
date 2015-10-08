@@ -76,10 +76,9 @@ public class LoginServlet extends HttpServlet{
 				session.setAttribute("user",user);
 				
 				//tweetList
-				ArrayList list = loginManager.selectTweet();
+				ArrayList tweetList = loginManager.selectTweet();
 
-		        request.setAttribute("tweetList",list);
-		        //
+		        request.setAttribute("tweetList",tweetList);
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 				}
