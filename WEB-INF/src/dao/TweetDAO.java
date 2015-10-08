@@ -13,14 +13,13 @@ public class TweetDAO extends DriverAccessor{
 	public void insertTweet(Tweet tweet,Connection connection){
 
 		try{
-			String sql = "insert into tweet(date,commenter,presenter,comment) values(?,?,?,?)";
+			String sql = "insert into tweet(date,commenter,comment) values(?,?,?)";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1,tweet.getDate());
 			stmt.setString(2,tweet.getCommenter());
-			stmt.setString(3,tweet.getPresenter());
-			stmt.setString(4,tweet.getComment());
+			stmt.setString(3,tweet.getComment());
 			stmt.executeUpdate();
 
 			stmt.close();
@@ -33,10 +32,11 @@ public class TweetDAO extends DriverAccessor{
 	         }
     }
 	
-	public ArrayList GetList(Connection connection){
-
+	public ArrayList GetTweetList(){
+		Connection connection = null;
+		connection = createConnection();
 		try{
-			String sql="select * from tweet";
+			String sql="select * from tweet order by date desc";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			
@@ -50,13 +50,13 @@ public class TweetDAO extends DriverAccessor{
 			Tweet tweet = new Tweet();
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
-			tweet.setPresenter( rs.getString("presenter") );
 			tweet.setComment( rs.getString("comment") );
 			list.add(tweet);
 			}
 
 			stmt.close();
 			rs.close();
+			connection = null;
 
 			return list;
 
@@ -68,6 +68,83 @@ public class TweetDAO extends DriverAccessor{
 
 	    }finally{
 		    }
+	}
+
+	public ArrayList GetUserTweetList(String commenter, Connection connection) {
+		// TODO Auto-generated method stub
+		try{
+			String sql="select * from tweet where commenter = ? order by date desc";
+
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			stmt.setString(1,commenter);
+			
+			ResultSet rs=stmt.executeQuery();
+
+			ArrayList list = new ArrayList();
+
+			//登録されている日記の数だけ繰り返す
+			while(rs.next())
+		    {
+			Tweet tweet = new Tweet();
+			tweet.setDate( rs.getString("date") );
+			tweet.setCommenter( rs.getString("commenter") );
+			tweet.setComment( rs.getString("comment") );
+			list.add(tweet);
+			}
+
+			stmt.close();
+			rs.close();
+
+		    return list;
+		    
+	    }catch(SQLException e){
+
+		   e.printStackTrace();
+
+		return null;
+
+        }finally{
+	        }
+    }
+
+	public ArrayList GetSlideweetList(String userId, String slideName,Connection connection) {
+		// TODO Auto-generated method stub
+		try{
+			String sql="select * from tweet where comment like '%@?%' and comment like '%#?%' ";
+
+			PreparedStatement stmt = connection.prepareStatement(sql);
+			
+			stmt.setString(1, userId);
+			stmt.setString(2, slideName);
+			
+			ResultSet rs=stmt.executeQuery();
+
+			ArrayList list = new ArrayList();
+
+			//登録されている日記の数だけ繰り返す
+			while(rs.next())
+		    {
+			Tweet tweet = new Tweet();
+			tweet.setDate( rs.getString("date") );
+			tweet.setCommenter( rs.getString("commenter") );
+			tweet.setComment( rs.getString("comment") );
+			list.add(tweet);
+			}
+
+			stmt.close();
+			rs.close();
+
+		    return list;
+		    
+	    }catch(SQLException e){
+
+		   e.printStackTrace();
+
+		return null;
+
+        }finally{
+	        }		
 	}
 
 

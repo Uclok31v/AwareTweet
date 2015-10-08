@@ -79,9 +79,7 @@ public class LoginServlet extends HttpServlet{
 				ArrayList list = loginManager.GetTweetList();
 
 		        request.setAttribute("tweetList",list);
-				//
-		        
-
+		        //
 	
 				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 				}

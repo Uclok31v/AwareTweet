@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -34,6 +35,10 @@ public class ViewSlideServlet extends HttpServlet{
 			ViewSlideManager viewSlideManager = new ViewSlideManager();
 			File[] jpegList = viewSlideManager.getJpegList(userId, slideName);
 			
+			//スライドのツイート
+			ArrayList list = viewSlideManager.getSlideweetList(userId,slideName);
+			
+			request.setAttribute("tweetList",list);
 			request.setAttribute("jpeg-list", jpegList);
 			session.setAttribute("user", user);
 			request.setAttribute("slideName", slideName);

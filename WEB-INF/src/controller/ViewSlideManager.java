@@ -5,12 +5,20 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.sql.Connection;
+import java.util.ArrayList;
 
 import utility.HostPathCompornent;
 
 import com.ibm.icu.text.Transliterator;
 
+import dao.TweetDAO;
+
 public class ViewSlideManager {
+	
+	//
+	private Connection connection = null;
+	//
 
 	public ViewSlideManager(){
 		
@@ -44,5 +52,22 @@ public class ViewSlideManager {
 		System.out.println("変更後"+files[1].getName());
 		return files;
 	}
+
+	//スライドのツイート
+	public ArrayList getSlideweetList(String userId, String slideName) {
+		// TODO Auto-generated method stub
+		TweetDAO dao = new TweetDAO();
+
+		this.connection = dao.createConnection();
+
+		ArrayList list = dao.GetSlideweetList(userId,slideName,this.connection);
+
+		dao.closeConnection(this.connection);
+
+		this.connection = null;
+		
+		return list;
+	}
+	//
 
 }

@@ -139,7 +139,6 @@
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
-      <form>
       <table class="table table-bordered table-hover table-condensed">
        <thead>
         <tr><th>メンバー</th></tr>
@@ -147,34 +146,20 @@
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+        <tr><td><a href="#"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>
-      </form>
      </div>
 
-     <div class="col-md-9">
-     <form action="../hazelab/TweetServlet" method="post">
-      <div class="ui-widget">
-      <div class="form-group">
-       <label for="comment"></label>
-       <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
-      </div>
-      </div>
-      <div class="col-sm-offset-10 text-center">
-       <input type="submit" value="ツイート" class="btn btn-info">
-      </div>
-     </form>
-      <br>
-
+     <div class="col-md-9">   
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
        <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
-       <%} %>
+       <% } %>
       </div>
 
      </div>
