@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.ArrayList;
 
-import utility.HostPathCompornent;
+import utility.HostPathComponent;
 
 import com.ibm.icu.text.Transliterator;
 
@@ -26,7 +26,7 @@ public class ViewSlideManager {
 	
 	public File[] getJpegList(String userId, String slideName) {
 		// TODO Auto-generated method stub
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		
 		//探索するパス
