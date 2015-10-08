@@ -76,5 +76,14 @@
 		<servlet-name>SearchTweetServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/SearchTweetServlet</url-pattern>
 	</servlet-mapping>
+		
+	<servlet>	
+		<servlet-name>MoveTopServlet</servlet-name>
+		<servlet-class>servlet.MoveTopServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>MoveTopServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/MoveTopServlet</url-pattern>
+	</servlet-mapping>
 	
 </web-app>

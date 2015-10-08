@@ -2,7 +2,7 @@ package controller;
 
 import java.io.File;
 
-import utility.HostPathCompornent;
+import utility.HostPathComponent;
 
 public class GetSlideManager {
 
@@ -13,7 +13,7 @@ public class GetSlideManager {
 	public void checkDirectory(String user_id) {
 		// TODO Auto-generated method stub
 		//ホストによって異なるパス
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		File file = new File(hostPath +"AwareTweet/slide/"+user_id);
 		if(file.exists()){
@@ -26,7 +26,7 @@ public class GetSlideManager {
 
 	public File[] getSlideList(String user_id) {
 		// TODO Auto-generated method stub
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		
 		//探索するパス

@@ -3,6 +3,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.sql.Statement;
 
@@ -14,13 +15,14 @@ public class TweetDAO extends DriverAccessor{
 	public void insertTweet(Tweet tweet,Connection connection){
 
 		try{
-			String sql = "insert into tweet(date,commenter,comment) values(?,?,?)";
+			String sql = "insert into tweet(date,commenter,comment, avator_path) values(?,?,?,?)";
 
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
 			stmt.setString(1,tweet.getDate());
 			stmt.setString(2,tweet.getCommenter());
 			stmt.setString(3,tweet.getComment());
+			stmt.setString(4, tweet.getAvator_path());
 			stmt.executeUpdate();
 
 			stmt.close();
@@ -33,7 +35,7 @@ public class TweetDAO extends DriverAccessor{
 	         }
     }
 	
-	public ArrayList GetTweetList(){
+	public ArrayList selectTweet(){
 		Connection connection = null;
 		connection = createConnection();
 		try{
@@ -51,6 +53,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			}
 
@@ -70,7 +73,7 @@ public class TweetDAO extends DriverAccessor{
 		    }
 	}
 
-	public ArrayList GetUserTweetList(String commenter, Connection connection) {
+	public ArrayList selectTweetbyCommenter(String commenter, Connection connection) {
 		// TODO Auto-generated method stub
 		try{
 			String sql="select * from tweet where commenter = ? order by date desc";
@@ -89,6 +92,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			}
 
@@ -107,17 +111,16 @@ public class TweetDAO extends DriverAccessor{
 	        }
     }
 
-	public ArrayList GetSlideTweetList(String userId, String slideName,Connection connection) {
+
+	public ArrayList selectTweetbyUserIdandSlideName(String userId, String slideName,Connection connection) {
+
 		// TODO Auto-generated method stub
 		try{
 			String sql="select * from tweet where comment like '%@"+userId+"%' and comment like '%#"+slideName+"%' ";
 
 			Statement stmt = connection.createStatement();
-//			PreparedStatement stmt = connection.prepareStatement(sql);
-//			
-//			stmt.setString(1, userId);
-//			stmt.setString(2, slideName);
-			
+
+		
 			ResultSet rs=stmt.executeQuery(sql);
 
 			ArrayList list = new ArrayList();
@@ -128,7 +131,9 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
+			
 			}
 
 			stmt.close();

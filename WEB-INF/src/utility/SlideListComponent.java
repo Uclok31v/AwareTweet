@@ -3,15 +3,15 @@ package utility;
 import java.io.File;
 import java.util.ArrayList;
 
-public class SlideListCompornent{
+public class SlideListComponent{
 	
 	public ArrayList<String> getSlideList(){
 		//ユーザリストの参照
-		UserListCompornent listCompornent = new UserListCompornent();
+		UserListComponent listCompornent = new UserListComponent();
 		ArrayList<String> userList = listCompornent.getUserList();
 		
 		//ホストによって異なるパス		
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		
 		//スライド名を格納する

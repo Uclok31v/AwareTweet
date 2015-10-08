@@ -31,7 +31,7 @@ public class GetUserTweetServlet extends HttpServlet{
 
 		GetUserTweetManager getUserTweetManager = new GetUserTweetManager();
 		
-		ArrayList list = getUserTweetManager.getUserTweetList(commenter);
+		ArrayList list = getUserTweetManager.selectTweetbyCommenter(commenter);
 
         request.setAttribute("tweetList",list);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/viewusertweet.jsp").forward(request, response);

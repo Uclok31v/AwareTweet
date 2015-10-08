@@ -3,12 +3,12 @@ package utility;
 import java.io.File;
 import java.util.ArrayList;
 
-public class UserListCompornent{
+public class UserListComponent{
 
 	public ArrayList<String> getUserList() {
 		// TODO Auto-generated method stub
 		
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 	    String userListPath = hostPath + "AwareTweet/avator";
 	    

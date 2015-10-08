@@ -14,7 +14,7 @@ public class TweetManager{
 	public TweetManager(){
 	}
 
-	public void insertTweet(String commenter,String comment){
+	public void insertTweet(String commenter,String comment, String avatorPath){
 
 		DecimalFormat decimal =new DecimalFormat("00");
 		Calendar cal = Calendar.getInstance();
@@ -30,6 +30,7 @@ public class TweetManager{
 		tweet.setDate(date);
 		tweet.setCommenter(commenter);
 		tweet.setComment(comment);
+		tweet.setAvator_path(avatorPath);
 
 		TweetDAO dao = new TweetDAO();
 		this.connection = dao.createConnection();

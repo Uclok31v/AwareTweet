@@ -2,7 +2,7 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
-<%@ page import= "utility.UserListCompornent" %>
+<%@ page import= "utility.UserListComponent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -10,7 +10,7 @@
 File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 %>
 <% String slideName = (String)request.getAttribute("slideName");%>
-<% UserListCompornent listCompornent = new UserListCompornent(); %>
+<% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
 <!DOCTYPE html>
@@ -56,7 +56,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
+	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="#" role="search">
      <div class="form-group">
@@ -86,13 +86,19 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
-      <ul class="nav navbar-default nav-stacked">
-      <%for(int i=0; i<userList.size(); i++){ %>
-
-       <li><a href="#"><%=userList.get(i) %></a></li>
-   
-       <%} %>
-      </ul>
+      <form>
+      <table class="table table-bordered table-hover table-condensed">
+       <thead>
+        <tr><th>メンバー</th></tr>
+       </thead>
+       <tbody>
+       <%for(int i=0; i<userList.size(); i++){ %>
+       <%String userName = (String)userList.get(i);%>
+        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+       </tbody>
+       <% } %>
+      </table>
+      </form>
      </div>
     
      <div class="col-md-6">
@@ -121,7 +127,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <%} %>

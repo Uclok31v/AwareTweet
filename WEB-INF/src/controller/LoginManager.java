@@ -6,14 +6,10 @@ import dao.UserDAO;
 import beans.User;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.channels.*;
-import java.sql.Connection;
 import java.util.ArrayList;
 
-import utility.HostPathCompornent;
+import utility.HostPathComponent;
 
 import org.apache.commons.io.FileUtils;
 
@@ -76,7 +72,7 @@ public class LoginManager {
 	public String createAvator(String user_id) {
 		// TODO Auto-generated method stub
 		// hostPathはホストによって異なるパス
-		HostPathCompornent createHostPath = new HostPathCompornent();
+		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
 		if(file.exists()){
@@ -99,14 +95,14 @@ public class LoginManager {
 	}
 	
 
-	public ArrayList GetTweetList() {
+	public ArrayList selectTweet() {
 
 		TweetDAO dao = new TweetDAO();
 
-		ArrayList list = dao.GetTweetList();
+		ArrayList tweetList = dao.selectTweet();
 
 
-		return list;
+		return tweetList;
 	}
 	//
 

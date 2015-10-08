@@ -4,14 +4,14 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
-<%@ page import= "utility.UserListCompornent" %>
-<%@ page import= "utility.SlideListCompornent" %>
+<%@ page import= "utility.UserListComponent" %>
+<%@ page import= "utility.SlideListComponent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 
-<% UserListCompornent listCompornent = new UserListCompornent(); %>
+<% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 
-<% SlideListCompornent slideCompornent = new SlideListCompornent(); %>
+<% SlideListComponent slideCompornent = new SlideListComponent(); %>
 <% ArrayList<String> slideList = slideCompornent.getSlideList(); %>
 
 
@@ -108,7 +108,7 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="../hazelab/top.jsp"><span class="fui-home"></span></a></li>
+	<li class="active"><a href="../hazelab/MoveTopServlet"><span class="fui-home"></span></a></li>
     </ul>
     <form class="navbar-form navbar-left" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
@@ -171,7 +171,7 @@
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <%} %>

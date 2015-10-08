@@ -13,13 +13,13 @@ public class GetUserTweetManager {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArrayList getUserTweetList(String commenter) {
+	public ArrayList selectTweetbyCommenter(String commenter) {
 		// TODO Auto-generated method stub
 		TweetDAO dao = new TweetDAO();
 
 		this.connection = dao.createConnection();
 
-		ArrayList list = dao.GetUserTweetList(commenter,this.connection);
+		ArrayList list = dao.selectTweetbyCommenter(commenter, connection);
 
 		dao.closeConnection(this.connection);
 

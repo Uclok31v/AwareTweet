@@ -1,6 +1,5 @@
 package servlet;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -10,10 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.LoginManager;
 import beans.User;
-import controller.ViewSlideManager;
 
-public class ViewSlideServlet extends HttpServlet{
+
+public class MoveTopServlet extends HttpServlet{
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
@@ -29,22 +29,18 @@ public class ViewSlideServlet extends HttpServlet{
 			User user = (User)session.getAttribute("user");
 			String userId = user.getUser_id();
 			
-			String slideName = request.getParameter("slide_name");
+			LoginManager loginManager = new LoginManager();
 			
-			//対象ディレクトリのJPEGをとってくる
-			ViewSlideManager viewSlideManager = new ViewSlideManager();
-			File[] jpegList = viewSlideManager.getJpegList(userId, slideName);
-			
-			//スライドのツイート
-			ArrayList list = viewSlideManager.getSlideTweetList(userId,slideName);
+			//tweetList
+			ArrayList tweetList = loginManager.selectTweet();
 
-			System.out.println(list.size());
+			session.setAttribute("user",user);
+	        request.setAttribute("tweetList",tweetList);
+	        
+	
 
-			
-			request.setAttribute("tweetList",list);
-			request.setAttribute("jpeg-list", jpegList);
-			session.setAttribute("user", user);
-			request.setAttribute("slideName", slideName);
-			getServletContext().getRequestDispatcher("/jsp/hazelab/viewslide.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 	}
+	
+	
 }
