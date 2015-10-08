@@ -6,7 +6,7 @@ public class HostPathComponent{
 
 	public String createHostPath() {
 		// TODO Auto-generated method stub
-		String hostFullPath = "/Users/shu920921/Documents/workspace/";
+		String hostFullPath = "/Users/KentaroUdonishi/Documents/workspace/";
 	    
 		return hostFullPath;
 	}

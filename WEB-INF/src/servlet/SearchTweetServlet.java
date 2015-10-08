@@ -29,9 +29,9 @@ public class SearchTweetServlet extends HttpServlet{
 
 		String searchWord = request.getParameter("search_word");; 
 
-		SearchTweetManager getUserTweetManager = new SearchTweetManager();
+		SearchTweetManager searchTweetManager = new SearchTweetManager();
 		
-		ArrayList list = getUserTweetManager.selectTweetByComment(searchWord);
+		ArrayList list = searchTweetManager.selectTweetByComment(searchWord);
 
         request.setAttribute("tweetList",list);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/viewusertweet.jsp").forward(request, response);
