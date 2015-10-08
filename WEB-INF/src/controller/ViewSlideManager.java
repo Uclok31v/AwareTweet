@@ -54,13 +54,13 @@ public class ViewSlideManager {
 	}
 
 	//スライドのツイート
-	public ArrayList getSlideweetList(String userId, String slideName) {
+	public ArrayList getSlideTweetList(String userId, String slideName) {
 		// TODO Auto-generated method stub
 		TweetDAO dao = new TweetDAO();
 
 		this.connection = dao.createConnection();
 
-		ArrayList list = dao.GetSlideweetList(userId,slideName,this.connection);
+		ArrayList list = dao.GetSlideTweetList(userId,slideName,this.connection);
 
 		dao.closeConnection(this.connection);
 
