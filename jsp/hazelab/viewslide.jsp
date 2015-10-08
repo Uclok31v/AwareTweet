@@ -2,7 +2,7 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
-<%@ page import= "utility.UserListCompornent" %>
+<%@ page import= "utility.UserListComponent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -10,7 +10,7 @@
 File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 %>
 <% String slideName = (String)request.getAttribute("slideName");%>
-<% UserListCompornent listCompornent = new UserListCompornent(); %>
+<% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
 <!DOCTYPE html>

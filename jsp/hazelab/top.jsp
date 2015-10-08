@@ -4,14 +4,14 @@
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
-<%@ page import= "utility.UserListCompornent" %>
-<%@ page import= "utility.SlideListCompornent" %>
+<%@ page import= "utility.UserListComponent" %>
+<%@ page import= "utility.SlideListComponent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
 
-<% UserListCompornent listCompornent = new UserListCompornent(); %>
+<% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 
-<% SlideListCompornent slideCompornent = new SlideListCompornent(); %>
+<% SlideListComponent slideCompornent = new SlideListComponent(); %>
 <% ArrayList<String> slideList = slideCompornent.getSlideList(); %>
 
 
