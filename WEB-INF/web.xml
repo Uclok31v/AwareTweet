@@ -59,13 +59,22 @@
 		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
 		<servlet-name>GetUserTweetServlet</servlet-name>
 		<servlet-class>servlet.GetUserTweetServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetUserTweetServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/GetUserTweetServlet</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>SearchTweetServlet</servlet-name>
+		<servlet-class>servlet.SearchTweetServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SearchTweetServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/SearchTweetServlet</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
