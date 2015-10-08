@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" %>
 <%@ page import= "beans.User" %>
+<%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "utility.UserListCompornent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
@@ -11,6 +12,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 <% String slideName = (String)request.getAttribute("slideName");%>
 <% UserListCompornent listCompornent = new UserListCompornent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
+<% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -93,6 +95,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </ul>
      </div>
     
+     <div class="col-md-6">
      <div class="span12">
      <div class="box">
      <div class="box-content">
@@ -112,7 +115,19 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 	 </div>
      </div>
      </div>
-    </div>
+     </div>
+     
+     <div class="col-md-3">
+      <div class="panel panel-primary">
+       <% for(int i=0; i<tweetList.size(); i++){ %>
+       <% Tweet tweet = (Tweet)tweetList.get(i); %>
+       <div class="panel-heading"><img src=<%=LoginUser.getAvator_path() %> style="with: 30px; height: 30px;"/>  <%=tweet.getCommenter()%></div>
+       <div class="panel-body"><p><%=tweet.getComment()%></p></div>
+       <div class="panel-footer"><%=tweet.getDate()%></div>
+       <%} %>
+      </div>
+     </div>
+     
 
     
     

@@ -97,20 +97,14 @@ public class LoginManager {
 	        }
 		}
 	}
+	
 
-	//tweetList
-	private Connection connection = null;
 	public ArrayList GetTweetList() {
 
 		TweetDAO dao = new TweetDAO();
 
-		this.connection = dao.createConnection();
+		ArrayList list = dao.GetTweetList();
 
-		ArrayList list = dao.GetList(this.connection);
-
-		dao.closeConnection(this.connection);
-
-		this.connection = null;
 
 		return list;
 	}

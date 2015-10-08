@@ -10,11 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import controller.GetUserTweetManager;
 import beans.User;
-import controller.LoginManager;
-import controller.TweetManager;
 
-public class TweetServlet extends HttpServlet{
+public class GetUserTweetServlet extends HttpServlet{
+
+	
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 		throws ServletException,IOException{
@@ -26,24 +27,14 @@ public class TweetServlet extends HttpServlet{
 
 		request.setCharacterEncoding("UTF-8");
 
-		String comment=request.getParameter("comment");
-		
+		String commenter = request.getParameter("id");; 
 
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
-		String commenter = user.getUser_id();
+		GetUserTweetManager getUserTweetManager = new GetUserTweetManager();
+		
+		ArrayList list = getUserTweetManager.getUserTweetList(commenter);
 
-		TweetManager tweetManager=new TweetManager();
-
-		tweetManager.insertTweet(commenter,comment);
-		
-		LoginManager loginManager = new LoginManager();
-		
-		ArrayList list = loginManager.GetTweetList();
-		
         request.setAttribute("tweetList",list);
-        request.setAttribute("user", user);
+		getServletContext().getRequestDispatcher("/jsp/hazelab/viewusertweet.jsp").forward(request, response);
 
-        getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
 		}
 	}
