@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.sql.Statement;
 
 import utility.DriverAccessor;
 import beans.Tweet;
@@ -45,7 +46,6 @@ public class TweetDAO extends DriverAccessor{
 
 			ArrayList list = new ArrayList();
 
-			//登録されている日記の数だけ繰り返す
 			while(rs.next())
 		    {
 			Tweet tweet = new Tweet();
@@ -84,7 +84,6 @@ public class TweetDAO extends DriverAccessor{
 
 			ArrayList list = new ArrayList();
 
-			//登録されている日記の数だけ繰り返す
 			while(rs.next())
 		    {
 			Tweet tweet = new Tweet();
@@ -109,23 +108,20 @@ public class TweetDAO extends DriverAccessor{
 	        }
     }
 
-	public ArrayList getSlideTweetList(String userId, String slideName,Connection connection) {
+
+	public ArrayList GetSlideTweetList(String userId, String slideName,Connection connection) {
+
 		// TODO Auto-generated method stub
 		try{
 			String sql="select * from tweet where comment like '%@"+userId+"%' and comment like '%#"+slideName+"%' ";
 
-//			PreparedStatement stmt = connection.prepareStatement(sql);
-//			
-//			stmt.setString(1, userId);
-//			stmt.setString(2, slideName);
-			
-			Statement stmt=connection.createStatement();
-			
+			Statement stmt = connection.createStatement();
+
+		
 			ResultSet rs=stmt.executeQuery(sql);
 
 			ArrayList list = new ArrayList();
 
-			//登録されている日記の数だけ繰り返す
 			while(rs.next())
 		    {
 			Tweet tweet = new Tweet();

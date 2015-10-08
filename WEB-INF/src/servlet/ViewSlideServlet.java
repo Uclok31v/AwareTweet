@@ -37,7 +37,9 @@ public class ViewSlideServlet extends HttpServlet{
 			
 			//スライドのツイート
 			ArrayList list = viewSlideManager.getSlideTweetList(userId,slideName);
+
 			System.out.println(list.size());
+
 			
 			request.setAttribute("tweetList",list);
 			request.setAttribute("jpeg-list", jpegList);

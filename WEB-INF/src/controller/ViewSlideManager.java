@@ -60,7 +60,8 @@ public class ViewSlideManager {
 
 		this.connection = dao.createConnection();
 
-		ArrayList list = dao.getSlideTweetList(userId,slideName,this.connection);
+		ArrayList list = dao.GetSlideTweetList(userId,slideName,this.connection);
+
 
 		dao.closeConnection(this.connection);
 
