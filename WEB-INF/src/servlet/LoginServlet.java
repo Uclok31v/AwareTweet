@@ -76,7 +76,7 @@ public class LoginServlet extends HttpServlet{
 				session.setAttribute("user",user);
 				
 				//tweetList
-				ArrayList list = loginManager.GetTweetList();
+				ArrayList list = loginManager.selectTweet();
 
 		        request.setAttribute("tweetList",list);
 		        //

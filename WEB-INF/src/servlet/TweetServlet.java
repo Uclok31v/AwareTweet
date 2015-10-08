@@ -39,7 +39,7 @@ public class TweetServlet extends HttpServlet{
 		
 		LoginManager loginManager = new LoginManager();
 		
-		ArrayList list = loginManager.GetTweetList();
+		ArrayList list = loginManager.selectTweet();
 		
         request.setAttribute("tweetList",list);
         request.setAttribute("user", user);

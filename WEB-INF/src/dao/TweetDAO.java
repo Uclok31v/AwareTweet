@@ -34,7 +34,7 @@ public class TweetDAO extends DriverAccessor{
 	         }
     }
 	
-	public ArrayList GetTweetList(){
+	public ArrayList selectTweet(){
 		Connection connection = null;
 		connection = createConnection();
 		try{
@@ -71,7 +71,7 @@ public class TweetDAO extends DriverAccessor{
 		    }
 	}
 
-	public ArrayList GetUserTweetList(String commenter, Connection connection) {
+	public ArrayList selectTweetbyCommenter(String commenter, Connection connection) {
 		// TODO Auto-generated method stub
 		try{
 			String sql="select * from tweet where commenter = ? order by date desc";
@@ -109,7 +109,7 @@ public class TweetDAO extends DriverAccessor{
     }
 
 
-	public ArrayList GetSlideTweetList(String userId, String slideName,Connection connection) {
+	public ArrayList selectTweetbyUserIdandSlideName(String userId, String slideName,Connection connection) {
 
 		// TODO Auto-generated method stub
 		try{

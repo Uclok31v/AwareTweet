@@ -99,11 +99,11 @@ public class LoginManager {
 	}
 	
 
-	public ArrayList GetTweetList() {
+	public ArrayList selectTweet() {
 
 		TweetDAO dao = new TweetDAO();
 
-		ArrayList list = dao.GetTweetList();
+		ArrayList list = dao.selectTweet();
 
 
 		return list;
