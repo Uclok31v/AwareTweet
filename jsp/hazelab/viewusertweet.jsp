@@ -146,7 +146,7 @@
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><<a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>

@@ -7,6 +7,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 import utility.HostPathComponent;
 
@@ -34,23 +36,37 @@ public class ViewSlideManager {
 		
 		File file = new File(basePath);
 		File[] files = file.listFiles();
-		for(int i=1;i<files.length;i++){
-			Path src = Paths.get(basePath + files[i].getName());
-			Transliterator transliterator = Transliterator.getInstance("Katakana-Latin");
-			String reName = transliterator.transliterate(files[i].getName());
-			System.out.println(reName);
-			Path srcRename = Paths.get(basePath + reName);
-			try {
-				System.out.println("変更前"+ files[i].getName());
-				Files.move(src, srcRename);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		for(int i=0;i<files.length;i++){
+			if(files[i].getName().startsWith(".")){
+				files[i].delete();
+				return null;
+			}
+			else{
+				Path src = Paths.get(basePath + files[i].getName());
+				Transliterator transliterator = Transliterator.getInstance("Katakana-Latin");
+				String reName = transliterator.transliterate(files[i].getName());
+				Path srcRename = Paths.get(basePath + reName);
+				try {
+					Files.move(src, srcRename);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
 			
 		}
-		System.out.println("変更後"+files[1].getName());
-		return files;
+		File renameFile = new File(basePath);
+		File[] renameFiles = renameFile.listFiles();
+		System.out.println(renameFiles[1].getName());
+		Arrays.sort(renameFiles, new FileSort());
+		return renameFiles;
+	}
+
+	static class FileSort implements Comparator<File> {
+		  public int compare(File src, File target) {
+		   int diff = src.getName().compareTo(target.getName());
+		   return diff;
+		  }
 	}
 
 	//スライドのツイート

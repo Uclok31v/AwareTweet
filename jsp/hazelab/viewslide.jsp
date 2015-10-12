@@ -107,7 +107,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
      <div class="box-content">
      	<div class="frameLine">
 		   	<ul class="bxslider">
-		   	<%String hostPath = "http://localhost:8080/";%>
+		   	<%String hostPath = "http://onyx.u-gakugei.ac.jp/";%>
 		   	<%String jpegdirPath = hostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>

@@ -77,4 +77,13 @@
 		<url-pattern>/jsp/hazelab/MoveTopServlet</url-pattern>
 	</servlet-mapping>
 	
+	<servlet>
+		<servlet-name>RegistSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistSlideServlet</url-pattern>
+	</servlet-mapping>
+	
 </web-app>
