@@ -65,7 +65,7 @@ public class LoginServlet extends HttpServlet{
 				//avatorディレクトリの作成
 				String avatorName = loginManager.createAvator(user.getUser_id());
 				
-				String hostPath = "http://localhost:8080/";
+				String hostPath = "http://onyx.u-gakugei.ac.jp/";
 				
 				//avatorのパス
 				String avatorPath = hostPath + "AwareTweet/avator/" + user.getUser_id() + "/"+ avatorName;
