@@ -3,6 +3,7 @@
 <%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "utility.UserListComponent" %>
+<%@ page import= "utility.HostPathComponent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -107,8 +108,9 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
      <div class="box-content">
      	<div class="frameLine">
 		   	<ul class="bxslider">
-		   	<%String hostPath = "http://onyx.u-gakugei.ac.jp/";%>
-		   	<%String jpegdirPath = hostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
+		   	<%HostPathComponent hostPath = new HostPathComponent();%>
+		   	<%String imgHostPath = hostPath.imgHostPath(); %>
+		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
