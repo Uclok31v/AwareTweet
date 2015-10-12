@@ -110,7 +110,7 @@
           </div>
           <div style="margin-top: 20px;">
             <input type="submit" class="btn btn-success" value="Save"/>
-            <a href="./top.jsp" class="btn">OK</a>
+            <a href="./MoveTopServlet" class="btn">OK</a>
           </div>
         </div>
         </form>

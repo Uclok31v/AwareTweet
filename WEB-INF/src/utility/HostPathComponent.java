@@ -6,9 +6,15 @@ public class HostPathComponent{
 
 	public String createHostPath() {
 		// TODO Auto-generated method stub
-		String hostFullPath = "/usr/local/tomcat/webapps/labSystem/";
+		String hostPath = "/Users/shu920921/Documents/workspace/";
 	    
-		return hostFullPath;
+		return hostPath;
+	}
+	
+	public String imgHostPath() {
+		String hostPath = "http://localhost:8080/";
+		
+		return hostPath;
 	}
 	
 	

@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utility.HostPathComponent;
 import utility.PasswordEncryption;
 import beans.User;
 import controller.LoginManager;
@@ -65,10 +66,11 @@ public class LoginServlet extends HttpServlet{
 				//avatorディレクトリの作成
 				String avatorName = loginManager.createAvator(user.getUser_id());
 				
-				String hostPath = "http://onyx.u-gakugei.ac.jp/";
+				HostPathComponent hostPath = new HostPathComponent();
+				String imgHostPath = hostPath.imgHostPath();
 				
 				//avatorのパス
-				String avatorPath = hostPath + "AwareTweet/avator/" + user.getUser_id() + "/"+ avatorName;
+				String avatorPath = imgHostPath + "AwareTweet/avator/" + user.getUser_id() + "/"+ avatorName;
 				
 				//userオブジェクトにアバターのパスを追加
 			    user.setAvator_path(avatorPath);

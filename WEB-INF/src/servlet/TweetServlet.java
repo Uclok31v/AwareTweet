@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import utility.HostPathComponent;
 import beans.User;
 import controller.LoginManager;
 import controller.TweetManager;
@@ -34,9 +35,10 @@ public class TweetServlet extends HttpServlet{
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_id();
 		
-		String hostPath = "http://localhost:8080/";
+		HostPathComponent hostPath = new HostPathComponent();
+		String imgHostPath = hostPath.imgHostPath();
 		
-		String avatorPath = hostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
+		String avatorPath = imgHostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
 
 		TweetManager tweetManager=new TweetManager();
 
