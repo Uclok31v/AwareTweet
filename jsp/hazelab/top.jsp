@@ -113,7 +113,7 @@
     <form class="navbar-form navbar-left" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
-       <input class="form-control" name="search-word" id="search" type="search" placeholder="AwareTweet検索">
+       <input class="form-control" name="search_word" id="search_word" type="search" placeholder="AwareTweet検索">
         <span class="input-group-btn">
          <button type="submit" class="btn"><span class="fui-search"></span></button>
         </span>

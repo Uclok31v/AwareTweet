@@ -168,6 +168,7 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setDate( rs.getString("date") );
 			tweet.setCommenter( rs.getString("commenter") );
 			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
 			}
 
