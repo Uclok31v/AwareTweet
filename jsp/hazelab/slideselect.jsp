@@ -102,9 +102,14 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           </div>
           <%} %>
           <%} %>
+          <%} %>
           </form>
         </div>
-        <%} %>
+        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
+        <label>Regist your Slide</label>
+        <input type="file" name="filname" />
+         <input type="submit" class="btn btn-success" value="Regist"/>
+        </form>
       </div>
      </div>
   	</div>
