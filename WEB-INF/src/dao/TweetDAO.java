@@ -150,6 +150,42 @@ public class TweetDAO extends DriverAccessor{
         }finally{
 	        }		
 	}
+	
+	public ArrayList selectTweetByComment(String searchWord,Connection connection){
+		
+		try{
+			String sql ="select * from tweet where comment like '%"+searchWord+"%' ";
+			
+			Statement stmt = connection.createStatement();
+			
+			ResultSet rs=stmt.executeQuery(sql);
+			
+			ArrayList list = new ArrayList();
+
+			while(rs.next())
+		    {
+			Tweet tweet = new Tweet();
+			tweet.setDate( rs.getString("date") );
+			tweet.setCommenter( rs.getString("commenter") );
+			tweet.setComment( rs.getString("comment") );
+			tweet.setAvator_path(rs.getString("avator_path"));
+			list.add(tweet);
+			}
+
+			stmt.close();
+			rs.close();
+
+		    return list;
+		    
+	    }catch(SQLException e){
+
+		   e.printStackTrace();
+
+		return null;
+
+        }finally{
+	        }		
+	}
 
 
 }
