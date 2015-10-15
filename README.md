@@ -5,7 +5,7 @@ AwareTweet
 
 Wikiにて多少情報もまとめている．
 
-ただ，Contributerにとっては`doc/README.md`を見た方が参考になるかもしれない．
+ただ，Contributerにとっては`docs/README.md`を見た方が参考になるかもしれない．
 
 |場所|説明してるもの|
 |:---:|:---|
