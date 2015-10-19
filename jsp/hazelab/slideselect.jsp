@@ -37,9 +37,16 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"></span></a></li>
+	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
-    <form class="navbar-form navbar-left" action="../hazelab/SearchTweetServlet" method="post" role="search">
+    
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
+	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
+	</ul>
+	
+	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
        <input class="form-control" name="search_word" id="search_word" type="search" placeholder="AwareTweet検索">
@@ -49,11 +56,6 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       </div>
      </div>
     </form>
-    <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"></span></a>
-    <li><a href="../hazelab/setting.jsp"><span class="fui-user"></span></a></li>
-	<li><a href="../common/LogOutServlet"><span class="fui-power"></span></a></li>
-	</ul>
 	
     </div>
    </nav>
@@ -64,6 +66,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       	<div id="avatar" class="muted">
   			<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
  		</div>
+ 	　 <br>	
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
