@@ -13,10 +13,10 @@ public class DriverAccessor_Hazelab {
 	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
 
 
-	private final static String USER_NAME="tweet";
+	private final static String USER_NAME="hazelab";
 
 
-	private final static String PASSWORD="tweet";
+	private final static String PASSWORD="mallow";
 
 
 	public Connection createConnection(){
