@@ -5,7 +5,7 @@ AwareTweet
 
 Wikiにて多少情報もまとめている．
 
-ただ，Contributerにとっては`docs/README.md`を見た方が参考になるかもしれない．
+ただ，Contributorにとっては`docs/README.md`を見た方が参考になるかもしれない．
 
 |場所|説明してるもの|
 |:---:|:---|
@@ -20,7 +20,7 @@ UI調整
 ### ver1.0 2016/10/13
 初回リリース
 
-## Contributer
+## Contributor
 Shu Kutsuzawa
 Kentaro Udonishi
 
