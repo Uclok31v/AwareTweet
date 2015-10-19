@@ -11,3 +11,19 @@ Wikiにて多少情報もまとめている．
 |:---:|:---|
 |Wiki|構造，開発者への情報，保守者への情報|
 |docs|システムの保有機能と実装箇所，設計思想や命名規則|
+
+## Release Note
+
+### ver1.1 2016/10/20
+UI調整
+
+### ver1.0 2016/10/13
+初回リリース
+
+## Contributer
+Shu Kutsuzawa
+Kentaro Udonishi
+
+## Next Action
+Macのzip解凍への対応
+フィルタリングの実装
