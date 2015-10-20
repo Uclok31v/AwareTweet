@@ -22,55 +22,53 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import beans.User;
 import utility.HostPathComponent;
-import utility.UnzipComponent;
+import utility.WindowsUnzipComponent;
 
-public class RegistSlideServlet extends HttpServlet{
-	
+public class RegistWindowsSlideServlet extends HttpServlet{
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 		doPost(request, response);
 	}
-	
+
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
-		
+
 		request.setCharacterEncoding("UTF-8");
-		
-		System.out.println("kita");
-		
+
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
-				
+
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
 		String hostPath = createHostPath.createHostPath();
 		File path = new File(hostPath + "AwareTweet/slide/"+userId);
-		
+
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
 		factory.setRepository(path);
 		factory.setSizeThreshold(1024);
-		
+
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		upload.setSizeMax(-1); //-1は無限
 		upload.setHeaderEncoding("utf-8");
-		
+
 		try {
 			List<FileItem> list = upload.parseRequest(request);
 		    Iterator<FileItem> iterator = list.iterator();
 
 		    while(iterator.hasNext()){
 		      FileItem fileItem = (FileItem)iterator.next();
-		      
+
 		      if (!fileItem.isFormField()){
 		          String fileName = fileItem.getName();
 
 		          if ((fileName != null) && (!fileName.equals(""))){
 		            fileItem.write(new File(path + "/" + fileName));
-		            UnzipComponent unzip = new UnzipComponent();
+		            WindowsUnzipComponent unzip = new WindowsUnzipComponent();
 		            unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
-		            
+
 		          }
 		      }
 		    }
@@ -83,6 +81,5 @@ public class RegistSlideServlet extends HttpServlet{
 		session.setAttribute("user",user);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/MoveTopServlet").forward(request, response);
 	}
-		
+
 }
-		

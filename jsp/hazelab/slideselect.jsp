@@ -18,34 +18,34 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
        <title>Slide</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-    
+
     <script type="../../js/dropzone.js"></script>
-   
+
   </head>
-  
+
   <body style="padding-top:70px;">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
 	 <a class="navbar-brand">AwareTweet</a>
 	</div>
-	
+
 	<ul class="nav navbar-nav navbar-left">
 	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
 	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
-    
+
     <ul class="nav navbar-nav navbar-right">
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
-	
+
 	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
@@ -56,17 +56,17 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       </div>
      </div>
     </form>
-	
+
     </div>
    </nav>
-   
+
    <div class="container">
      <div class="col-md-3">
       <div class="well">
       	<div id="avatar" class="muted">
   			<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
  		</div>
- 	　 <br>	
+ 	　 <br>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
@@ -108,7 +108,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <%} %>
           </form>
         </div>
-        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
+        <form action="./RegistWindowsSlideServlet" method="post" enctype="multipart/form-data">
         <label>Regist your Slide</label>
         <input type="file" name="filname" />
          <input type="submit" class="btn btn-success" value="Regist"/>

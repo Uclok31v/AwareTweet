@@ -15,7 +15,7 @@ import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
 
 
 
-public class UnzipComponent {
+public class WindowsUnzipComponent {
 
 	   public static void unzip(String userId,String inputZipFile, String outputFile) {
 	      try {
@@ -31,7 +31,7 @@ public class UnzipComponent {
 	      }
 	   }
 
-	   
+
 
 	private static void deleteDir(String outputFile) {
 		// TODO Auto-generated method stub
@@ -51,7 +51,7 @@ public class UnzipComponent {
 		for (File f : file.listFiles()) {
 			  if (f.isDirectory()) {
 				  recursiveDelete(f);
-			  } 
+			  }
 			  else{
 				  f.delete();
 			  }
@@ -66,7 +66,7 @@ public class UnzipComponent {
 	    * @param zipFile 解凍対象のZip　File
 	    * @param outputFile 出力先ディレクトリ
 	    * @return　出力先ディレクトリ
-	    * @throws FileNotFoundException 
+	    * @throws FileNotFoundException
 	    */
 	   private static File createOutputDirectry(final File zipFile,
 	         final String outputFile) throws FileNotFoundException {
@@ -100,7 +100,7 @@ public class UnzipComponent {
 	               // ZipEntry がディレクトリの場合はディレクトリを作成。
 	               outFile.mkdirs();
 	            } else {
-	        
+
 	               try (InputStream inputStream = zip.getInputStream(zipEntry);
 	                     BufferedInputStream bufferedInputStream = new BufferedInputStream(
 	                           inputStream);) {
