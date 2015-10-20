@@ -13,7 +13,7 @@ Wikiにて多少情報もまとめている．
 |docs|システムの保有機能と実装箇所，設計思想や命名規則|
 
 ## Usage
-`WEB-INF/src/utility/HostPathComponent.java`のパスを適宜変更
+`WEB-INF/src/utility/HostPathComponent.java`の`hostPath`を適宜変更
 
 ```
 package utility;
