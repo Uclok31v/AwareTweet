@@ -12,7 +12,7 @@
 		<servlet-name>LoginServlet</servlet-name>
 		<url-pattern>/jsp/common/LoginServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>LogOutServlet</servlet-name>
 		<servlet-class>servlet.LogOutServlet</servlet-class>
@@ -21,7 +21,7 @@
 		<servlet-name>LogOutServlet</servlet-name>
 		<url-pattern>/jsp/common/LogOutServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>TweetServlet</servlet-name>
 		<servlet-class>servlet.TweetServlet</servlet-class>
@@ -30,8 +30,8 @@
 		<servlet-name>TweetServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/TweetServlet</url-pattern>
 	</servlet-mapping>
-	
-	
+
+
 	<servlet>
 		<servlet-name>UploadServlet</servlet-name>
 		<servlet-class>servlet.UploadServlet</servlet-class>
@@ -40,7 +40,7 @@
 		<servlet-name>UploadServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/UploadServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetSlideServlet</servlet-name>
 		<servlet-class>servlet.GetSlideServlet</servlet-class>
@@ -49,7 +49,7 @@
 		<servlet-name>GetSlideServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/GetSlideServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>ViewSlideServlet</servlet-name>
 		<servlet-class>servlet.ViewSlideServlet</servlet-class>
@@ -58,7 +58,7 @@
 		<servlet-name>ViewSlideServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>GetUserTweetServlet</servlet-name>
 		<servlet-class>servlet.GetUserTweetServlet</servlet-class>
@@ -67,7 +67,7 @@
 		<servlet-name>GetUserTweetServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/GetUserTweetServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
 		<servlet-name>SearchTweetServlet</servlet-name>
 		<servlet-class>servlet.SearchTweetServlet</servlet-class>
@@ -76,8 +76,8 @@
 		<servlet-name>SearchTweetServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/SearchTweetServlet</url-pattern>
 	</servlet-mapping>
-		
-	<servlet>	
+
+	<servlet>
 		<servlet-name>MoveTopServlet</servlet-name>
 		<servlet-class>servlet.MoveTopServlet</servlet-class>
 	</servlet>
@@ -85,14 +85,23 @@
 		<servlet-name>MoveTopServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/MoveTopServlet</url-pattern>
 	</servlet-mapping>
-	
+
 	<servlet>
-		<servlet-name>RegistSlideServlet</servlet-name>
-		<servlet-class>servlet.RegistSlideServlet</servlet-class>
+		<servlet-name>RegistWindowsSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistWindowsSlideServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RegistSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/RegistSlideServlet</url-pattern>
+		<servlet-name>RegistWindowsSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistWindowsSlideServlet</url-pattern>
 	</servlet-mapping>
-	
+
+	<servlet>
+		<servlet-name>RegistMacSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistMacSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistMacSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistMacSlideServlet</url-pattern>
+	</servlet-mapping>
+
 </web-app>
