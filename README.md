@@ -103,7 +103,7 @@ mysql> grant all on lab_members.* to 'hazelab'@'localhost';
 
 ```
 $ mysql -u root -p awaretweet < awaretweet.sql
-$ mysql -u root -p lab_members < lab_members
+$ mysql -u root -p lab_members < lab_members.sql
 ```
 
 
