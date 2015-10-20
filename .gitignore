@@ -7,4 +7,4 @@ WEB-INF/classes/
 dist/
 slide/
 avator/
-WEB-INF/src/utility/
+WEB-INF/src/utility/HostPathComponent.java
