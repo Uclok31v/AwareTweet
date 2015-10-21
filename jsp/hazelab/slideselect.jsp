@@ -109,7 +109,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <%} %>
           </form>
         </div>
-        <form action="./RegistWindowsSlideServlet" method="post" enctype="multipart/form-data">
+        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
         <label><font size="6">Regist new Slide</font></label>
         <input type="file" name="filname" />
         <br>

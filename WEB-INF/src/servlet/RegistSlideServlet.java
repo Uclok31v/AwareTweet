@@ -38,7 +38,6 @@ public class RegistSlideServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
-		String flag = request.getParameter("os"); //win or mac
 
 		//iterator用のintとos判別用のos
 		int i=0;
@@ -69,10 +68,12 @@ public class RegistSlideServlet extends HttpServlet{
 
 		          if ((fileName != null) && (!fileName.equals(""))){
 		            fileItem.write(new File(path + "/" + fileName));
-		            if(flag.equals("win")){
+		            if(os.equals("win")){
+		            	System.out.println(os);
 		            	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
 		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
 		            }else{
+		            	System.out.println(os);
 		            	MacUnzipComponent unzip = new MacUnzipComponent();
 		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
 		            }
@@ -84,7 +85,7 @@ public class RegistSlideServlet extends HttpServlet{
 		        	byte[] bytes= os.getBytes("iso-8859-1");
 		    		os = new String(bytes, "utf-8");
 		        	i++;
-		        }
+		      }
 		    }
 
 		  }catch (FileUploadException e) {
