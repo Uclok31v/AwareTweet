@@ -87,21 +87,13 @@
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>RegistWindowsSlideServlet</servlet-name>
-		<servlet-class>servlet.RegistWindowsSlideServlet</servlet-class>
+		<servlet-name>RegistSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistSlideServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>RegistWindowsSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/RegistWindowsSlideServlet</url-pattern>
+		<servlet-name>RegistWindowsServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistSlideServlet</url-pattern>
 	</servlet-mapping>
 
-	<servlet>
-		<servlet-name>RegistMacSlideServlet</servlet-name>
-		<servlet-class>servlet.RegistMacSlideServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>RegistMacSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/RegistMacSlideServlet</url-pattern>
-	</servlet-mapping>
 
 </web-app>

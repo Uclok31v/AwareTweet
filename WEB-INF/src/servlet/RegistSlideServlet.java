@@ -1,10 +1,13 @@
 package servlet;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,8 +23,9 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 import beans.User;
 import utility.HostPathComponent;
 import utility.MacUnzipComponent;
+import utility.WindowsUnzipComponent;
 
-public class RegistMacSlideServlet extends HttpServlet{
+public class RegistSlideServlet extends HttpServlet{
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
@@ -37,6 +41,7 @@ public class RegistMacSlideServlet extends HttpServlet{
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
+		String flag = request.getParameter("os"); //win or mac
 
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
@@ -63,8 +68,13 @@ public class RegistMacSlideServlet extends HttpServlet{
 
 		          if ((fileName != null) && (!fileName.equals(""))){
 		            fileItem.write(new File(path + "/" + fileName));
-		            MacUnzipComponent unzip = new MacUnzipComponent();
-		            unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+		            if(flag.equals("win")){
+		            	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
+		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+		            }else{
+		            	MacUnzipComponent unzip = new MacUnzipComponent();
+		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+		            }
 
 		          }
 		      }
