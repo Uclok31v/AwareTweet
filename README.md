@@ -125,5 +125,4 @@ Kentaro Udonishi
 Kenta Tanese
 
 ## Next Action
-Macのzip解凍への対応
 フィルタリングの実装
