@@ -1,13 +1,9 @@
 package servlet;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,9 +16,9 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import beans.User;
 import utility.HostPathComponent;
 import utility.WindowsUnzipComponent;
+import beans.User;
 
 public class RegistWindowsSlideServlet extends HttpServlet{
 
@@ -35,11 +31,16 @@ public class RegistWindowsSlideServlet extends HttpServlet{
 		throws ServletException, IOException{
 
 		request.setCharacterEncoding("UTF-8");
-
+		String comment=request.getParameter("os");
+		System.out.println(comment);
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
+
+		//iterator用のintとos判別用のos
+		int i=0;
+		String os=null;
 
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
@@ -68,9 +69,15 @@ public class RegistWindowsSlideServlet extends HttpServlet{
 		            fileItem.write(new File(path + "/" + fileName));
 		            WindowsUnzipComponent unzip = new WindowsUnzipComponent();
 		            unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
-
+		            i++;
 		          }
 		      }
+		      else if(i==1){
+		        	os=fileItem.getString();
+		        	byte[] bytes= os.getBytes("iso-8859-1");
+		    		os = new String(bytes, "utf-8");
+		        	i++;
+		        }
 		    }
 
 		  }catch (FileUploadException e) {
@@ -79,6 +86,7 @@ public class RegistWindowsSlideServlet extends HttpServlet{
 			  e.printStackTrace();
 		  }
 		session.setAttribute("user",user);
+		System.out.println(os);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/MoveTopServlet").forward(request, response);
 	}
 
