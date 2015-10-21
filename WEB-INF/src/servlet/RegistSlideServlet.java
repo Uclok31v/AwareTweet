@@ -42,6 +42,7 @@ public class RegistSlideServlet extends HttpServlet{
 		//iterator用のintとos判別用のos
 		int i=0;
 		String os=null;
+		String fileName=null;
 
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
@@ -64,20 +65,12 @@ public class RegistSlideServlet extends HttpServlet{
 		      FileItem fileItem = (FileItem)iterator.next();
 
 		      if (!fileItem.isFormField()){
-		          String fileName = fileItem.getName();
+		          fileName = fileItem.getName();
 
 		          if ((fileName != null) && (!fileName.equals(""))){
 		            fileItem.write(new File(path + "/" + fileName));
-		            if(os.equals("win")){
-		            	System.out.println(os);
-		            	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
-		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
-		            }else{
-		            	System.out.println(os);
-		            	MacUnzipComponent unzip = new MacUnzipComponent();
-		            	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
-		            }
 
+		            i++;
 		          }
 		      }
 		      else if(i==1){
@@ -93,6 +86,15 @@ public class RegistSlideServlet extends HttpServlet{
 		  }catch (Exception e) {
 			  e.printStackTrace();
 		  }
+		 if(os.equals("win")){
+         	System.out.println(os);
+         	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
+         	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+         }else{
+         	System.out.println(os);
+         	MacUnzipComponent unzip = new MacUnzipComponent();
+         	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+         }
 		session.setAttribute("user",user);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/MoveTopServlet").forward(request, response);
 	}
