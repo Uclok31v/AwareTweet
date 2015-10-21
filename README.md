@@ -109,10 +109,14 @@ $ mysql -u root -p lab_members < lab_members.sql
 
 ## Release Note
 
-### ver1.1 2016/10/20
+### ver1.2 2015/10/21
+UI調整
+MacのPowerPointからのzipの解凍へ対応
+
+### ver1.1 2015/10/20
 UI調整
 
-### ver1.0 2016/10/13
+### ver1.0 2015/10/13
 初回リリース
 
 ## Contributor
