@@ -32,7 +32,7 @@ public class RegistWindowsSlideServlet extends HttpServlet{
 
 		request.setCharacterEncoding("UTF-8");
 		String comment=request.getParameter("os");
-		System.out.println(comment);
+
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
@@ -86,7 +86,6 @@ public class RegistWindowsSlideServlet extends HttpServlet{
 			  e.printStackTrace();
 		  }
 		session.setAttribute("user",user);
-		System.out.println(os);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/MoveTopServlet").forward(request, response);
 	}
 
