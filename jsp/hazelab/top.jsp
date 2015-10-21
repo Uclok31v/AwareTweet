@@ -37,33 +37,33 @@
  	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    	<script type="text/javascript">
    	$(function() {
-   		
+
    		var replyUsers = [];
    		<%for(int i=0; i<userList.size();i++){%>
    		replyUsers[<%=i%>] = "@"+"<%=userList.get(i)%> " ;
    		<%}%>
-   		
+
    		var slides = [];
    		<%for(int i=0; i<slideList.size();i++){%>
    		slides[<%=i%>] = "#"+"<%=slideList.get(i)%> " ;
    		<%}%>
-   		
+
    		var pages = [];
    		<%for(int i=1; i<=60; i++){ %>
    		pages[<%=i-1%>] = "pp." + "<%=i%>";
    		<%}%>
-   		
-   		
+
+
    		var completeWords = replyUsers.concat(slides);
    		completeWords = completeWords.concat(pages);
-   	
+
    		function split( val ) {
    	      return val.split( / \s*/ );
    	    }
    	    function extractLast( term ) {
    	      return split( term ).pop();
    	    }
-   	    
+
    	 $( "#comment" )
      // don't navigate away from the field on tab when selecting an item
      .bind( "keydown", function( event ) {
@@ -96,7 +96,7 @@
        }
      });
 
-   	 
+
      });
      </script>
 </head>
@@ -112,7 +112,7 @@
 	<li class="active"><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
     <li><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
-    
+
     <ul class="nav navbar-nav navbar-right">
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
@@ -139,7 +139,7 @@
       	<div id="avatar" class="muted">
   			<img src="<%=LoginUser.getAvator_path() %>" style="with: 120px; height: 120px;"/>
  		</div>
- 	   <br>	
+ 	   <br>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
@@ -167,7 +167,7 @@
       </div>
       </div>
       <div class="col-sm-offset-10 text-center">
-       <input type="submit" value="ツイート" class="btn btn-info">
+       <button type="submit" class="btn btn-info" ><i class="fui-twitter"></i>ツイート</button>
       </div>
      </form>
       <br>

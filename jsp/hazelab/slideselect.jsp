@@ -86,11 +86,12 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
      </div>
      <div class="span9">
       <div class="box">
-        <div class="box-header">Your Slide</div>
+        <div class="box-header"><font size="6">Your Slide</font></div>
         <form action="./ViewSlideServlet" method="post">
         <%if (slideList.length == 0){ %>
         <br>
         <font size="5" color="#FF00FF">You have no Slide</font>
+        <br>
         <%} %>
         <%if (slideList.length != 0) {%>
         <%for(int i=0; i<slideList.length; i++){ %>
@@ -109,9 +110,11 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           </form>
         </div>
         <form action="./RegistWindowsSlideServlet" method="post" enctype="multipart/form-data">
-        <label>Regist your Slide</label>
+        <label><font size="6">Regist new Slide</font></label>
         <input type="file" name="filname" />
-         <input type="submit" class="btn btn-success" value="Regist"/>
+        <br>
+         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windowsはこちら</button>
+         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Macこちら</button>
         </form>
       </div>
      </div>

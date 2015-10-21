@@ -84,6 +84,7 @@
 	<servlet-mapping>
 		<servlet-name>MoveTopServlet</servlet-name>
 		<url-pattern>/jsp/hazelab/MoveTopServlet</url-pattern>
+<<<<<<< HEAD
 	</servlet-mapping>
 
 	<servlet>
@@ -97,3 +98,26 @@
 
 
 </web-app>
+=======
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegistWindowsSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistWindowsSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistWindowsSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistWindowsSlideServlet</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>RegistMacSlideServlet</servlet-name>
+		<servlet-class>servlet.RegistMacSlideServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegistMacSlideServlet</servlet-name>
+		<url-pattern>/jsp/hazelab/RegistMacSlideServlet</url-pattern>
+	</servlet-mapping>
+
+</web-app>
+>>>>>>> cac31ef3a56a08221ee0d7b778ca89ff125a7a5f
