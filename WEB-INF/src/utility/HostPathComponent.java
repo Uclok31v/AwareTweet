@@ -1,12 +1,11 @@
 package utility;
 
-import java.io.File;
 
 public class HostPathComponent{
 
 	public String createHostPath() {
 		// TODO Auto-generated method stub
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+		String hostPath = "/Users/tanese kenta/git/";
 
 		return hostPath;
 	}
