@@ -36,33 +36,33 @@
  	<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
    	<script type="text/javascript">
    	$(function() {
-   		
+
    		var replyUsers = [];
    		<%for(int i=0; i<userList.size();i++){%>
    		replyUsers[<%=i%>] = "@"+"<%=userList.get(i)%> " ;
    		<%}%>
-   		
+
    		var slides = [];
    		<%for(int i=0; i<slideList.size();i++){%>
    		slides[<%=i%>] = "#"+"<%=slideList.get(i)%> " ;
    		<%}%>
-   		
+
    		var pages = [];
    		<%for(int i=1; i<=60; i++){ %>
    		pages[<%=i-1%>] = "pp." + "<%=i%>";
    		<%}%>
-   		
-   		
+
+
    		var completeWords = replyUsers.concat(slides);
    		completeWords = completeWords.concat(pages);
-   	
+
    		function split( val ) {
    	      return val.split( / \s*/ );
    	    }
    	    function extractLast( term ) {
    	      return split( term ).pop();
    	    }
-   	    
+
    	 $( "#comment" )
      // don't navigate away from the field on tab when selecting an item
      .bind( "keydown", function( event ) {
@@ -95,7 +95,7 @@
        }
      });
 
-   	 
+
      });
      </script>
 </head>
@@ -111,12 +111,12 @@
 	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
 	<li><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
-    
+
     <ul class="nav navbar-nav navbar-right">
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
-	
+
 	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
@@ -155,11 +155,11 @@
       </table>
      </div>
 
-     <div class="col-md-9">   
+     <div class="col-md-9">
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><font color="white"><%=tweet.getCommenter()%></font></a></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <% } %>

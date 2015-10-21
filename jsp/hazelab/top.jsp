@@ -175,7 +175,7 @@
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><font color="white"><%=tweet.getCommenter()%></font></a></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <%} %>
