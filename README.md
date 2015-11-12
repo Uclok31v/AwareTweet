@@ -109,6 +109,10 @@ $ mysql -u root -p lab_members < lab_members.sql
 
 ## Release Note
 
+### ver1.3 2015/11/12
+他人のスライドが見れるようになった．
+`メンバーから他人をクリック，上のバーのスライドおす．`
+
 ### ver1.2 2015/10/21
 UI調整
 MacのPowerPointからのzipの解凍へ対応
@@ -123,6 +127,7 @@ UI調整
 Shu Kutsuzawa
 Kentaro Udonishi
 Kenta Tanese
+Wakana Kurata
 
 ## Next Action
 フィルタリングの実装
