@@ -11,7 +11,7 @@ public class HostPathComponent{
 	}
 
 	public String imgHostPath() {
-		String hostPath = "http:onyx.u-gakugei.ac.jp/";
+		String hostPath = "http://onyx.u-gakugei.ac.jp/";
 
 		return hostPath;
 	}
