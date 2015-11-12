@@ -39,7 +39,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 
 	<ul class="nav navbar-nav navbar-left">
 	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
-	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
+	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"><%=author %>'のスライド</span></a>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -88,11 +88,11 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
      <div class="span9">
       <div class="box">
 
-        <div class="box-header"><font size="6">Your Slide</font></div>
+        <div class="box-header"><font size="6"><%=author%>'s Slides</font></div>
         <form action="./ViewSlideServlet" method="post">
         <%if (slideList.length == 0){ %>
         <br>
-        <font size="5" color="#FF00FF">You have no Slide</font>
+        <font size="5" color="#FF00FF">You have no slide</font>
         <br>
         <%} %>
         <%if (slideList.length != 0) {%>
