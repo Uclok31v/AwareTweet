@@ -14,13 +14,14 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
+<% String author = (String) request.getAttribute("author"); %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
        <title>Slide</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +33,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
     <script type="../../js/dropzone.js"></script>
     <script src="../../js/vendor/bootstrap.min.js"></script>
 
-    
+
     <script type="text/javascript">
         $(document).ready(function(){
             $('.bxslider').bxSlider({
@@ -46,26 +47,26 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
             });
         });
 	</script>
-   
+
   </head>
-  
+
   <body style="padding-top:70px;">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
 	 <a class="navbar-brand">AwareTweet</a>
 	</div>
-	
+
 	<ul class="nav navbar-nav navbar-left">
 	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
 	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
-    
+
     <ul class="nav navbar-nav navbar-right">
     <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
-	
+
 	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
@@ -76,10 +77,10 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </div>
      </div>
     </form>
-	
+
     </div>
    </nav>
-   
+
    <div class="container">
      <div class="col-md-3">
       <div class="well">
@@ -104,7 +105,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       </table>
       </form>
      </div>
-    
+
      <div class="col-md-6">
      <div class="span12">
      <div class="box">
@@ -113,11 +114,11 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	<ul class="bxslider">
 		   	<%HostPathComponent hostPath = new HostPathComponent();%>
 		   	<%String imgHostPath = hostPath.imgHostPath(); %>
-		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
+		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + author +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
-		   	<%if(!(jpegs.getName().startsWith("."))) {%>
+		   	<%if(jpegs.getName().startsWith("s")) {%>
 			<li><img title="スライド<%=i+1%>" alt="" src=<%=jpegdirPath + jpegs.getName() %> width="400" height="300" /></li>
 			<%} %>
 			<%} %>
@@ -127,7 +128,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
      </div>
      </div>
      </div>
-     
+
      <div class="col-md-3">
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
@@ -138,10 +139,10 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
        <%} %>
       </div>
      </div>
-     
 
-    
-    
-    
+
+
+
+
   </body>
 </html>

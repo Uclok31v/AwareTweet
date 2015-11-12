@@ -11,6 +11,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
+<% String author = (String)request.getAttribute("author"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -87,7 +88,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
      <div class="span9">
       <div class="box">
         <div class="box-header">Your Slide</div>
-        <form action="./ViewSlideServlet" method="post">
+
         <%if (slideList.length == 0){ %>
         <br>
         <font size="5" color="#FF00FF">You have no Slide</font>
@@ -99,20 +100,27 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <div class="row-fluid">
             <div class="span6">
               <fieldset>
-                <p><a href="./ViewSlideServlet?slide_name=<%=slides.getName() %>"><%=slides.getName() %></a><span class="fui-document"></span></p>
+              <form action="./ViewSlideServlet" method="post">
+                <p><input type="hidden" name="author" value="<%=author%>">
+                <input type = "submit" name="slide_name"  value="<%=slides.getName() %>"><span class="fui-document"></span>
+
+                </p>
+                </form>
               </fieldset>
             </div>
           </div>
           <%} %>
           <%} %>
           <%} %>
-          </form>
+
         </div>
+        <%if(author.equals(LoginUser.getUser_id())) {%>
         <form action="./RegistWindowsSlideServlet" method="post" enctype="multipart/form-data">
         <label>Regist your Slide</label>
         <input type="file" name="filname" />
          <input type="submit" class="btn btn-success" value="Regist"/>
         </form>
+        <%} %>
       </div>
      </div>
   	</div>
