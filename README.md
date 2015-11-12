@@ -106,6 +106,26 @@ $ mysql -u root -p awaretweet < awaretweet.sql
 $ mysql -u root -p lab_members < lab_members.sql
 ```
 
+##.gitignore
+
+```
+bin/
+work/
+.classpath
+.project
+.DS_Store
+WEB-INF/classes/
+dist/
+slide/
+avator/
+WEB-INF/src/utility/HostPathComponent.java
+WEB-INF/src/utility/DriverAccessor.java
+WEB-INF/src/utility/DriverAccessor_Hazelab.java
+```
+
+HostPathComponent.javaをgit管理対象から外した．
+たぶんもうみんな`clone`したよね？
+
 
 ## Release Note
 
