@@ -11,6 +11,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
+<% String author = (String)request.getAttribute("author"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -86,6 +87,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
      </div>
      <div class="span9">
       <div class="box">
+
         <div class="box-header"><font size="6">Your Slide</font></div>
         <form action="./ViewSlideServlet" method="post">
         <%if (slideList.length == 0){ %>
@@ -100,22 +102,29 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <div class="row-fluid">
             <div class="span6">
               <fieldset>
-                <p><a href="./ViewSlideServlet?slide_name=<%=slides.getName() %>"><%=slides.getName() %></a><span class="fui-document"></span></p>
+              <form action="./ViewSlideServlet" method="post">
+                <p><input type="hidden" name="author" value="<%=author%>">
+                <input type = "submit" name="slide_name"  value="<%=slides.getName() %>"><span class="fui-document"></span>
+
+                </p>
+                </form>
               </fieldset>
             </div>
           </div>
           <%} %>
           <%} %>
           <%} %>
-          </form>
+
         </div>
-        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
-        <label><font size="6">Regist new Slide</font></label>
+        <%if(author.equals(LoginUser.getUser_id())) {%>
+        <form action="./RegistWindowsSlideServlet" method="post" enctype="multipart/form-data">
+        <label>Regist your Slide</label>
         <input type="file" name="filname" />
         <br>
          <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windowsはこちら</button>
          <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Macこちら</button>
         </form>
+        <%} %>
       </div>
      </div>
   	</div>

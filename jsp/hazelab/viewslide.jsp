@@ -14,6 +14,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
+<% String author = (String) request.getAttribute("author"); %>
 <!DOCTYPE html>
 <html lang="ja">
   <head>
@@ -113,7 +114,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 		   	<ul class="bxslider">
 		   	<%HostPathComponent hostPath = new HostPathComponent();%>
 		   	<%String imgHostPath = hostPath.imgHostPath(); %>
-		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + LoginUser.getUser_id() +"/"
+		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + author +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>

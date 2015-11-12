@@ -13,33 +13,41 @@ import beans.User;
 import controller.GetSlideManager;
 
 public class GetSlideServlet extends HttpServlet{
-	
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
-		throws ServletException, IOException{
+			throws ServletException, IOException{
 		doPost(request, response);
 	}
-	
-	
+
+
 	protected void doPost(HttpServletRequest request,
-            HttpServletResponse response) throws ServletException, IOException {
- 
-			//保持されているユーザー情報を取得する
-			HttpSession session = request.getSession();
-			User user = (User)session.getAttribute("user");
-			String userId = user.getUser_id();
-			
-				
-			//ログインユーザがスライドディレクトリを保持しているかチェック
-			//なければつくってくる
-			GetSlideManager getSlideManager = new GetSlideManager();
-			getSlideManager.checkDirectory(user.getUser_id());
-			
-			//スライドのリストを取得する
-			File[] slideList = getSlideManager.getSlideList(user.getUser_id());
-			
-			request.setAttribute("slide-list",slideList);
-			session.setAttribute("user",user);
-			getServletContext().getRequestDispatcher("/jsp/hazelab/slideselect.jsp").forward(request, response);
-				
+			HttpServletResponse response) throws ServletException, IOException {
+
+		//保持されているユーザー情報を取得する
+		HttpSession session = request.getSession();
+		User user = (User)session.getAttribute("user");
+		String userId = user.getUser_id();
+
+		String commenter = request.getParameter("id");;
+
+		//ログインユーザがスライドディレクトリを保持しているかチェック
+		//なければつくってくる
+		GetSlideManager getSlideManager = new GetSlideManager();
+		getSlideManager.checkDirectory(user.getUser_id());
+
+		if(commenter == null){
+			commenter = user.getUser_id();
+		}
+
+		//スライドのリストを取得する
+		//			File[] slideList = getSlideManager.getSlideList(user.getUser_id());
+
+		File[] slideList = getSlideManager.getSlideList(commenter);
+
+		request.setAttribute("slide-list",slideList);
+		session.setAttribute("user",user);
+		request.setAttribute("author", commenter);
+		getServletContext().getRequestDispatcher("/jsp/hazelab/slideselect.jsp").forward(request, response);
+
 	}
 }
