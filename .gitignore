@@ -7,3 +7,6 @@ WEB-INF/classes/
 dist/
 slide/
 avator/
+WEB-INF/src/utility/HostPathComponent.java
+WEB-INF/src/utility/DriverAccessor.java
+WEB-INF/src/utility/DriverAccessor_Hazelab.java
