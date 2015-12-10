@@ -35,7 +35,7 @@ public class GetUserTweetServlet extends HttpServlet{
 
         request.setAttribute("tweetList",list);
         request.setAttribute("author", commenter);
-		getServletContext().getRequestDispatcher("/jsp/hazelab/viewusertweet.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/jsp/community/viewusertweet.jsp").forward(request, response);
 
 		}
 	}

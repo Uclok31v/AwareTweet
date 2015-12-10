@@ -59,7 +59,7 @@ public class DriverAccessor_Hazelab {
 	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
 
 
-	private final static String USER_NAME="hazelab";
+	private final static String USER_NAME="community";
 
 
 	private final static String PASSWORD="mallow";
@@ -93,9 +93,9 @@ public class DriverAccessor_Hazelab {
 mysql> create database awaretweet;
 mysql> create database lab_members;
 mysql> create user 'tweet'@'localhost' identified by 'tweet';
-mysql> create user 'hazelab'@'localhost' identified by 'mallow';
+mysql> create user 'community'@'localhost' identified by 'mallow';
 mysql> grant all on awaretweet.* to 'tweet'@'localhost';
-mysql> grant all on lab_members.* to 'hazelab'@'localhost';
+mysql> grant all on lab_members.* to 'community'@'localhost';
 ```
 
 #### コマンドラインでの操作

@@ -47,7 +47,7 @@ public class GetSlideServlet extends HttpServlet{
 		request.setAttribute("slide-list",slideList);
 		session.setAttribute("user",user);
 		request.setAttribute("author", commenter);
-		getServletContext().getRequestDispatcher("/jsp/hazelab/slideselect.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/jsp/community/slideselect.jsp").forward(request, response);
 
 	}
 }

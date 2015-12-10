@@ -28,7 +28,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>TweetServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/TweetServlet</url-pattern>
+		<url-pattern>/jsp/community/TweetServlet</url-pattern>
 	</servlet-mapping>
 
 
@@ -38,7 +38,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UploadServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/UploadServlet</url-pattern>
+		<url-pattern>/jsp/community/UploadServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -47,7 +47,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/GetSlideServlet</url-pattern>
+		<url-pattern>/jsp/community/GetSlideServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -56,7 +56,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>ViewSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/ViewSlideServlet</url-pattern>
+		<url-pattern>/jsp/community/ViewSlideServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -65,7 +65,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>GetUserTweetServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/GetUserTweetServlet</url-pattern>
+		<url-pattern>/jsp/community/GetUserTweetServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -74,7 +74,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>SearchTweetServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/SearchTweetServlet</url-pattern>
+		<url-pattern>/jsp/community/SearchTweetServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -83,7 +83,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>MoveTopServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/MoveTopServlet</url-pattern>
+		<url-pattern>/jsp/community/MoveTopServlet</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -92,6 +92,6 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>RegistSlideServlet</servlet-name>
-		<url-pattern>/jsp/hazelab/RegistSlideServlet</url-pattern>
+		<url-pattern>/jsp/community/RegistSlideServlet</url-pattern>
 	</servlet-mapping>
 </web-app>
