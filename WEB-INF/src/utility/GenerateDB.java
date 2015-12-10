@@ -7,46 +7,56 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
+import utility.PasswordEncryption;
 
-public class H2Driver {
+public class GenerateDB {
 
     private String driver = "org.h2.Driver";
     private String protocol = "jdbc:h2:";
 
-    public static void main(String[] args) {
-        new H2Driver().go();
-        System.out.println("SimpleApp finished");
-    }
-
-    void go() {
-        loadDriver();
+    public void generateDB(){
+    	loadDriver();
 
         Properties props = new Properties();
         props.put("user", "sa");
 
         Connection conn = null;
 
-        PreparedStatement psInsert = null;
-        Statement s = null;
+        PreparedStatement pstmt = null;
+        Statement stmt = null;
         ResultSet rs = null;
         try {
             String dbName = "~/awaretweet";
             conn = DriverManager.getConnection(protocol + dbName, props);
             conn.setAutoCommit(false);
 
-            s = conn.createStatement();
-            s.execute("create table location(num int, addr varchar(40))");
+            stmt = conn.createStatement();
 
-            psInsert = conn.prepareStatement("insert into location values (?, ?)");
-            psInsert.setInt(1, 1956);
-            psInsert.setString(2, "Webster St.");
-            psInsert.executeUpdate();
+            stmt.execute("create table  if not exists profile("
+            		+ "id varchar(16) PRIMARY KEY NOT NULL,"
+            		+ "name varchar(64) NOT NULL,"
+            		+ "password text NOT NULL)");
 
-            rs = s.executeQuery("SELECT num, addr FROM location ORDER BY num");
-            while(rs.next()) {
-                System.out.println("num="+rs.getInt("num") + " addr=" + rs.getString("addr"));
-            }
-            s.execute("drop table location");
+            stmt.execute("create table  if not exists ip_history("
+            		+ "ip varchar(40) PRIMARY KEY NOT NULL,"
+            		+ "fail_count int(11) NOT NULL DEFAULT 0)");
+
+            stmt.execute("create table  if not exists tweet("
+            		+ "date timestamp AS CURRENT_TIMESTAMP,"
+            		+ "commenter varchar(64) NOT NULL,"
+            		+ "comment text NOT NULL,"
+            		+ "avator_path varchar(255) DEFAULT NULL)");
+
+
+            pstmt = conn.prepareStatement("insert into profile values (?,?,?)");
+            pstmt.setString(1, "root");
+            pstmt.setString(2, "root");
+            PasswordEncryption passenc = new PasswordEncryption();
+    		String password = passenc.getPassword_encryption("root");
+    		pstmt.setString(3, password);
+
+            pstmt.executeUpdate();
+
             conn.commit();
 
         } catch (SQLException sqle) {
@@ -62,9 +72,9 @@ public class H2Driver {
             }
 
             try {
-                if (psInsert != null) {
-                    psInsert.close();
-                    psInsert = null;
+                if (stmt != null) {
+                    stmt.close();
+                    stmt = null;
                 }
             } catch (SQLException sqle) {
                 printSQLException(sqle);
@@ -81,6 +91,7 @@ public class H2Driver {
             }
         }
     }
+
 
     private void loadDriver() {
         try {
