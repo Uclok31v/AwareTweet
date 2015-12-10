@@ -13,6 +13,7 @@
 
 <% SlideListComponent slideCompornent = new SlideListComponent(); %>
 <% ArrayList<String> slideList = slideCompornent.getSlideList(); %>
+<% String author = (String)request.getAttribute("author"); %>
 
 
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
@@ -114,7 +115,7 @@
 						class="fui-home"> ホーム</span></a></li>
 						<%if(tweetList.size() > 0){ %>
 				<% Tweet tweet1 = (Tweet)tweetList.get(0); %>
-				<li><a href="../hazelab/GetSlideServlet?id=<%=tweet1.getCommenter() %>"><span class="fui-play"> スライド</span>
+				<li><a href="../hazelab/GetSlideServlet?id=<%=tweet1.getCommenter() %>"><span class="fui-play"><%=author %>のスライド</span>
 				</a><%} %>
 			</ul>
 

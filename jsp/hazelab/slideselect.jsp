@@ -39,7 +39,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 
 	<ul class="nav navbar-nav navbar-left">
 	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
-	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"><%=author %>'のスライド</span></a>
+	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"><%=author %>のスライド</span></a>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">

@@ -15,7 +15,7 @@ import beans.User;
 
 public class GetUserTweetServlet extends HttpServlet{
 
-	
+
 
 	public void doGet(HttpServletRequest request,HttpServletResponse response)
 		throws ServletException,IOException{
@@ -27,13 +27,14 @@ public class GetUserTweetServlet extends HttpServlet{
 
 		request.setCharacterEncoding("UTF-8");
 
-		String commenter = request.getParameter("id");; 
+		String commenter = request.getParameter("id");;
 
 		GetUserTweetManager getUserTweetManager = new GetUserTweetManager();
-		
+
 		ArrayList list = getUserTweetManager.selectTweetbyCommenter(commenter);
 
         request.setAttribute("tweetList",list);
+        request.setAttribute("author", commenter);
 		getServletContext().getRequestDispatcher("/jsp/hazelab/viewusertweet.jsp").forward(request, response);
 
 		}
