@@ -44,7 +44,6 @@ public class LoginServlet extends HttpServlet{
 		PasswordEncryption passenc = new PasswordEncryption();
 		password = passenc.getPassword_encryption(password);
 
-		System.out.println(password);
 
 
 		User user = loginManager.selectUserByIdPass(userId, password);
