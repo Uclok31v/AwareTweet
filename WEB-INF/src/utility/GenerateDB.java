@@ -42,7 +42,7 @@ public class GenerateDB {
             		+ "fail_count int(11) NOT NULL DEFAULT 0)");
 
             stmt.execute("create table  if not exists tweet("
-            		+ "date timestamp AS CURRENT_TIMESTAMP,"
+            		+ "date varchar(40) AS CURRENT_TIMESTAMP,"
             		+ "commenter varchar(64) NOT NULL,"
             		+ "comment text NOT NULL,"
             		+ "avator_path varchar(255) DEFAULT NULL)");

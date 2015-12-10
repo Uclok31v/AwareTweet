@@ -94,6 +94,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
         <br>
         <font size="5" color="#FF00FF">You have no slide</font>
         <br>
+        <form action="./ViewSlideServlet" method="post">
         <%} %>
         <%if (slideList.length != 0) {%>
         <%for(int i=0; i<slideList.length; i++){ %>
@@ -102,19 +103,17 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <div class="row-fluid">
             <div class="span6">
               <fieldset>
-              <form action="./ViewSlideServlet" method="post">
                 <p><input type="hidden" name="author" value="<%=author%>">
                 <input type = "submit" name="slide_name"  value="<%=slides.getName() %>"><span class="fui-document"></span>
 
                 </p>
-                </form>
               </fieldset>
             </div>
           </div>
           <%} %>
           <%} %>
           <%} %>
-
+		</form>
         </div>
         <%if(author.equals(LoginUser.getUser_id())) {%>
         <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
