@@ -7,16 +7,16 @@ import java.sql.SQLException;
 
 public class DriverAccessor {
 
-	private final static String DRIVER_URL="jdbc:mysql://localhost:3306/awaretweet?useUnicode=true&characterEncoding=Windows-31J";
+	private final static String DRIVER_URL="jdbc:h2:file:~/awaretweet;MVCC=TRUE;DB_CLOSE_ON_EXIT=TRUE;FILE_LOCK=NO";
 
 
-	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
+	private final static String DRIVER_NAME="org.h2.Driver";
 
 
-	private final static String USER_NAME="tweet";
+	private final static String USER_NAME="sa";
 
 
-	private final static String PASSWORD="tweet";
+	private final static String PASSWORD="";
 
 
 	public Connection createConnection(){

@@ -81,7 +81,7 @@ public class LoginServlet extends HttpServlet{
 
 		        request.setAttribute("tweetList",tweetList);
 
-				getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
+				getServletContext().getRequestDispatcher("/jsp/community/top.jsp").forward(request, response);
 				}
 
 			//ログイン失敗

@@ -96,7 +96,7 @@ public class RegistSlideServlet extends HttpServlet{
          	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
          }
 		session.setAttribute("user",user);
-		getServletContext().getRequestDispatcher("/jsp/hazelab/MoveTopServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/jsp/community/MoveTopServlet").forward(request, response);
 	}
 
 }

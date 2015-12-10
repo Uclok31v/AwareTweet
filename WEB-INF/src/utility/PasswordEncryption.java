@@ -26,10 +26,10 @@ public class PasswordEncryption {
 			}
 	}
 	*/
-	
+
 	private String salt = "hazelabMembers";
 	private int stretchCount = 10;
-	
+
 	public String getPassword_encryption(String data) {
 		String encryptedPassword="";
 		for(int i=0;i<stretchCount;i++){
@@ -37,8 +37,8 @@ public class PasswordEncryption {
 		}
 		return encryptedPassword;
 	}
-	
-	
+
+
 	private String getSha256(String text){
 		MessageDigest md = null;
 		StringBuffer buf = new StringBuffer();
@@ -46,7 +46,7 @@ public class PasswordEncryption {
 			md = MessageDigest.getInstance("SHA-256");
 			md.update(text.getBytes());
 			byte[] digest = md.digest();
-			
+
 			for(int i=0;i<digest.length; i++){
 				buf.append(String.format("%02x", digest[i]));
 			}
