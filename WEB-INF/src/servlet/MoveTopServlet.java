@@ -39,7 +39,7 @@ public class MoveTopServlet extends HttpServlet{
 	        
 	
 
-			getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/jsp/community/top.jsp").forward(request, response);
 	}
 	
 	

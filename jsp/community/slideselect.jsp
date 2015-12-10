@@ -2,12 +2,16 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
-<%@ page import= "utility.UserListComponent" %>
 <%@ page import= "java.io.File" %>
+<%@ page import= "utility.UserListComponent" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
+<%
+File[] slideList =  (File[])request.getAttribute("slide-list");
+%>
 
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
+<% String author = (String)request.getAttribute("author"); %>
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -15,35 +19,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-       <title>Setting</title>
+
+       <title>Slide</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
-    
+
     <script type="../../js/dropzone.js"></script>
-   
+
   </head>
-  
+
   <body style="padding-top:70px;">
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
 	 <a class="navbar-brand">AwareTweet</a>
 	</div>
-	
+
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
-	<li><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
+	<li><a href="../community/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li class="active"><a href="../community/GetSlideServlet"><span class="fui-play"><%=author %>のスライド</span></a>
     </ul>
-    
+
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
+    <li><a href="../community/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
-	
-	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
+
+	<form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
        <input class="form-control" name="search_word" id="search_word" type="search" placeholder="AwareTweet検索">
@@ -53,17 +57,17 @@
       </div>
      </div>
     </form>
-	
+
     </div>
    </nav>
-   
+
    <div class="container">
      <div class="col-md-3">
       <div class="well">
       	<div id="avatar" class="muted">
   			<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
  		</div>
- 	   <br>	
+ 	　 <br>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
@@ -75,59 +79,54 @@
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+        <tr><td><a href="../community/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>
       </form>
      </div>
-    
-    <div class="span9">
-      
-
-
-      
-
+     <div class="span9">
       <div class="box">
-        <div class="box-header">Change Avator</div>
-        <form action="./UploadServlet" method="post" enctype="multipart/form-data">
-        <div class="box-content">
+
+        <div class="box-header"><font size="6"><%=author%>'s Slides</font></div>
+        <form action="./ViewSlideServlet" method="post">
+        <%if (slideList.length == 0){ %>
+        <br>
+        <font size="5" color="#FF00FF">You have no slide</font>
+        <br>
+        <%} %>
+        <%if (slideList.length != 0) {%>
+        <%for(int i=0; i<slideList.length; i++){ %>
+        <%File slides = slideList[i]; %>
+        <%if(!(slides.getName().startsWith("."))){ %>
           <div class="row-fluid">
             <div class="span6">
-              
-              
               <fieldset>
-                <label for="fullName" class="strong">Full Name: <%=LoginUser.getUser_name() %></label>
-             
-              </fieldset>
-            </div>
-            <div class="span6">
-              <fieldset>
-                <label for="avatar" class="strong">Image (optional):</label>
-				<div id="avatar" class="muted">
-					<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
- 				</div>
- 				<input type="file" name="filname" />
-              </fieldset>
-            </div>
-          </div>
-          <div style="margin-top: 20px;">
-            <input type="submit" class="btn btn-success" value="Save"/>
-            <a href="./MoveTopServlet" class="btn">OK</a>
-          </div>
-        </div>
-        </form>
-      </div>
-  </div>
-</div>
-    
-    
-     
-     
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../js/vendor/bootstrap.min.js"></script>
-    
-    
-  </body>
-</html>
+              <form action="./ViewSlideServlet" method="post">
+                <p><input type="hidden" name="author" value="<%=author%>">
+                <input type = "submit" name="slide_name"  value="<%=slides.getName() %>"><span class="fui-document"></span>
 
+                </p>
+                </form>
+              </fieldset>
+            </div>
+          </div>
+          <%} %>
+          <%} %>
+          <%} %>
+
+        </div>
+        <%if(author.equals(LoginUser.getUser_id())) {%>
+        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
+        <label>Regist your Slide</label>
+        <input type="file" name="filname" />
+        <br>
+         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windowsはこちら</button>
+         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Macこちら</button>
+        </form>
+        <%} %>
+      </div>
+     </div>
+  	</div>
+  </body>
+ </html>

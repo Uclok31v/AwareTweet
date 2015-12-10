@@ -51,6 +51,6 @@ public class ViewSlideServlet extends HttpServlet{
 			session.setAttribute("user", user);
 			request.setAttribute("slideName", slideName);
 			request.setAttribute("author", author);
-			getServletContext().getRequestDispatcher("/jsp/hazelab/viewslide.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/jsp/community/viewslide.jsp").forward(request, response);
 	}
 }

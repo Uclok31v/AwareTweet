@@ -73,7 +73,7 @@ public class UploadServlet extends HttpServlet{
 			  e.printStackTrace();
 		  }
 		session.setAttribute("user",user);
-		getServletContext().getRequestDispatcher("/jsp/hazelab/setting.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/jsp/community/setting.jsp").forward(request, response);
 	}
 }
 
