@@ -4,6 +4,7 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -29,28 +30,30 @@ public class TweetServlet extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 
 		String comment=request.getParameter("comment");
-		
+
 
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_id();
-		
+
 		HostPathComponent hostPath = new HostPathComponent();
 		String imgHostPath = hostPath.imgHostPath();
-		
+
 		String avatorPath = imgHostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
 
 		TweetManager tweetManager=new TweetManager();
 
 		tweetManager.insertTweet(commenter,comment,avatorPath);
-		
+
 		LoginManager loginManager = new LoginManager();
-		
+
 		ArrayList list = loginManager.selectTweet();
-		
+
         request.setAttribute("tweetList",list);
         request.setAttribute("user", user);
 
-        getServletContext().getRequestDispatcher("/jsp/hazelab/top.jsp").forward(request, response);
+        response.sendRedirect("./MoveTopServlet");
+
+
 		}
 	}
