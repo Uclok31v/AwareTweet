@@ -58,16 +58,16 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
-	<li class="active"><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
+	<li><a href="../community/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li class="active"><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
+    <li><a href="../community/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
 
-	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
+	<form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
        <input class="form-control" name="search_word" id="search_word" type="search" placeholder="AwareTweet検索">
@@ -99,7 +99,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+        <tr><td><a href="../community/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>
@@ -133,7 +133,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
       <div class="panel panel-primary">
        <% for(int i=0; i<tweetList.size(); i++){ %>
        <% Tweet tweet = (Tweet)tweetList.get(i); %>
-       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a></div>
+       <div class="panel-heading"><img src=<%=tweet.getAvator_path() %> style="with: 30px; height: 30px;"/>  <a href="../community/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a></div>
        <div class="panel-body"><p><%=tweet.getComment()%></p></div>
        <div class="panel-footer"><%=tweet.getDate()%></div>
        <%} %>

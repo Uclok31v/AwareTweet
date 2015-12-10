@@ -34,16 +34,16 @@
 	</div>
 	
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../hazelab/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
-	<li><a href="../hazelab/GetSlideServlet"><span class="fui-play"> スライド</span></a>
+	<li><a href="../community/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
     
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../hazelab/setting.jsp"><span class="fui-user"> 設定</span></a></li>
+    <li class="active"><a href="../community/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
 	
-	<form class="navbar-form navbar-right" action="../hazelab/SearchTweetServlet" method="post" role="search">
+	<form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
      <div class="form-group">
       <div class="input-group">
        <input class="form-control" name="search_word" id="search_word" type="search" placeholder="AwareTweet検索">
@@ -75,7 +75,7 @@
        <tbody>
        <%for(int i=0; i<userList.size(); i++){ %>
        <%String userName = (String)userList.get(i);%>
-        <tr><td><a href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
+        <tr><td><a href="../community/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td></tr>
        </tbody>
        <% } %>
       </table>

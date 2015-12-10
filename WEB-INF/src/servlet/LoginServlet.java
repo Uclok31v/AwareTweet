@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet{
 		String userId = request.getParameter("user_id");
 		String password = request.getParameter("password");
 
+
 		//ipアドレスの取得
 		String ip = request.getRemoteAddr();
 
@@ -43,6 +44,7 @@ public class LoginServlet extends HttpServlet{
 		PasswordEncryption passenc = new PasswordEncryption();
 		password = passenc.getPassword_encryption(password);
 
+		System.out.println(password);
 
 
 		User user = loginManager.selectUserByIdPass(userId, password);

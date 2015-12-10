@@ -111,23 +111,23 @@
 			</div>
 
 			<ul class="nav navbar-nav navbar-left">
-				<li><a href="../hazelab/MoveTopServlet"><span
+				<li><a href="../community/MoveTopServlet"><span
 						class="fui-home"> ホーム</span></a></li>
 						<%if(tweetList.size() > 0){ %>
 				<% Tweet tweet1 = (Tweet)tweetList.get(0); %>
-				<li><a href="../hazelab/GetSlideServlet?id=<%=tweet1.getCommenter() %>"><span class="fui-play"><%=author %>のスライド</span>
+				<li><a href="../community/GetSlideServlet?id=<%=tweet1.getCommenter() %>"><span class="fui-play"><%=author %>のスライド</span>
 				</a><%} %>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="../hazelab/setting.jsp"><span class="fui-user">
+				<li><a href="../community/setting.jsp"><span class="fui-user">
 							設定</span></a></li>
 				<li><a href="../common/LogOutServlet"><span
 						class="fui-power"> ログアウト</span></a></li>
 			</ul>
 
 			<form class="navbar-form navbar-right"
-				action="../hazelab/SearchTweetServlet" method="post" role="search">
+				action="../community/SearchTweetServlet" method="post" role="search">
 				<div class="form-group">
 					<div class="input-group">
 						<input class="form-control" name="search_word" id="search_word"
@@ -167,7 +167,7 @@
 					<%String userName = (String)userList.get(i);%>
 					<tr>
 						<td><a
-							href="../hazelab/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td>
+							href="../community/GetUserTweetServlet?id=<%=userName %>"><%=userName %></a></td>
 					</tr>
 				</tbody>
 				<% } %>
@@ -181,7 +181,7 @@
 				<div class="panel-heading">
 					<img src=<%=tweet.getAvator_path() %>
 						style="with: 30px; height: 30px;" /> <a
-						href="../hazelab/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a>
+						href="../community/GetUserTweetServlet?id=<%=tweet.getCommenter() %>"><%=tweet.getCommenter()%></a>
 				</div>
 				<div class="panel-body">
 					<p><%=tweet.getComment()%></p>
