@@ -5,13 +5,13 @@ public class HostPathComponent{
 
 	public String createHostPath() {
 		// TODO Auto-generated method stub
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+		String hostPath = "/usr/local/tomcat/webapps/labSystem/";
 
 		return hostPath;
 	}
 
 	public String imgHostPath() {
-		String hostPath = "http://localhost:8080/";
+		String hostPath = "http://onyx.u-gakugei.ac.jp/";
 
 		return hostPath;
 	}
