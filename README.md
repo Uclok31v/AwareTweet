@@ -59,7 +59,7 @@ public class DriverAccessor_Hazelab {
 	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
 
 
-	private final static String USER_NAME="hazelab";
+	private final static String USER_NAME="community";
 
 
 	private final static String PASSWORD="mallow";
@@ -93,9 +93,9 @@ public class DriverAccessor_Hazelab {
 mysql> create database awaretweet;
 mysql> create database lab_members;
 mysql> create user 'tweet'@'localhost' identified by 'tweet';
-mysql> create user 'hazelab'@'localhost' identified by 'mallow';
+mysql> create user 'community'@'localhost' identified by 'mallow';
 mysql> grant all on awaretweet.* to 'tweet'@'localhost';
-mysql> grant all on lab_members.* to 'hazelab'@'localhost';
+mysql> grant all on lab_members.* to 'community'@'localhost';
 ```
 
 #### コマンドラインでの操作
@@ -128,6 +128,10 @@ HostPathComponent.javaをgit管理対象から外した．
 
 
 ## Release Note
+
+### ver1.4 2015/12/10
+更新すると同じツイートされる問題の解決
+更新ボタンはつくらず`F5`とかでいいかなって感じ
 
 ### ver1.3 2015/11/12
 他人のスライドが見れるようになった．
