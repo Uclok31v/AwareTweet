@@ -37,97 +37,13 @@ public class HostPathComponent{
 	}
 
 
-}
 ```
-
-### WEB-INF/src/utility/DriverAccessor_Hazelab.java
-`USER_NAME`，`PASSWORD`を適宜変更
-
-```
-package utility;
-
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-public class DriverAccessor_Hazelab {
-
-	private final static String DRIVER_URL="jdbc:mysql://localhost:3306/lab_members?useUnicode=true&characterEncoding=Windows-31J";
-
-
-	private final static String DRIVER_NAME="com.mysql.jdbc.Driver";
-
-
-	private final static String USER_NAME="community";
-
-
-	private final static String PASSWORD="mallow";
-
-
-	public Connection createConnection(){
-	try{
-		Class.forName(DRIVER_NAME);
-		Connection con=DriverManager.getConnection(DRIVER_URL,USER_NAME,PASSWORD);
-		return con;
-		}catch(ClassNotFoundException e){
-			System.out.println("Can't Find JDBC Driver.\n");
-			}catch(SQLException e){
-				 System.out.println("Connection Error.\n");
-				}
-				return null;
-		}
-
-	public void closeConnection(Connection con){
-		try{
-			con.close();
-		}catch(Exception ex){}
-	}
-}
-```
-
-### Mysql(一応)
-#### Mysqlでの操作
-
-```
-mysql> create database awaretweet;
-mysql> create database lab_members;
-mysql> create user 'tweet'@'localhost' identified by 'tweet';
-mysql> create user 'community'@'localhost' identified by 'mallow';
-mysql> grant all on awaretweet.* to 'tweet'@'localhost';
-mysql> grant all on lab_members.* to 'community'@'localhost';
-```
-
-#### コマンドラインでの操作
-`AwareTweet/`配下で
-
-```
-$ mysql -u root -p awaretweet < awaretweet.sql
-$ mysql -u root -p lab_members < lab_members.sql
-```
-
-##.gitignore
-
-```
-bin/
-work/
-.classpath
-.project
-.DS_Store
-WEB-INF/classes/
-dist/
-slide/
-avator/
-WEB-INF/src/utility/HostPathComponent.java
-WEB-INF/src/utility/DriverAccessor.java
-WEB-INF/src/utility/DriverAccessor_Hazelab.java
-```
-
-HostPathComponent.javaをgit管理対象から外した．
-たぶんもうみんな`clone`したよね？
-
 
 ## Release Note
+
+### ver2.0 *Comming Soon*
+H2DBの組み込み
+warファイルで配布可能にする．
 
 ### ver1.4 2015/12/10
 更新すると同じツイートされる問題の解決
