@@ -1,6 +1,14 @@
 AwareTweet
 ===============
 
+## Usage
+
+default id and pass
+
+|id|pass|
+|:---:|:---:|
+|root|root|
+
 ## Release Note
 
 ### ver2.0 *Comming Soon*
