@@ -1,11 +1,9 @@
 bin/
 work/
-.project
 .DS_Store
 WEB-INF/classes/
 .settings/
 .cvsignore
-.tomcatplugin
 
 ## future remove
 WEB-INF/src/utility/HostPathComponent.java
