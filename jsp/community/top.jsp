@@ -105,11 +105,11 @@
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
-	 <a class="navbar-brand">AwareTweet</a>
+	 <li class="active"><a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a></li>
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li class="active"><a href="../community/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li><a href="../community/MoveTopServlet"><span class="fui-plus">ユーザ追加</span></a></li>
     <li><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
 

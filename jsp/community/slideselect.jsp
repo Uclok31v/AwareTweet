@@ -38,7 +38,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../community/MoveTopServlet"><span class="fui-home"> ホーム</span></a></li>
+	<li><a href="../community/MoveTopServlet"><span class="fui-plus">ユーザ追加</span></a></li>
 	<li class="active"><a href="../community/GetSlideServlet"><span class="fui-play"><%=author %>のスライド</span></a>
     </ul>
 
