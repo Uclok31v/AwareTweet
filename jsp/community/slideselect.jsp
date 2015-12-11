@@ -34,11 +34,11 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
-	 <a class="navbar-brand">AwareTweet</a>
+	 <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../community/MoveTopServlet"><span class="fui-plus">ユーザ追加</span></a></li>
+	<li><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
 	<li class="active"><a href="../community/GetSlideServlet"><span class="fui-play"><%=author %>のスライド</span></a>
     </ul>
 

@@ -35,12 +35,12 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../community/MoveTopServlet"><span class="fui-plus">ユーザ追加</span></a></li>
+	<li class="active"><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
 	<li><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
-    <li class="active"><a href="../community/setting.jsp"><span class="fui-user"> 設定</span></a></li>
+    <li><a href="../community/setting.jsp"><span class="fui-user"> 設定</span></a></li>
 	<li><a href="../common/LogOutServlet"><span class="fui-power"> ログアウト</span></a></li>
 	</ul>
 
