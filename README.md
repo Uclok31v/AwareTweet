@@ -34,11 +34,6 @@ UI調整
 初回リリース
 
 ## Contributor
-Shu Kutsuzawa
-Kentaro Udonishi
-Kenta Tanese
-Wakana Kurata
-
-## Next Action
-フィルタリングの実装
+#####*Shu Kutsuzawa*
+#####*Kenta Tanese*
 
