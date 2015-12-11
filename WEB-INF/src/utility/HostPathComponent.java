@@ -7,11 +7,12 @@ import java.net.UnknownHostException;
 
 public class HostPathComponent{
 
+	String home = System.getenv("HOME");
 	public String createHomePath() {
 
-		String home=System.getenv("HOME") + "/.awaretweet/";
+		String homeDir = home + "/.awaretweet/";
 
-		return home;
+		return homeDir;
 	}
 
 	public String imgHostPath() throws UnknownHostException {
@@ -19,9 +20,11 @@ public class HostPathComponent{
 		//host名のないサーバへのデプロイを考慮してアドレスにする．
 //		String hostAddress = InetAddress.getLocalHost().getHostAddress();
 //		String hostPath = "http://" + hostAddress + "/";
-		String hostPath = "http://localhost:8080/";
 
-		return hostPath;
+		//TODO どうやって~/.awaretweet/slideみえるんだーー
+		String imgPath = "file:/" + home + "/.awaretweet/";
+
+		return imgPath;
 	}
 
 

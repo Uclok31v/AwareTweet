@@ -77,7 +77,7 @@ public class LoginManager {
 		//hostpath = ~/.awaretweet/
 		File file = new File(homeDir +"avator/"+user_id); //フルパス指定
 		if(file.exists()){
-			String image = homeDir + "avator/" + user_id + "avator.png";
+			String image = homeDir + "avator/" + user_id + "/avator.png";
 			return image;
 		}
 		else{

@@ -113,8 +113,8 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
      	<div class="frameLine">
 		   	<ul class="bxslider">
 		   	<%HostPathComponent hostPath = new HostPathComponent();%>
-		   	<%String imgHostPath = hostPath.imgHostPath(); %>
-		   	<%String jpegdirPath = imgHostPath + "AwareTweet/slide/" + author +"/"
+		   	<%String imgPath = hostPath.imgHostPath(); %>
+		   	<%String jpegdirPath = imgPath + "slide/" + author +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
