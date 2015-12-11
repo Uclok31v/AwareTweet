@@ -16,20 +16,20 @@ import org.apache.commons.io.FileUtils;
 public class LoginManager {
 
 	public LoginManager(){
-		
+
 	}
-	
+
 	public int checkOverlapCount(String ip) {
 		// TODO Auto-generated method stub
 		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
 		int count = ipHistoryDAO.selectIpHistoryCountByIp(ip);
-		
+
 		//ipアドレスの登録がなかった場合
 		if(count ==0){
 			insertIpHistoryIp(ip);
 		}
 		//登録があった場合は何もしない
-		
+
 		//最後に失敗回数を確認し，その値を返す．
 		int failCount = selectIpHistoryFailCountByIp(ip);
 		return failCount;
@@ -51,9 +51,9 @@ public class LoginManager {
 	public User selectUserByIdPass(String userId, String password) {
 		// TODO Auto-generated method stub
 		UserDAO userDAO = new UserDAO();
-		
+
 		User user = userDAO.selectUserByIdPass(userId,password);
-		
+
 		return user;
 	}
 
@@ -80,20 +80,20 @@ public class LoginManager {
 		}
 		else{
 			file.mkdir();
-			
+
 			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
 	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
 	        try {
 	            FileUtils.copyFile(in, out);
 	            return "avator.png";
-	            
+
 	        } catch (IOException e) {
 	            e.printStackTrace();
 	            return null;
 	        }
 		}
 	}
-	
+
 
 	public ArrayList selectTweet() {
 

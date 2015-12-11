@@ -95,6 +95,7 @@ public class LoginServlet extends HttpServlet{
 			else{
 				//失敗してるからincrementする
 				loginManager.incrementIpHistoryFailCountByIp(ip);
+				request.setAttribute("error", "don't match id or pass");
 				getServletContext().getRequestDispatcher("/jsp/common/login.jsp").forward(request, response);
 			}
 

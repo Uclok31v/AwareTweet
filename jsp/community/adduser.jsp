@@ -93,17 +93,17 @@
 
 
               <fieldset>
-                <label for="userId" class="strong">User ID: <input type="text" placeholder="半角英数字" name="user_id"></p></label>
+                <label for="userId" class="strong">User ID: <input type="text" placeholder="半角英数字" name="user_id" required="" autofocus pattern="^[0-9A-Za-z]+$"></p></label>
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
-                <label for="userName" class="strong">User Name: <input type="text" placeholder="フルネーム" name="user_name"></p></label>
+                <label for="userName" class="strong">User Name: <input type="text" placeholder="フルネーム" name="user_name" required></p></label>
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
-                <label for="userPass" class="strong">User Password: <input type="password" placeholder="パスワード" name="password"></p></label>
+                <label for="userPass" class="strong">User Password: <input type="password" placeholder="パスワード" name="password" required></p></label>
               </fieldset>
             </div>
           </div>
