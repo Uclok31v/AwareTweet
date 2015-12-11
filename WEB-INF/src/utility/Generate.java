@@ -1,13 +1,21 @@
 package utility;
 
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+
+import javax.imageio.ImageIO;
 
 import dao.UserDAO;
 
 
-public class GenerateDB extends DriverAccessor{
+public class Generate extends DriverAccessor{
 
 	public void createDB(){
 
@@ -111,4 +119,28 @@ public class GenerateDB extends DriverAccessor{
 
         }
     }
+
+    public void createHomeDir(){
+
+    	String home = System.getenv("HOME");
+    	File homeDir = new File(home + "/.awaretweet");
+    	if(homeDir.exists()){
+    		//nothing to do
+    		System.out.println("あった");
+    	}
+    	else{
+    		if(homeDir.mkdir()) System.out.print("つくった");
+    		else System.out.print("失敗");
+
+    		File avatorDir = new File(home + "/.awaretweet/avator");
+
+    		if(!(avatorDir.exists())){
+    			avatorDir.mkdir();
+    		}
+
+
+    	}
+    }
+
+
 }

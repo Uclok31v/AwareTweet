@@ -17,23 +17,23 @@ import com.ibm.icu.text.Transliterator;
 import dao.TweetDAO;
 
 public class ViewSlideManager {
-	
+
 	//
 	private Connection connection = null;
 	//
 
 	public ViewSlideManager(){
-		
+
 	}
-	
+
 	public File[] getJpegList(String userId, String slideName) {
 		// TODO Auto-generated method stub
 		HostPathComponent createHostPath = new HostPathComponent();
-		String hostPath = createHostPath.createHostPath();
-		
+		String homeDir = createHostPath.createHomePath();
+
 		//探索するパス
-		String basePath = hostPath + "AwareTweet/slide/" + userId +"/"+ slideName + "/";
-		
+		String basePath = homeDir + "slide/" + userId +"/"+ slideName + "/";
+
 		File file = new File(basePath);
 		File[] files = file.listFiles();
 		for(int i=0;i<files.length;i++){
@@ -53,7 +53,7 @@ public class ViewSlideManager {
 					e.printStackTrace();
 				}
 			}
-			
+
 		}
 		File renameFile = new File(basePath);
 		File[] renameFiles = renameFile.listFiles();
@@ -82,7 +82,7 @@ public class ViewSlideManager {
 		dao.closeConnection(this.connection);
 
 		this.connection = null;
-		
+
 		return list;
 	}
 	//

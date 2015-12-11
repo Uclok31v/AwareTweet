@@ -21,43 +21,43 @@ import utility.HostPathComponent;
 import beans.User;
 
 public class UploadServlet extends HttpServlet{
-	
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 		doPost(request, response);
 	}
-	
-	
+
+
 	protected void doPost(HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
- 
 
-		
+
+
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
 		User user = (User)session.getAttribute("user");
 		String userId = user.getUser_id();
-		
+
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
-		String hostPath = createHostPath.createHostPath();
-		File path = new File(hostPath + "AwareTweet/avator/"+userId);
-		
+		String homeDir = createHostPath.createHomePath();
+		File path = new File(homeDir + "avator/"+userId);
+
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
 		factory.setRepository(path);
 		factory.setSizeThreshold(1024);
-		
+
 		ServletFileUpload upload = new ServletFileUpload(factory);
 		upload.setSizeMax(-1); //-1は無限
 		upload.setHeaderEncoding("utf-8");
-		
+
 		try {
 			List<FileItem> list = upload.parseRequest(request);
 		    Iterator<FileItem> iterator = list.iterator();
 
 		    while(iterator.hasNext()){
 		      FileItem fileItem = (FileItem)iterator.next();
-		      
+
 		      if (!fileItem.isFormField()){
 		          String fileName = fileItem.getName();
 

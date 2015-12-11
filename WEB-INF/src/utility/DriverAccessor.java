@@ -7,7 +7,7 @@ import java.sql.SQLException;
 
 public class DriverAccessor {
 
-	private final static String DRIVER_URL="jdbc:h2:file:~/awaretweet";
+	private final static String DRIVER_URL="jdbc:h2:file:~/.awaretweet/data";
 
 
 	private final static String DRIVER_NAME="org.h2.Driver";
