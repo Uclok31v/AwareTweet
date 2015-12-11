@@ -2,16 +2,13 @@
 <%@ page import= "beans.User" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
-<%@ page import= "java.io.File" %>
 <%@ page import= "utility.UserListComponent" %>
+<%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
-<%
-File[] slideList =  (File[])request.getAttribute("slide-list");
-%>
 
 <% UserListComponent listCompornent = new UserListComponent(); %>
 <% ArrayList<String> userList = listCompornent.getUserList(); %>
-<% String author = (String)request.getAttribute("author"); %>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -20,7 +17,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-       <title>Slide</title>
+       <title>Setting</title>
 
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
@@ -34,12 +31,12 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
-	 <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
+	 <a class="navbar-brand">AwareTweet</a>
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
-	<li class="active"><a href="../community/GetSlideServlet"><span class="fui-play"><%=author %>のスライド</span></a>
+	<li class="active"><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
+	<li><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
 
     <ul class="nav navbar-nav navbar-right">
@@ -67,7 +64,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       	<div id="avatar" class="muted">
   			<img src=<%=LoginUser.getAvator_path()%> style="with: 120px; height: 120px;"/>
  		</div>
- 	　 <br>
+ 	   <br>
        <p><%=LoginUser.getUser_name()%></p>
       </div>
      <br>
@@ -85,47 +82,47 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
       </table>
       </form>
      </div>
-     <div class="span9">
-      <div class="box">
 
-        <div class="box-header"><font size="6"><%=author%>'s Slides</font></div>
-        <form action="./ViewSlideServlet" method="post">
-        <%if (slideList.length == 0){ %>
-        <br>
-        <font size="5" color="#FF00FF">You have no slide</font>
-        <br>
-        <form action="./ViewSlideServlet" method="post">
-        <%} %>
-        <%if (slideList.length != 0) {%>
-        <%for(int i=0; i<slideList.length; i++){ %>
-        <%File slides = slideList[i]; %>
-        <%if(!(slides.getName().startsWith("."))){ %>
+    <div class="span9">
+    <div class="box">
+        <div class="box-header">Add User</div>
+        <form action="./AddUserServlet" method="post">
+        <div class="box-content">
           <div class="row-fluid">
             <div class="span6">
-              <fieldset>
-                <p><input type="hidden" name="author" value="<%=author%>">
-                <input type = "submit" name="slide_name"  value="<%=slides.getName() %>"><span class="fui-document"></span>
 
-                </p>
+
+              <fieldset>
+                <label for="userId" class="strong">User ID: <input type="text" placeholder="半角英数字" name="user_id"></p></label>
+              </fieldset>
+            </div>
+            <div class="span6">
+              <fieldset>
+                <label for="userName" class="strong">User Name: <input type="text" placeholder="フルネーム" name="user_name"></p></label>
+              </fieldset>
+            </div>
+            <div class="span6">
+              <fieldset>
+                <label for="userPass" class="strong">User Password: <input type="password" placeholder="パスワード" name="password"></p></label>
               </fieldset>
             </div>
           </div>
-          <%} %>
-          <%} %>
-          <%} %>
-		</form>
+          <div style="margin-top: 20px;">
+            <input type="submit" class="btn btn-success" value="Add"/>
+            <a href="./MoveTopServlet" class="btn">Cancel</a>
+          </div>
         </div>
-        <%if(author.equals(LoginUser.getUser_id())) {%>
-        <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
-        <label>Regist your Slide</label>
-        <input type="file" name="filname" />
-        <br>
-         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windowsはこちら</button>
-         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Macこちら</button>
         </form>
-        <%} %>
       </div>
-     </div>
-  	</div>
+  </div>
+</div>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../../js/vendor/bootstrap.min.js"></script>
+
+
   </body>
- </html>
+</html>

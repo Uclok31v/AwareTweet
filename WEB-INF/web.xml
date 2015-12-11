@@ -94,4 +94,13 @@
 		<servlet-name>RegistSlideServlet</servlet-name>
 		<url-pattern>/jsp/community/RegistSlideServlet</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>AddUserServlet</servlet-name>
+		<servlet-class>servlet.AddUserServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddUserServlet</servlet-name>
+		<url-pattern>/jsp/community/AddUserServlet</url-pattern>
+	</servlet-mapping>
 </web-app>

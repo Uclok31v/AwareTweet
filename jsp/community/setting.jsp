@@ -34,7 +34,7 @@
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
-	<li><a href="../community/MoveTopServlet"><span class="fui-plus">ユーザ追加</span></a></li>
+	<li><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
 	<li><a href="../community/GetSlideServlet"><span class="fui-play"> スライド</span></a>
     </ul>
 

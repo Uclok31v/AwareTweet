@@ -44,4 +44,28 @@ public class UserDAO extends DriverAccessor{
 		}
 	}
 
+	public void insertUser(String userId, String userName, String password) {
+		Connection con = null;
+		con = createConnection();
+		try{
+			String sql="insert into profile values (?, ?, ?);";
+
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1,userId);
+			stmt.setString(2,userName);
+			stmt.setString(3,password);
+			stmt.executeUpdate();
+
+			stmt.close();
+			con = null;
+
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+
+		}
+
+	}
+
 }
