@@ -7,9 +7,10 @@ public class HostPathComponent{
 
 	public String createHostPath() {
 
-		File file = new File("webapps");
-	    String hostPath = file.getAbsolutePath() + "/";
+//		File file = new File("webapps");
+//	    String hostPath = file.getAbsolutePath() + "/";
 
+		String hostPath = "Users/shu920921/Documents/workspace/";
 		return hostPath;
 	}
 
