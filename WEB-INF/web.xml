@@ -104,6 +104,15 @@
 		<url-pattern>/jsp/community/AddUserServlet</url-pattern>
 	</servlet-mapping>
 
+	<servlet>
+		<servlet-name>SettingServlet</servlet-name>
+		<servlet-class>servlet.SettingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>SettingServlet</servlet-name>
+		<url-pattern>/jsp/community/SettingServlet</url-pattern>
+	</servlet-mapping>
+
 	<!-- <filter>
 		<filter-name>CommonFilter</filter-name>
 		<filter-class>utility.CommonFilter</filter-class>

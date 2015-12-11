@@ -127,5 +127,28 @@ public class UserDAO extends DriverAccessor{
 
 	}
 
+	public void updateUserNamePassById(String userId, String userName,
+			String password) {
+		Connection con = null;
+		con = createConnection();
+		try{
+			String sql = "update user set name = ?, password = ? where id = ?; ";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, userName);
+			stmt.setString(2, password);
+			stmt.setString(3, userId);
+			stmt.executeUpdate();
+
+			stmt.close();
+			con = null;
+		}catch(SQLException e){
+			e.printStackTrace();
+		}finally{
+
+		}
+
+	}
+
 
 }
