@@ -2,7 +2,6 @@ package servlet;
 
 
 import java.io.IOException;
-import java.net.InetAddress;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -13,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import utility.HostPathComponent;
 import utility.PasswordEncryption;
+import utility.GenerateDB;
 import beans.User;
 import controller.LoginManager;
 
@@ -26,10 +26,15 @@ public class LoginServlet extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 
+		//まずはじめにdb確認
+		GenerateDB genDB = new GenerateDB();
+		genDB.generateDB();
+
 		request.setCharacterEncoding("UTF-8");
 
 		String userId = request.getParameter("user_id");
 		String password = request.getParameter("password");
+
 
 		//ipアドレスの取得
 		String ip = request.getRemoteAddr();
