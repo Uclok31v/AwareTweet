@@ -1,11 +1,14 @@
 package utility;
 
+import java.io.File;
+
 
 public class HostPathComponent{
 
 	public String createHostPath() {
-		// TODO Auto-generated method stub
-		String hostPath = "/Users/shu920921/Documents/workspace/";
+
+		File file = new File("webapps");
+	    String hostPath = file.getAbsolutePath() + "/";
 
 		return hostPath;
 	}
