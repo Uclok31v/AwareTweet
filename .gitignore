@@ -4,5 +4,4 @@ work/
 .project
 .DS_Store
 WEB-INF/classes/
-dist/
 WEB-INF/src/utility/HostPathComponent.java
