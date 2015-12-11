@@ -17,7 +17,7 @@ public class UserDAO extends DriverAccessor{
 		Connection con = null;
 		con = createConnection();
 		try{
-			String sql="insert into profile values (?,?,?);";
+			String sql="insert into user values (?,?,?);";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -45,7 +45,7 @@ public class UserDAO extends DriverAccessor{
 		con = createConnection();
 		try{
 
-			String sql="select * from profile where id = (?) and password = (?) ";
+			String sql="select * from user where id = (?) and password = (?) ";
 
 			//PreparedStatementの利用
 			PreparedStatement stmt = con.prepareStatement(sql);
@@ -77,7 +77,7 @@ public class UserDAO extends DriverAccessor{
 		Connection con = null;
 		con = createConnection();
 		try{
-			String sql="insert into profile values (?, ?, ?);";
+			String sql="insert into user values (?, ?, ?);";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 
@@ -103,7 +103,7 @@ public class UserDAO extends DriverAccessor{
 		con = createConnection();
 
 		try{
-			String sql = "select count(1) from profile where id = ?;";
+			String sql = "select count(1) from user where id = ?;";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
 			stmt.setString(1, root);

@@ -11,7 +11,7 @@ public class GenerateDB extends DriverAccessor{
 
 	public void createDB(){
 
-		createProfile();
+		createUser();
 		createIp_history();
 		createTweet();
 
@@ -27,14 +27,14 @@ public class GenerateDB extends DriverAccessor{
 
 	}
 
-    private void createProfile(){
+    private void createUser(){
 
 
         Connection con = null;
         con = createConnection();
 
         try {
-            String sql = "create table if not exists profile("
+            String sql = "create table if not exists user("
             		+ "id varchar(16) PRIMARY KEY NOT NULL,"
             		+ "name varchar(64) NOT NULL,"
             		+ "password text NOT NULL)";
