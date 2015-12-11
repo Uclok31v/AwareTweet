@@ -46,8 +46,8 @@ public class RegistSlideServlet extends HttpServlet{
 
 		//hostによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
-		String hostPath = createHostPath.createHostPath();
-		File path = new File(hostPath + "AwareTweet/slide/"+userId);
+		String homeDir = createHostPath.createHomePath();
+		File path = new File(homeDir + "slide/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
 		factory.setRepository(path);
@@ -89,11 +89,11 @@ public class RegistSlideServlet extends HttpServlet{
 		 if(os.equals("win")){
          	System.out.println(os);
          	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
-         	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+         	unzip.unzip(userId, path + "/" + fileName, homeDir + "slide/"+userId);
          }else{
          	System.out.println(os);
          	MacUnzipComponent unzip = new MacUnzipComponent();
-         	unzip.unzip(userId, path + "/" + fileName, hostPath + "AwareTweet/slide/"+userId);
+         	unzip.unzip(userId, path + "/" + fileName, homeDir + "slide/"+userId);
          }
 		session.setAttribute("user",user);
 		getServletContext().getRequestDispatcher("/jsp/community/MoveTopServlet").forward(request, response);

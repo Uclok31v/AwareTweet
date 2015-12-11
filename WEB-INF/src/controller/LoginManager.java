@@ -73,25 +73,18 @@ public class LoginManager {
 		// TODO Auto-generated method stub
 		// hostPathはホストによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
-		String hostPath = createHostPath.createHostPath();
-		File file = new File(hostPath +"AwareTweet/avator/"+user_id); //フルパス指定
+		String homeDir = createHostPath.createHomePath();
+		//hostpath = ~/.awaretweet/
+		File file = new File(homeDir +"avator/"+user_id); //フルパス指定
 		if(file.exists()){
-			return "avator.png";
+			String image = homeDir + "avator/" + user_id + "avator.png";
+			return image;
 		}
 		else{
+			String url = "http://identicon.relucks.org/" + user_id;
 			file.mkdir();
-
-			File in = new File(hostPath + "AwareTweet/avator/default/default.png");
-	        File out = new File(hostPath + "AwareTweet/avator/"+ user_id +"/avator.png");
-	        try {
-	            FileUtils.copyFile(in, out);
-	            return "avator.png";
-
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	            return null;
-	        }
-		}
+			return url;
+	    }
 	}
 
 

@@ -4,21 +4,21 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class SlideListComponent{
-	
+
 	public ArrayList<String> getSlideList(){
 		//ユーザリストの参照
 		UserListComponent listCompornent = new UserListComponent();
 		ArrayList<String> userList = listCompornent.getUserList();
-		
-		//ホストによって異なるパス		
+
+		//ホストによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
-		String hostPath = createHostPath.createHostPath();
-		
+		String homeDir = createHostPath.createHomePath();
+
 		//スライド名を格納する
 		ArrayList<String> slideNameList = new ArrayList<String>();
-		
+
 		for(int i=0; i<userList.size();i++){
-			File slideList = new File(hostPath +"AwareTweet/slide/"+ userList.get(i));
+			File slideList = new File(homeDir +"slide/"+ userList.get(i));
 			if(slideList.exists()){
 					File[] slides = slideList.listFiles();
 					for(int j=0; j<slides.length; j++){

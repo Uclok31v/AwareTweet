@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import utility.HostPathComponent;
 import utility.PasswordEncryption;
-import utility.GenerateDB;
+import utility.Generate;
 import beans.User;
 import controller.LoginManager;
 
@@ -27,8 +27,11 @@ public class LoginServlet extends HttpServlet{
 		throws ServletException, IOException{
 
 		//まずはじめにdb確認
-		GenerateDB genDB = new GenerateDB();
-		genDB.createDB();
+		Generate gen = new Generate();
+		gen.createDB();
+
+		//HOMEの確認
+		gen.createHomeDir();
 
 
 
@@ -70,13 +73,7 @@ public class LoginServlet extends HttpServlet{
 				HttpSession session = request.getSession();
 
 				//avatorディレクトリの作成
-				String avatorName = loginManager.createAvator(user.getUser_id());
-
-				HostPathComponent hostPath = new HostPathComponent();
-				String imgHostPath = hostPath.imgHostPath();
-
-				//avatorのパス
-				String avatorPath = imgHostPath + "AwareTweet/avator/" + user.getUser_id() + "/"+ avatorName;
+				String avatorPath = loginManager.createAvator(user.getUser_id());
 
 				//userオブジェクトにアバターのパスを追加
 			    user.setAvator_path(avatorPath);
