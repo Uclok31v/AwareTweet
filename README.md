@@ -33,7 +33,4 @@ Wakana Kurata
 
 ## Next Action
 フィルタリングの実装
-=======
-# AwareTweet
-AwareTweet powered by Java.
->>>>>>> 0af5b8e16fb42245dee11369d7e6ff82b5071eb7
+
