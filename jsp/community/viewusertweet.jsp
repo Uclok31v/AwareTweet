@@ -113,10 +113,8 @@
 			<ul class="nav navbar-nav navbar-left">
 				<li><a href="../community/MoveTopServlet"><span
 						class="fui-home"> ホーム</span></a></li>
-						<%if(tweetList.size() > 0){ %>
-				<% Tweet tweet1 = (Tweet)tweetList.get(0); %>
-				<li><a href="../community/GetSlideServlet?id=<%=tweet1.getCommenter() %>"><span class="fui-play"><%=author %>のスライド</span>
-				</a><%} %>
+				<li><a href="../community/GetSlideServlet?id=<%=author %>"><span class="fui-play"><%=author %>のスライド</span>
+				</a>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
