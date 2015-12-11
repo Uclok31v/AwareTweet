@@ -31,7 +31,7 @@
    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
 	<div class="navbar-header">
-	 <a class="navbar-brand">AwareTweet</a>
+	 <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
 	</div>
 
 	<ul class="nav navbar-nav navbar-left">
