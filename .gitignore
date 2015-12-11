@@ -1,8 +1,3 @@
-bin/
-work/
-.DS_Store
-WEB-INF/classes/
-.cvsignore
 
 ## future remove
 WEB-INF/src/utility/HostPathComponent.java
