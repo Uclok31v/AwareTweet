@@ -103,4 +103,18 @@
 		<servlet-name>AddUserServlet</servlet-name>
 		<url-pattern>/jsp/community/AddUserServlet</url-pattern>
 	</servlet-mapping>
+
+	<!-- <filter>
+		<filter-name>CommonFilter</filter-name>
+		<filter-class>utility.CommonFilter</filter-class>
+		<init-param>
+			<param-name>loginPage</param-name>
+			<param-value>/jsp/common/login.jsp</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CommonFilter</filter-name>
+		<url-pattern>/jsp/community/*</url-pattern>
+	</filter-mapping> -->
+
 </web-app>
