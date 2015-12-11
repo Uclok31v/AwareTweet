@@ -1,6 +1,5 @@
 bin/
 work/
-.classpath
 .project
 .DS_Store
 WEB-INF/classes/
