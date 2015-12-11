@@ -21,7 +21,7 @@
 	                <p class="form-title">Aware Tweet</p>
 	                <center><font color="red">${error}</font></center>
 	                <form class="login" method="post" action="./LoginServlet">
-	                <input type="text" placeholder="UserID" name="user_id" required="" autofocus="" />
+	                <input type="text" placeholder="UserID" name="user_id" required autofocus pattern="^[0-9A-Za-z]+$" />
 	                <input type="password" placeholder="Password" name="password" required=""/>
 	                <input type="submit" value="Log In" class="btn btn-success btn-sm" />
 	                </form>
