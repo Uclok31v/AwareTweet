@@ -37,6 +37,3 @@ UI調整
 #####*Shu Kutsuzawa*
 #####*Kenta Tanese*
 
-## Next Action
-フィルタリングの実装
-
