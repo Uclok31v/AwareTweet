@@ -15,12 +15,20 @@ public class GenerateDB extends DriverAccessor{
 		createIp_history();
 		createTweet();
 
+		String userId = "root";
+        String userName = "root";
+        String password = "root";
+
+        PasswordEncryption passenc = new PasswordEncryption();
+		password = passenc.getPassword_encryption(password);
+
+
 		UserDAO userDAO = new UserDAO();
 		//rootユーザがいるかチェック(有:1,無:0)
-		int flag = userDAO.selectCountByRoot("root");
+		int flag = userDAO.selectUserCountById(userId);
 
 		if(flag == 0){
-			userDAO.insertUserRoot();
+			userDAO.insertUser(userId, userName, password);
 		}else{
 			//何もしない(将来的に何か処理があるかもしれないから一応書いておく)
 		}
