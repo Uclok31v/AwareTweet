@@ -163,7 +163,7 @@
       <div class="ui-widget">
       <div class="form-group">
        <label for="comment"></label>
-       <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?"></textarea>
+       <textarea name="comment" id="comment" cols="50" rows="3" class="form-control" placeholder="いまどうしてる?" required=""></textarea>
       </div>
       </div>
       <div class="col-sm-offset-10 text-center">
