@@ -4,4 +4,6 @@ work/
 .project
 .DS_Store
 WEB-INF/classes/
+
+## future remove
 WEB-INF/src/utility/HostPathComponent.java

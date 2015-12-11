@@ -12,33 +12,6 @@ import beans.User;
 public class UserDAO extends DriverAccessor{
 
 
-	public void insertUserRoot(){
-
-		Connection con = null;
-		con = createConnection();
-		try{
-			String sql="insert into user values (?,?,?);";
-
-			PreparedStatement stmt = con.prepareStatement(sql);
-
-			stmt.setString(1,"root");
-			stmt.setString(2, "root");
-			PasswordEncryption passenc = new PasswordEncryption();
-    		String password = passenc.getPassword_encryption("root");
-    		stmt.setString(3, password);
-
-			stmt.executeUpdate();
-
-			stmt.close();
-			con = null;
-
-		}catch(SQLException e){
-
-		}finally{
-
-		}
-	}
-
 	public User selectUserByIdPass(String userId, String password) {
 		// TODO Auto-generated method stub
 		Connection con = null;
@@ -97,7 +70,7 @@ public class UserDAO extends DriverAccessor{
 
 	}
 
-	public int selectCountByRoot(String root) {
+	public int selectUserCountById(String userId) {
 
 		Connection con = null;
 		con = createConnection();
@@ -106,7 +79,7 @@ public class UserDAO extends DriverAccessor{
 			String sql = "select count(1) from user where id = ?;";
 
 			PreparedStatement stmt = con.prepareStatement(sql);
-			stmt.setString(1, root);
+			stmt.setString(1, userId);
 
 			ResultSet rs=stmt.executeQuery();
 			rs.first();
@@ -121,6 +94,29 @@ public class UserDAO extends DriverAccessor{
 			e.printStackTrace();
 			//0だとcount(1)とかぶる
 			return 2;
+		}finally{
+
+		}
+
+	}
+
+	public void updateUserNamePassById(String userId, String userName,
+			String password) {
+		Connection con = null;
+		con = createConnection();
+		try{
+			String sql = "update user set name = ?, password = ? where id = ?; ";
+			PreparedStatement stmt = con.prepareStatement(sql);
+
+			stmt.setString(1, userName);
+			stmt.setString(2, password);
+			stmt.setString(3, userId);
+			stmt.executeUpdate();
+
+			stmt.close();
+			con = null;
+		}catch(SQLException e){
+			e.printStackTrace();
 		}finally{
 
 		}
