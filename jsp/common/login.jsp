@@ -18,8 +18,8 @@
 	    <div class="row">
 	        <div class="col-md-12">
 	            <div class="wrap">
-	                <p class="form-title">
-	                    Aware Tweet</p>
+	                <p class="form-title">Aware Tweet</p>
+	                <center><font color="red">${error}</font></center>
 	                <form class="login" method="post" action="./LoginServlet">
 	                <input type="text" placeholder="UserID" name="user_id" />
 	                <input type="password" placeholder="Password" name="password" />
