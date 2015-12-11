@@ -28,7 +28,9 @@ public class LoginServlet extends HttpServlet{
 
 		//まずはじめにdb確認
 		GenerateDB genDB = new GenerateDB();
-		genDB.generateDB();
+		genDB.createDB();
+
+
 
 		request.setCharacterEncoding("UTF-8");
 
