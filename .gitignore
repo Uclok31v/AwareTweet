@@ -2,7 +2,6 @@ bin/
 work/
 .DS_Store
 WEB-INF/classes/
-.settings/
 .cvsignore
 
 ## future remove
