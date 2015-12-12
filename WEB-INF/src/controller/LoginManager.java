@@ -6,12 +6,15 @@ import dao.UserDAO;
 import beans.User;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 
 import utility.HostPathComponent;
-
-import org.apache.commons.io.FileUtils;
 
 public class LoginManager {
 
@@ -69,7 +72,7 @@ public class LoginManager {
 		ipHistoryDAO.incrementIpHistoryFailCountByIp(ip);
 	}
 
-	public String createAvator(String user_id) {
+	public String createAvator(String user_id) throws IOException {
 		// TODO Auto-generated method stub
 		// hostPathはホストによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
@@ -81,9 +84,24 @@ public class LoginManager {
 			return image;
 		}
 		else{
-			String url = "http://identicon.relucks.org/" + user_id;
 			file.mkdir();
-			return url;
+			URL url = new URL("http://identicon.relucks.org/" + user_id + "?size=126");
+			URLConnection conn = url.openConnection();
+			InputStream in = conn.getInputStream();
+
+			File avatorPath = new File(homeDir + "avator/" + user_id + "/avator.png");
+			avatorPath.createNewFile();
+			FileOutputStream out = new FileOutputStream(avatorPath, false);
+			int b;
+			while((b = in.read()) != -1){
+			    out.write(b);
+			}
+
+			out.close();
+			in.close();
+
+			String image = homeDir + "avator/" + user_id + "/avator.png";
+			return image;
 	    }
 	}
 
