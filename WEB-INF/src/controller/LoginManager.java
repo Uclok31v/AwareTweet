@@ -77,6 +77,7 @@ public class LoginManager {
 		// hostPathはホストによって異なるパス
 		HostPathComponent createHostPath = new HostPathComponent();
 		String homeDir = createHostPath.createHomePath();
+		String imgPath = createHostPath.imgHostPath();
 		//hostpath = ~/.awaretweet/
 		File file = new File(homeDir +"avator/"+user_id); //フルパス指定
 		if(file.exists()){

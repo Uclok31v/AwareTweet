@@ -11,6 +11,8 @@ public class HostPathComponent{
 	public String createHomePath() {
 
 		String homeDir = home + "/.awaretweet/";
+		 String path = System.getProperty("user.dir");
+	      System.out.println(path);
 
 		return homeDir;
 	}
@@ -22,7 +24,7 @@ public class HostPathComponent{
 //		String hostPath = "http://" + hostAddress + "/";
 
 		//TODO どうやって~/.awaretweet/slideみえるんだーー
-		String imgPath = "file:/" + home + "/.awaretweet/";
+		String imgPath = "http://localhost:8080/.awaretweet/";
 
 		return imgPath;
 	}
