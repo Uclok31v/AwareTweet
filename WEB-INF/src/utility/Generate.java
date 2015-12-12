@@ -133,9 +133,12 @@ public class Generate extends DriverAccessor{
     		else System.out.print("失敗");
 
     		File avatorDir = new File(home + "/.awaretweet/avator");
-
+    		File slideDir = new File(home + "/.awaretweet/slide");
     		if(!(avatorDir.exists())){
     			avatorDir.mkdir();
+    		}
+    		if(!(slideDir.exists())){
+    			slideDir.mkdir();
     		}
 
 

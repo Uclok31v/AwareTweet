@@ -22,6 +22,7 @@ public class UserListComponent{
 		// TODO Auto-generated method stub
 		ArrayList<String> userNameList = new ArrayList<String>();
 
+		if(!(users.length == 0)){
 		for(int i=0; i< users.length; i++){
 			if(!(users[i].getName().startsWith("."))){
 				if(!(users[i].getName().equals("default"))) {
@@ -30,6 +31,7 @@ public class UserListComponent{
 			}
 		}
 		return userNameList;
+		}else return null;
 	}
 
 

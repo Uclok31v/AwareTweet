@@ -26,13 +26,12 @@ public class LoginServlet extends HttpServlet{
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException, IOException{
 
-		//まずはじめにdb確認
-		Generate gen = new Generate();
-		gen.createDB();
-
 		//HOMEの確認
+		Generate gen = new Generate();
 		gen.createHomeDir();
 
+		//db確認
+		gen.createDB();
 
 
 		request.setCharacterEncoding("UTF-8");
