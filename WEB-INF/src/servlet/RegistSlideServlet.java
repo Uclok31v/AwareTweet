@@ -16,8 +16,8 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import utility.HostPathComponent;
 import utility.MacUnzipComponent;
+import utility.PropertiesComponent;
 import utility.WindowsUnzipComponent;
 import beans.User;
 
@@ -44,10 +44,8 @@ public class RegistSlideServlet extends HttpServlet{
 		String os=null;
 		String fileName=null;
 
-		//hostによって異なるパス
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
-		File path = new File(homeDir + "slide/"+userId);
+		String appRootPath =  new PropertiesComponent().appRootPath();
+		File path = new File(appRootPath + "slide/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
 		factory.setRepository(path);
@@ -89,11 +87,11 @@ public class RegistSlideServlet extends HttpServlet{
 		 if(os.equals("win")){
          	System.out.println(os);
          	WindowsUnzipComponent unzip = new WindowsUnzipComponent();
-         	unzip.unzip(userId, path + "/" + fileName, homeDir + "slide/"+userId);
+         	unzip.unzip(userId, path + "/" + fileName, appRootPath + "slide/"+userId);
          }else{
          	System.out.println(os);
          	MacUnzipComponent unzip = new MacUnzipComponent();
-         	unzip.unzip(userId, path + "/" + fileName, homeDir + "slide/"+userId);
+         	unzip.unzip(userId, path + "/" + fileName, appRootPath + "slide/"+userId);
          }
 		session.setAttribute("user",user);
 		getServletContext().getRequestDispatcher("/jsp/community/MoveTopServlet").forward(request, response);

@@ -2,7 +2,7 @@ package controller;
 
 import java.io.File;
 
-import utility.HostPathComponent;
+import utility.PropertiesComponent;
 
 public class GetSlideManager {
 
@@ -12,9 +12,8 @@ public class GetSlideManager {
 
 	public void checkDirectory(String user_id) {
 
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
-		File file = new File(homeDir +"/slide/"+user_id);
+		String appRootPath =  new PropertiesComponent().appRootPath();
+		File file = new File(appRootPath +"/slide/"+user_id);
 		if(file.exists()){
 
 		}
@@ -25,11 +24,10 @@ public class GetSlideManager {
 
 	public File[] getSlideList(String user_id) {
 		// TODO Auto-generated method stub
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
+		String appRootPath =  new PropertiesComponent().appRootPath();
 
 		//探索するパス
-		String basePath = homeDir + "/slide/" + user_id;
+		String basePath = appRootPath + "/slide/" + user_id;
 
 		File dir = new File(basePath);
 		File[] files = dir.listFiles();

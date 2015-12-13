@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import utility.HostPathComponent;
+import utility.PropertiesComponent;
 import beans.User;
 import controller.LoginManager;
 import controller.TweetManager;
@@ -36,8 +36,7 @@ public class TweetServlet extends HttpServlet{
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_id();
 
-		HostPathComponent hostPath = new HostPathComponent();
-		String imgHostPath = hostPath.imgHostPath();
+		String imgHostPath =  new PropertiesComponent().imgHostPath();
 
 		String avatorPath = imgHostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
 

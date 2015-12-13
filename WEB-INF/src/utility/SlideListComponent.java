@@ -11,14 +11,13 @@ public class SlideListComponent{
 		ArrayList<String> userList = listCompornent.getUserList();
 
 		//ホストによって異なるパス
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
+		String appRootPath =  new PropertiesComponent().appRootPath();
 
 		//スライド名を格納する
 		ArrayList<String> slideNameList = new ArrayList<String>();
 
 		for(int i=0; i<userList.size();i++){
-			File slideList = new File(homeDir +"slide/"+ userList.get(i));
+			File slideList = new File(appRootPath +"slide/"+ userList.get(i));
 			if(slideList.exists()){
 					File[] slides = slideList.listFiles();
 					for(int j=0; j<slides.length; j++){

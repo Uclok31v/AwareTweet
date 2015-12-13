@@ -8,9 +8,8 @@ public class UserListComponent{
 	public ArrayList<String> getUserList() {
 		// TODO Auto-generated method stub
 
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
-	    String userListPath = homeDir + "avator";
+		String appRootPath =  new PropertiesComponent().appRootPath();
+	    String userListPath = appRootPath + "avator";
 
 	    File userList = new File(userListPath);
 	    File[] users = userList.listFiles();

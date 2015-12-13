@@ -126,43 +126,51 @@ public class Generate extends DriverAccessor{
     public void createHomeDir(){
 
     	String home = System.getenv("HOME");
-    	File baseHomeDir = new File(home + "/.awaretweet");
+    	File homeDir = new File(home + "/.awaretweet");
 
-    	HostPathComponent hostPathComponent = new HostPathComponent();
-    	String homeDir =  hostPathComponent.createHomePath();
 
-    	if(baseHomeDir.exists()){
+    	String appRootPath =  new PropertiesComponent().appRootPath();
+
+    	if(homeDir.exists()){
     		//nothing to do
     	}
     	else{
-    		baseHomeDir.mkdir();
-    		File avatorDir = new File(home + "/.awaretweet/avator");
-    		File slideDir = new File(home + "/.awaretweet/slide");
-    		if(!(avatorDir.exists())){
-    			avatorDir.mkdir();
-    			try {
-					Path path = Files.createSymbolicLink(Paths.get(homeDir + "avator"), Paths.get(baseHomeDir +"/avator"));
-
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-    		}
-    		if(!(slideDir.exists())){
-    			slideDir.mkdir();
-    			avatorDir.mkdir();
-    			try {
-					Path path = Files.createSymbolicLink(Paths.get(homeDir + "slide"), Paths.get(baseHomeDir +"/slide"));
-
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-    		}
-
+    		homeDir.mkdir();
+    		//create symboliclink of avator and slide dir, and conf;
+    		createSymConf(home,homeDir,appRootPath,"avator");
+    		createSymConf(home, homeDir, appRootPath, "slide");
+    		createSymConf(home, homeDir, appRootPath, "awaretweet.conf");
 
     	}
     }
+
+	private void createSymConf(String home, File homeDir, String appRootPath,
+			String kind) {
+
+		if(kind.equals("avator") || kind.equals("slide")){
+			File target = new File(homeDir + "/" + kind);
+			if(!(target.exists())){
+				target.mkdir();
+				try {
+					Files.createSymbolicLink(Paths.get(appRootPath + kind), Paths.get(homeDir + "/" + kind));
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		}else{
+			try{
+				Files.createSymbolicLink(Paths.get(homeDir + "/" + kind),Paths.get(home + "/" + kind));
+			}catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
+
+	}
 
 
 }
