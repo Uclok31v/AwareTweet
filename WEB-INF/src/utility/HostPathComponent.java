@@ -1,31 +1,30 @@
 package utility;
 
-
-import java.net.InetAddress;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.UnknownHostException;
+import java.util.Properties;
+import java.util.ResourceBundle;
+
 
 
 public class HostPathComponent{
 
-	String home = System.getenv("HOME");
+	String propertiesFile = "user";
+	Properties conf = new Properties();
+
 	public String createHomePath() {
 
-		String homeDir = home + "/.awaretweet/";
-
+		String homeDir = ResourceBundle.getBundle(propertiesFile).getString("homeDir");
 		return homeDir;
 	}
 
 	public String imgHostPath() throws UnknownHostException {
 
-		//host名のないサーバへのデプロイを考慮してアドレスにする．
-//		String hostAddress = InetAddress.getLocalHost().getHostAddress();
-//		String hostPath = "http://" + hostAddress + "/";
-
-		//TODO どうやって~/.awaretweet/slideみえるんだーー
-		String imgPath = "file:/" + home + "/.awaretweet/";
-
-		return imgPath;
+		String hostPath = ResourceBundle.getBundle(propertiesFile).getString("hostPath");
+		return hostPath;
 	}
-
 
 }

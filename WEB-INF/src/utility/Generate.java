@@ -3,6 +3,9 @@ package utility;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -123,22 +126,39 @@ public class Generate extends DriverAccessor{
     public void createHomeDir(){
 
     	String home = System.getenv("HOME");
-    	File homeDir = new File(home + "/.awaretweet");
-    	if(homeDir.exists()){
+    	File baseHomeDir = new File(home + "/.awaretweet");
+
+    	HostPathComponent hostPathComponent = new HostPathComponent();
+    	String homeDir =  hostPathComponent.createHomePath();
+
+    	if(baseHomeDir.exists()){
     		//nothing to do
     		System.out.println("あった");
     	}
     	else{
-    		if(homeDir.mkdir()) System.out.print("つくった");
-    		else System.out.print("失敗");
-
+    		baseHomeDir.mkdir();
     		File avatorDir = new File(home + "/.awaretweet/avator");
     		File slideDir = new File(home + "/.awaretweet/slide");
     		if(!(avatorDir.exists())){
     			avatorDir.mkdir();
+    			try {
+					Path path = Files.createSymbolicLink(Paths.get(homeDir + "avator"), Paths.get(baseHomeDir +"/avator"));
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
     		if(!(slideDir.exists())){
     			slideDir.mkdir();
+    			avatorDir.mkdir();
+    			try {
+					Path path = Files.createSymbolicLink(Paths.get(homeDir + "slide"), Paths.get(baseHomeDir +"/slide"));
+
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
     		}
 
 
