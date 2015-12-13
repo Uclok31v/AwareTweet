@@ -9,12 +9,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
-import utility.HostPathComponent;
+import utility.PropertiesComponent;
 
 public class LoginManager {
 
@@ -73,15 +72,12 @@ public class LoginManager {
 	}
 
 	public String createAvator(String user_id) throws IOException {
-		// TODO Auto-generated method stub
-		// hostPathはホストによって異なるパス
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
-		String imgPath = createHostPath.imgHostPath();
+		String appRootPath =  new PropertiesComponent().appRootPath();
+		String imgPath =  new PropertiesComponent().imgHostPath();
 		//hostpath = ~/.awaretweet/
-		File file = new File(homeDir +"avator/"+user_id); //フルパス指定
+		File file = new File(appRootPath +"avator/"+user_id); //フルパス指定
 		if(file.exists()){
-			String image = homeDir + "avator/" + user_id + "/avator.png";
+			String image = appRootPath + "avator/" + user_id + "/avator.png";
 			return image;
 		}
 		else{
@@ -90,7 +86,7 @@ public class LoginManager {
 			URLConnection conn = url.openConnection();
 			InputStream in = conn.getInputStream();
 
-			File avatorPath = new File(homeDir + "avator/" + user_id + "/avator.png");
+			File avatorPath = new File(appRootPath + "avator/" + user_id + "/avator.png");
 			avatorPath.createNewFile();
 			FileOutputStream out = new FileOutputStream(avatorPath, false);
 			int b;
@@ -101,7 +97,7 @@ public class LoginManager {
 			out.close();
 			in.close();
 
-			String image = homeDir + "avator/" + user_id + "/avator.png";
+			String image = appRootPath + "avator/" + user_id + "/avator.png";
 			return image;
 	    }
 	}

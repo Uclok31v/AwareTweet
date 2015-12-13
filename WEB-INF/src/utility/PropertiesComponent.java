@@ -6,7 +6,7 @@ import java.util.Properties;
 
 
 
-public class HostPathComponent{
+public class PropertiesComponent{
 
 	//ホームディレクトリにawaretweet.confを
 	//ダウンロードしてもらってそこを参照する設定にする
@@ -14,7 +14,7 @@ public class HostPathComponent{
 	Properties properties = new Properties();
 	String propertiesFile = home + "/awaretweet.conf";
 
-	public String createHomePath() {
+	public String appRootPath() {
 		try {
 
             InputStream inputStream = new FileInputStream(propertiesFile);
@@ -25,8 +25,8 @@ public class HostPathComponent{
             System.out.println(ex.getMessage());
         }
 
-		String homeDir = properties.getProperty("appRootPath");
-		return homeDir;
+		String appRootPath = properties.getProperty("appRootPath");
+		return appRootPath;
 	}
 
 	public String imgHostPath() {

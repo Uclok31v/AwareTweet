@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import utility.HostPathComponent;
+import utility.PropertiesComponent;
 
 import com.ibm.icu.text.Transliterator;
 
@@ -27,12 +27,11 @@ public class ViewSlideManager {
 	}
 
 	public File[] getJpegList(String userId, String slideName) {
-		// TODO Auto-generated method stub
-		HostPathComponent createHostPath = new HostPathComponent();
-		String homeDir = createHostPath.createHomePath();
+
+		String appRootPath =  new PropertiesComponent().appRootPath();
 
 		//探索するパス
-		String basePath = homeDir + "slide/" + userId +"/"+ slideName + "/";
+		String basePath = appRootPath + "slide/" + userId +"/"+ slideName + "/";
 
 		File file = new File(basePath);
 		File[] files = file.listFiles();
