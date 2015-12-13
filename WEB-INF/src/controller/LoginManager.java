@@ -81,7 +81,7 @@ public class LoginManager {
 			return image;
 		}
 		else{
-
+			file.mkdir();
 			String image = "http://identicon.relucks.org/" + user_id + "?size=126";
 			return image;
 	    }

@@ -31,7 +31,6 @@ public class UserListComponent{
 		}
 		return userNameList;
 		}else{
-			System.out.println("こっちっか");
 			return null;
 		}
 	}
