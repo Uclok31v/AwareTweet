@@ -133,7 +133,6 @@ public class Generate extends DriverAccessor{
 
     	if(baseHomeDir.exists()){
     		//nothing to do
-    		System.out.println("あった");
     	}
     	else{
     		baseHomeDir.mkdir();

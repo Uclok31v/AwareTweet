@@ -1,29 +1,46 @@
 package utility;
 
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.net.UnknownHostException;
 import java.util.Properties;
-import java.util.ResourceBundle;
 
 
 
 public class HostPathComponent{
 
-	String propertiesFile = "user";
-	Properties conf = new Properties();
+	//ホームディレクトリにawaretweet.confを
+	//ダウンロードしてもらってそこを参照する設定にする
+	String home = System.getenv("HOME");
+	Properties properties = new Properties();
+	String propertiesFile = home + "/awaretweet.conf";
 
 	public String createHomePath() {
+		try {
 
-		String homeDir = ResourceBundle.getBundle(propertiesFile).getString("homeDir");
+            InputStream inputStream = new FileInputStream(propertiesFile);
+            properties.load(inputStream);
+            inputStream.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+		String homeDir = properties.getProperty("appRootPath");
 		return homeDir;
 	}
 
-	public String imgHostPath() throws UnknownHostException {
+	public String imgHostPath() {
+		try {
 
-		String hostPath = ResourceBundle.getBundle(propertiesFile).getString("hostPath");
+            InputStream inputStream = new FileInputStream(propertiesFile);
+            properties.load(inputStream);
+            inputStream.close();
+
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+		String hostPath = properties.getProperty("homePath");
 		return hostPath;
 	}
 
