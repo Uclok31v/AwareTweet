@@ -155,7 +155,7 @@ public class Generate extends DriverAccessor{
 					Files.createSymbolicLink(Paths.get(appRootPath + kind), Paths.get(homeDir + "/" + kind));
 
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+
 					e.printStackTrace();
 				}
 			}
@@ -163,7 +163,7 @@ public class Generate extends DriverAccessor{
 			try{
 				Files.createSymbolicLink(Paths.get(homeDir + "/" + kind),Paths.get(home + "/" + kind));
 			}catch (IOException e) {
-				// TODO Auto-generated catch block
+
 				e.printStackTrace();
 			}
 
