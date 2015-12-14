@@ -44,7 +44,7 @@ public class RegistSlideServlet extends HttpServlet{
 		String os=null;
 		String fileName=null;
 
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 		File path = new File(appRootPath + "slide/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();

@@ -14,34 +14,24 @@ public class PropertiesComponent{
 	Properties properties = new Properties();
 	String propertiesFile = home + "/awaretweet.conf";
 
-	public String appRootPath() {
+	public String referProperties(String prop) {
+		/*appRootPath
+		 * hostPath
+		 *
+		 */
 		try {
 
             InputStream inputStream = new FileInputStream(propertiesFile);
-            properties.load(inputStream);
+            properties.load(new FileInputStream(propertiesFile));
             inputStream.close();
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
 
-		String appRootPath = properties.getProperty("appRootPath");
-		return appRootPath;
+		String referProperties = properties.getProperty(prop);
+		return referProperties;
 	}
 
-	public String imgHostPath() {
-		try {
-
-            InputStream inputStream = new FileInputStream(propertiesFile);
-            properties.load(inputStream);
-            inputStream.close();
-
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-
-		String hostPath = properties.getProperty("hostPath");
-		return hostPath;
-	}
 
 }

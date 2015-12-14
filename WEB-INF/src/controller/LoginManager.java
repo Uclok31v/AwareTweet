@@ -72,8 +72,8 @@ public class LoginManager {
 	}
 
 	public String createAvator(String user_id) throws IOException {
-		String appRootPath =  new PropertiesComponent().appRootPath();
-		String imgPath =  new PropertiesComponent().imgHostPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		String imgPath =  new PropertiesComponent().referProperties("hostPath");
 		//hostpath = ~/.awaretweet/
 		File file = new File(appRootPath +"avator/"+user_id); //フルパス指定
 		if(file.exists()){

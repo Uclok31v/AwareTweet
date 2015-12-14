@@ -8,7 +8,7 @@ public class UserListComponent{
 	public ArrayList<String> getUserList() {
 		// TODO Auto-generated method stub
 
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 	    String userListPath = appRootPath + "avator";
 
 	    File userList = new File(userListPath);

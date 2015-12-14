@@ -12,7 +12,7 @@ public class GetSlideManager {
 
 	public void checkDirectory(String user_id) {
 
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 		File file = new File(appRootPath +"/slide/"+user_id);
 		if(file.exists()){
 
@@ -24,7 +24,7 @@ public class GetSlideManager {
 
 	public File[] getSlideList(String user_id) {
 		// TODO Auto-generated method stub
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 
 		//探索するパス
 		String basePath = appRootPath + "/slide/" + user_id;

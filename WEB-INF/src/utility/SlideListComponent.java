@@ -11,7 +11,7 @@ public class SlideListComponent{
 		ArrayList<String> userList = listCompornent.getUserList();
 
 		//ホストによって異なるパス
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 
 		//スライド名を格納する
 		ArrayList<String> slideNameList = new ArrayList<String>();
