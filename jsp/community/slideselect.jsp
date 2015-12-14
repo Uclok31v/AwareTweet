@@ -14,7 +14,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 <% String author = (String)request.getAttribute("author"); %>
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +32,38 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
 
   <body style="padding-top:70px;">
 
-   <jsp:include page="global.jsp"/>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+     <div class="container">
+     <div class="navbar-header">
+      <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-left">
+      <li><a href="../community/adduser.jsp"><span class="fui-plus">Regist</span></a></li>
+      <li class="acctive"><a href="../community/GetSlideServlet"><span class="fui-play">Slide</span></a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="../community/setting.jsp"><span class="fui-user"> Settings</span></a></li>
+    <li><a href="../common/LogOutServlet"><span class="fui-power"> Logout</span></a></li>
+    </ul>
+
+    <form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
+     <div class="form-group">
+      <div class="input-group">
+       <input class="form-control" name="search_word" id="search_word" type="search" placeholder="Search">
+        <span class="input-group-btn">
+         <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+      </div>
+     </div>
+    </form>
+
+    </div>
+  </nav>
+
+
 
    <div class="container">
      <div class="col-md-3">
@@ -93,8 +124,8 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
         <label>Regist your Slide</label>
         <input type="file" name="filname" />
         <br>
-         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windowsはこちら</button>
-         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Macこちら</button>
+         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windows is here</button>
+         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Mac is here</button>
         </form>
         <%} %>
       </div>

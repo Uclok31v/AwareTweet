@@ -11,7 +11,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,7 +28,38 @@
   </head>
 
   <body style="padding-top:70px;">
-   <jsp:include page="global.jsp"/>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+     <div class="container">
+     <div class="navbar-header">
+      <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-left">
+      <li class="active"><a href="../community/adduser.jsp"><span class="fui-plus">Regist</span></a></li>
+      <li><a href="../community/GetSlideServlet"><span class="fui-play">Slide</span></a>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="../community/setting.jsp"><span class="fui-user"> Settings</span></a></li>
+    <li><a href="../common/LogOutServlet"><span class="fui-power"> Logout</span></a></li>
+    </ul>
+
+    <form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
+     <div class="form-group">
+      <div class="input-group">
+       <input class="form-control" name="search_word" id="search_word" type="search" placeholder="Search">
+        <span class="input-group-btn">
+         <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+      </div>
+     </div>
+    </form>
+
+    </div>
+  </nav>
+
+
 
    <div class="container">
      <div class="col-md-3">
@@ -65,17 +96,17 @@
 
 
               <fieldset>
-                <label for="userId" class="strong">User ID: <input type="text" placeholder="半角英数字" name="user_id" required="" autofocus pattern="^[0-9A-Za-z]+$"></p></label>
+                <label for="userId" class="strong">User ID: <input type="text" placeholder="UserId" name="user_id" required="" autofocus pattern="^[0-9A-Za-z]+$"></p></label>
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
-                <label for="userName" class="strong">User Name: <input type="text" placeholder="フルネーム" name="user_name" required></p></label>
+                <label for="userName" class="strong">User Name: <input type="text" placeholder="Full Name" name="user_name" required></p></label>
               </fieldset>
             </div>
             <div class="span6">
               <fieldset>
-                <label for="userPass" class="strong">User Password: <input type="password" placeholder="パスワード" name="password" required></p></label>
+                <label for="userPass" class="strong">User Password: <input type="password" placeholder="Password" name="password" required></p></label>
               </fieldset>
             </div>
           </div>

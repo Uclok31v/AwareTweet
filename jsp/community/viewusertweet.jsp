@@ -20,7 +20,7 @@
 
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -111,16 +111,15 @@
 			</div>
 
 			<ul class="nav navbar-nav navbar-left">
-				<li><a href="../community/adduser.jsp"><span class="fui-plus">ユーザ追加</span></a></li>
-				<li><a href="../community/GetSlideServlet?id=<%=author %>"><span class="fui-play"><%=author %>のスライド</span>
-				</a>
+				<li><a href="../community/adduser.jsp"><span class="fui-plus">Regist</span></a></li>
+				<li class="active"><a href="../community/GetSlideServlet?id=<%=author %>"><span class="fui-play"><%=author %>'s Slide</span></a></li>
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="../community/setting.jsp"><span class="fui-user">
-							設定</span></a></li>
+							Settings</span></a></li>
 				<li><a href="../common/LogOutServlet"><span
-						class="fui-power"> ログアウト</span></a></li>
+						class="fui-power"> Logout</span></a></li>
 			</ul>
 
 			<form class="navbar-form navbar-right"
@@ -128,7 +127,7 @@
 				<div class="form-group">
 					<div class="input-group">
 						<input class="form-control" name="search_word" id="search_word"
-							type="search" placeholder="AwareTweet検索"> <span
+							type="search" placeholder="Search"> <span
 							class="input-group-btn">
 							<button type="submit" class="btn">
 								<span class="fui-search"></span>
