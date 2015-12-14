@@ -82,22 +82,7 @@ public class LoginManager {
 		}
 		else{
 			file.mkdir();
-			URL url = new URL("http://identicon.relucks.org/" + user_id + "?size=126");
-			URLConnection conn = url.openConnection();
-			InputStream in = conn.getInputStream();
-
-			File avatorPath = new File(appRootPath + "avator/" + user_id + "/avator.png");
-			avatorPath.createNewFile();
-			FileOutputStream out = new FileOutputStream(avatorPath, false);
-			int b;
-			while((b = in.read()) != -1){
-			    out.write(b);
-			}
-
-			out.close();
-			in.close();
-
-			String image = appRootPath + "avator/" + user_id + "/avator.png";
+			String image = "http://identicon.relucks.org/" + user_id + "?size=126";
 			return image;
 	    }
 	}
