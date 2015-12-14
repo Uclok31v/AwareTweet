@@ -39,7 +39,7 @@ public class UploadServlet extends HttpServlet{
 		String userId = user.getUser_id();
 
 		//hostによって異なるパス
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 		File path = new File(appRootPath + "avator/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();

@@ -122,7 +122,7 @@ public class Generate extends DriverAccessor{
     	File homeDir = new File(home + "/.awaretweet");
 
 
-    	String appRootPath =  new PropertiesComponent().appRootPath();
+    	String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 
     	if(homeDir.exists()){
     		//nothing to do

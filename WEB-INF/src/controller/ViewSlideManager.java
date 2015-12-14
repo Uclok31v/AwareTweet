@@ -28,7 +28,7 @@ public class ViewSlideManager {
 
 	public File[] getJpegList(String userId, String slideName) {
 
-		String appRootPath =  new PropertiesComponent().appRootPath();
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 
 		//探索するパス
 		String basePath = appRootPath + "slide/" + userId +"/"+ slideName + "/";

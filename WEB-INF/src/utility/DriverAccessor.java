@@ -7,16 +7,16 @@ import java.sql.SQLException;
 
 public class DriverAccessor {
 
-	private final static String DRIVER_URL="jdbc:h2:file:~/.awaretweet/data";
+	private final static String DRIVER_URL = new PropertiesComponent().referProperties("driverURL");
 
 
-	private final static String DRIVER_NAME="org.h2.Driver";
+	private final static String DRIVER_NAME = new PropertiesComponent().referProperties("driverName");
 
 
-	private final static String USER_NAME="sa";
+	private final static String USER_NAME = new PropertiesComponent().referProperties("dbUserName");
 
 
-	private final static String PASSWORD="";
+	private final static String PASSWORD = new PropertiesComponent().referProperties("dbUserPassword");
 
 
 	public Connection createConnection(){
