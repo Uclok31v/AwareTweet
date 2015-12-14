@@ -1,0 +1,6 @@
+bin/
+work/
+.project/
+.DS_Store
+
+WEB-INF/classes/
