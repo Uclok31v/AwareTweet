@@ -3,6 +3,7 @@ package controller;
 import dao.IpHistoryDAO;
 import dao.TweetDAO;
 import dao.UserDAO;
+import beans.Tweet;
 import beans.User;
 
 import java.io.File;
@@ -89,11 +90,11 @@ public class LoginManager {
 	}
 
 
-	public ArrayList selectTweet() {
+	public ArrayList<Tweet> selectTweet() {
 
 		TweetDAO dao = new TweetDAO();
 
-		ArrayList tweetList = dao.selectTweet();
+		ArrayList<Tweet> tweetList = dao.selectTweet();
 
 
 		return tweetList;

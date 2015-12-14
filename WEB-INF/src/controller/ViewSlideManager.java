@@ -11,6 +11,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import utility.PropertiesComponent;
+import beans.Tweet;
 
 import com.ibm.icu.text.Transliterator;
 
@@ -69,13 +70,13 @@ public class ViewSlideManager {
 	}
 
 	//スライドのツイート
-	public ArrayList getSlideTweetList(String userId, String slideName) {
+	public ArrayList<Tweet> getSlideTweetList(String userId, String slideName) {
 		// TODO Auto-generated method stub
 		TweetDAO dao = new TweetDAO();
 
 		this.connection = dao.createConnection();
 
-		ArrayList list = dao.selectTweetbyUserIdandSlideName(userId, slideName, connection);
+		ArrayList<Tweet> list = dao.selectTweetbyUserIdandSlideName(userId, slideName, connection);
 
 
 		dao.closeConnection(this.connection);

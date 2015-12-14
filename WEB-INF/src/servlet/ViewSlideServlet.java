@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import beans.Tweet;
 import beans.User;
 import controller.ViewSlideManager;
 
@@ -41,7 +42,7 @@ public class ViewSlideServlet extends HttpServlet{
 			File[] jpegList = viewSlideManager.getJpegList(author, slideName);
 
 			//スライドのツイート
-			ArrayList list = viewSlideManager.getSlideTweetList(author,slideName);
+			ArrayList<Tweet> list = viewSlideManager.getSlideTweetList(author,slideName);
 
 			System.out.println(list.size());
 

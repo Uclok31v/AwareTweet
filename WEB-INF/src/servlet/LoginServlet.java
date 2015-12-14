@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import utility.PropertiesComponent;
 import utility.PasswordEncryption;
 import utility.Generate;
+import beans.Tweet;
 import beans.User;
 import controller.LoginManager;
 
@@ -80,7 +81,7 @@ public class LoginServlet extends HttpServlet{
 				session.setAttribute("user",user);
 
 				//tweetList
-				ArrayList tweetList = loginManager.selectTweet();
+				ArrayList<Tweet> tweetList = loginManager.selectTweet();
 
 		        request.setAttribute("tweetList",tweetList);
 

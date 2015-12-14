@@ -35,7 +35,7 @@ public class TweetDAO extends DriverAccessor{
 	         }
     }
 	
-	public ArrayList selectTweet(){
+	public ArrayList<Tweet> selectTweet(){
 		Connection connection = null;
 		connection = createConnection();
 		try{
@@ -45,7 +45,7 @@ public class TweetDAO extends DriverAccessor{
 			
 			ResultSet rs=stmt.executeQuery();
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -73,7 +73,7 @@ public class TweetDAO extends DriverAccessor{
 		    }
 	}
 
-	public ArrayList selectTweetbyCommenter(String commenter, Connection connection) {
+	public ArrayList<Tweet> selectTweetbyCommenter(String commenter, Connection connection) {
 		// TODO Auto-generated method stub
 		try{
 			String sql="select * from tweet where commenter = ? order by date desc";
@@ -84,7 +84,7 @@ public class TweetDAO extends DriverAccessor{
 			
 			ResultSet rs=stmt.executeQuery();
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -112,7 +112,7 @@ public class TweetDAO extends DriverAccessor{
     }
 
 
-	public ArrayList selectTweetbyUserIdandSlideName(String userId, String slideName,Connection connection) {
+	public ArrayList<Tweet> selectTweetbyUserIdandSlideName(String userId, String slideName,Connection connection) {
 
 		// TODO Auto-generated method stub
 		try{
@@ -123,7 +123,7 @@ public class TweetDAO extends DriverAccessor{
 		
 			ResultSet rs=stmt.executeQuery(sql);
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -151,7 +151,7 @@ public class TweetDAO extends DriverAccessor{
 	        }		
 	}
 	
-	public ArrayList selectTweetByComment(String searchWord,Connection connection){
+	public ArrayList<Tweet> selectTweetByComment(String searchWord,Connection connection){
 		
 		try{
 			String sql ="select * from tweet where comment like '%"+searchWord+"%' ";
@@ -160,7 +160,7 @@ public class TweetDAO extends DriverAccessor{
 			
 			ResultSet rs=stmt.executeQuery(sql);
 			
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {

@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import utility.PropertiesComponent;
+import beans.Tweet;
 import beans.User;
 import controller.LoginManager;
 import controller.TweetManager;
@@ -45,7 +46,7 @@ public class TweetServlet extends HttpServlet{
 
 		LoginManager loginManager = new LoginManager();
 
-		ArrayList list = loginManager.selectTweet();
+		ArrayList<Tweet> list = loginManager.selectTweet();
 
         request.setAttribute("tweetList",list);
         request.setAttribute("user", user);

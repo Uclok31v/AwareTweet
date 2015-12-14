@@ -3,6 +3,7 @@ package controller;
 import java.sql.Connection;
 import java.util.ArrayList;
 
+import beans.Tweet;
 import dao.TweetDAO;
 
 public class GetUserTweetManager {
@@ -13,13 +14,13 @@ public class GetUserTweetManager {
 		// TODO Auto-generated constructor stub
 	}
 
-	public ArrayList selectTweetbyCommenter(String commenter) {
+	public ArrayList<Tweet> selectTweetbyCommenter(String commenter) {
 		// TODO Auto-generated method stub
 		TweetDAO dao = new TweetDAO();
 
 		this.connection = dao.createConnection();
 
-		ArrayList list = dao.selectTweetbyCommenter(commenter, connection);
+		ArrayList<Tweet> list = dao.selectTweetbyCommenter(commenter, connection);
 
 		dao.closeConnection(this.connection);
 
