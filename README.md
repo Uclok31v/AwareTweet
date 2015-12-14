@@ -8,7 +8,7 @@ This System can collect "Aware" in meeting as Tweet !
 ## Install
 Coming Soon!!
 
-First, download `awaretweet.conf`, and put tomcat's home directory. (e.g. 'home/tomcat')
+First, download `awaretweet.conf` from [release page](https://github.com/shu920921/AwareTweet/release), and put tomcat's home directory. (e.g. 'home/tomcat')
 
 You edit `awaretweet.conf`.
 
