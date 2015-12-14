@@ -3,7 +3,7 @@ AwareTweet
 
 AwareTweet is Knowledge Management System.
 
-This System can collect "Aware" in meeting as Tweet !
+This System can collect "Aware" as Tweet !
 
 ## Install
 Coming Soon!!
