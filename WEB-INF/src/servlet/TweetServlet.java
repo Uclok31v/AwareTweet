@@ -36,9 +36,8 @@ public class TweetServlet extends HttpServlet{
 		User user = (User)session.getAttribute("user");
 		String commenter = user.getUser_id();
 
-		String imgHostPath =  new PropertiesComponent().imgHostPath();
 
-		String avatorPath = imgHostPath+ "AwareTweet/avator/" +commenter+ "/avator.png";
+		String avatorPath = user.getAvator_path();
 
 		TweetManager tweetManager=new TweetManager();
 
