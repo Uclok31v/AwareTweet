@@ -40,7 +40,7 @@ public class PropertiesComponent{
             System.out.println(ex.getMessage());
         }
 
-		String hostPath = properties.getProperty("homePath");
+		String hostPath = properties.getProperty("hostPath");
 		return hostPath;
 	}
 
