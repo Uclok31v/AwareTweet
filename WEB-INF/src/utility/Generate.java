@@ -130,27 +130,20 @@ public class Generate extends DriverAccessor{
     	else{
     		homeDir.mkdir();
     		//create symboliclink of avator and slide dir, and conf;
-    		createSymConf(home,homeDir,appRootPath,"avator");
-    		createSymConf(home, homeDir, appRootPath, "slide");
-    		createSymConf(home, homeDir, appRootPath, "awaretweet.conf");
+    		createConf(home,homeDir,appRootPath,"avator");
+    		createConf(home, homeDir, appRootPath, "slide");
+    		createConf(home, homeDir, appRootPath, "awaretweet.conf");
 
     	}
     }
 
-	private void createSymConf(String home, File homeDir, String appRootPath,
+	private void createConf(String home, File homeDir, String appRootPath,
 			String kind) {
 
 		if(kind.equals("avator") || kind.equals("slide")){
-			File target = new File(homeDir + "/" + kind);
+			File target = new File(appRootPath + kind);
 			if(!(target.exists())){
 				target.mkdir();
-				try {
-					Files.createSymbolicLink(Paths.get(appRootPath + kind), Paths.get(homeDir + "/" + kind));
-
-				} catch (IOException e) {
-
-					e.printStackTrace();
-				}
 			}
 		}else{
 			try{

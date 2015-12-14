@@ -77,11 +77,12 @@ public class LoginManager {
 		//hostpath = ~/.awaretweet/
 		File file = new File(appRootPath +"avator/"+user_id); //フルパス指定
 		if(file.exists()){
-			String image = appRootPath + "avator/" + user_id + "/avator.png";
+			String image = imgPath + "avator/" + user_id + "/avator.jpeg";
 			return image;
 		}
 		else{
 			file.mkdir();
+
 			String image = "http://identicon.relucks.org/" + user_id + "?size=126";
 			return image;
 	    }
