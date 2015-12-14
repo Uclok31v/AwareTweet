@@ -30,7 +30,9 @@ public class UserListComponent{
 			}
 		}
 		return userNameList;
-		}else return null;
+		}else{
+			return null;
+		}
 	}
 
 
