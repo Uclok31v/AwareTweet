@@ -3,7 +3,7 @@
 <%@ page import= "beans.Tweet" %>
 <%@ page import= "java.util.ArrayList" %>
 <%@ page import= "utility.UserListComponent" %>
-<%@ page import= "utility.HostPathComponent" %>
+<%@ page import= "utility.PropertiesComponent" %>
 <%@ page import= "javax.servlet.http.HttpSession" %>
 <%@ page import= "java.io.File" %>
 <% User LoginUser = (User)session.getAttribute("user"); %>
@@ -16,7 +16,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 <% ArrayList tweetList = (ArrayList)request.getAttribute("tweetList"); %>
 <% String author = (String) request.getAttribute("author"); %>
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -52,7 +52,38 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
 
   <body style="padding-top:70px;">
 
-   <jsp:include page="global.jsp"/>
+
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+     <div class="container">
+     <div class="navbar-header">
+      <a class="navbar-brand" href="../community/MoveTopServlet">AwareTweet</a>
+      </div>
+
+      <ul class="nav navbar-nav navbar-left">
+      <li><a href="../community/adduser.jsp"><span class="fui-plus">Regist</span></a></li>
+      <li class="active"><a href="../community/GetSlideServlet"><span class="fui-play">Slide</span></a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right">
+    <li><a href="../community/setting.jsp"><span class="fui-user"> Settings</span></a></li>
+    <li><a href="../common/LogOutServlet"><span class="fui-power"> Logout</span></a></li>
+    </ul>
+
+    <form class="navbar-form navbar-right" action="../community/SearchTweetServlet" method="post" role="search">
+     <div class="form-group">
+      <div class="input-group">
+       <input class="form-control" name="search_word" id="search_word" type="search" placeholder="Search">
+        <span class="input-group-btn">
+         <button type="submit" class="btn"><span class="fui-search"></span></button>
+        </span>
+      </div>
+     </div>
+    </form>
+
+    </div>
+  </nav>
+
+
 
    <div class="container">
      <div class="col-md-3">
@@ -85,9 +116,8 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
      <div class="box-content">
      	<div class="frameLine">
 		   	<ul class="bxslider">
-		   	<%HostPathComponent hostPath = new HostPathComponent();%>
-		   	<%String imgPath = hostPath.imgHostPath(); %>
-		   	<%String jpegdirPath = imgPath + "slide/" + author +"/"
+		   	<%String hostPath = new PropertiesComponent().referProperties("hostPath"); %>
+		   	<%String jpegdirPath = hostPath + "slide/" + author +"/"
 		   	+ slideName + "/";%>
 		   	<%for(int i=0; i<jpegList.length; i++) {%>
 		   	<%File jpegs = jpegList[i]; %>
