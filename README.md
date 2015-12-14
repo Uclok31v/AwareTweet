@@ -38,7 +38,9 @@ You put `AwareTweet.war` to path you have edited (appRootPath).
 Then, you need to restart tomcat.
 
 #### Access
-Type on your browser `http://your.server.com/AwareTweet` !
+Type on your browser `http://your.server.com/AwareTweet/jsp/common/login.jsp` !
+
+*URL is not cool.....
 
 Please set of httpd setting , if necessary.
 
