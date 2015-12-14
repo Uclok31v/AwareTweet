@@ -7,11 +7,7 @@ import beans.Tweet;
 import beans.User;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-import java.net.URLConnection;
 import java.util.ArrayList;
 
 import utility.PropertiesComponent;
@@ -23,9 +19,8 @@ public class LoginManager {
 	}
 
 	public int checkOverlapCount(String ip) {
-		// TODO Auto-generated method stub
-		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
-		int count = ipHistoryDAO.selectIpHistoryCountByIp(ip);
+
+		int count = new IpHistoryDAO().selectIpHistoryCountByIp(ip);
 
 		//ipアドレスの登録がなかった場合
 		if(count ==0){
@@ -39,37 +34,32 @@ public class LoginManager {
 	}
 
 	private int selectIpHistoryFailCountByIp(String ip) {
-		// TODO Auto-generated method stub
-		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
-		int failCount = ipHistoryDAO.selectIpHistoryFailCountByIp(ip);
+
+		int failCount = new IpHistoryDAO().selectIpHistoryFailCountByIp(ip);
 		return failCount;
 	}
 
 	private void insertIpHistoryIp(String ip) {
-		// TODO Auto-generated method stub
-		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
-		ipHistoryDAO.insertIpHistoryIP(ip);
+
+		new IpHistoryDAO().insertIpHistoryIP(ip);
 	}
 
 	public User selectUserByIdPass(String userId, String password) {
 		// TODO Auto-generated method stub
-		UserDAO userDAO = new UserDAO();
 
-		User user = userDAO.selectUserByIdPass(userId,password);
+		User user = new UserDAO().selectUserByIdPass(userId,password);
 
 		return user;
 	}
 
 	public void resetIpHistoryFailCountByIp(String ip) {
 		// TODO Auto-generated method stub
-		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
-		ipHistoryDAO.resetIpHistoryFailCountByIp(ip);
+		new IpHistoryDAO().resetIpHistoryFailCountByIp(ip);
 	}
 
 	public void incrementIpHistoryFailCountByIp(String ip) {
-		// TODO Auto-generated method stub
-		IpHistoryDAO ipHistoryDAO = new IpHistoryDAO();
-		ipHistoryDAO.incrementIpHistoryFailCountByIp(ip);
+
+		new IpHistoryDAO().incrementIpHistoryFailCountByIp(ip);
 	}
 
 	public String createAvator(String user_id) throws IOException {
@@ -92,13 +82,10 @@ public class LoginManager {
 
 	public ArrayList<Tweet> selectTweet() {
 
-		TweetDAO dao = new TweetDAO();
-
-		ArrayList<Tweet> tweetList = dao.selectTweet();
-
+		ArrayList<Tweet> tweetList = new TweetDAO().selectTweet();
 
 		return tweetList;
 	}
-	//
+
 
 }

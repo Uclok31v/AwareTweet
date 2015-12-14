@@ -19,10 +19,6 @@ import dao.TweetDAO;
 
 public class ViewSlideManager {
 
-	//
-	private Connection connection = null;
-	//
-
 	public ViewSlideManager(){
 
 	}
@@ -71,20 +67,11 @@ public class ViewSlideManager {
 
 	//スライドのツイート
 	public ArrayList<Tweet> getSlideTweetList(String userId, String slideName) {
-		// TODO Auto-generated method stub
-		TweetDAO dao = new TweetDAO();
 
-		this.connection = dao.createConnection();
-
-		ArrayList<Tweet> list = dao.selectTweetbyUserIdandSlideName(userId, slideName, connection);
-
-
-		dao.closeConnection(this.connection);
-
-		this.connection = null;
+		ArrayList<Tweet> list =  new TweetDAO().selectTweetbyUserIdandSlideName(userId, slideName);
 
 		return list;
 	}
-	//
+
 
 }
