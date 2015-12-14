@@ -12,12 +12,15 @@ import beans.Tweet;
 
 public class TweetDAO extends DriverAccessor{
 
-	public void insertTweet(Tweet tweet,Connection connection){
+	public void insertTweet(Tweet tweet){
+
+		Connection con = null;
+		con = createConnection();
 
 		try{
 			String sql = "insert into tweet(date,commenter,comment, avator_path) values(?,?,?,?)";
 
-			PreparedStatement stmt = connection.prepareStatement(sql);
+			PreparedStatement stmt = con.prepareStatement(sql);
 
 			stmt.setString(1,tweet.getDate());
 			stmt.setString(2,tweet.getCommenter());
@@ -28,24 +31,23 @@ public class TweetDAO extends DriverAccessor{
 			stmt.close();
 
 		}catch(SQLException e){
-
 			e.printStackTrace();
-
 		} finally {
-	         }
+
+		}
     }
-	
-	public ArrayList selectTweet(){
-		Connection connection = null;
-		connection = createConnection();
+
+	public ArrayList<Tweet> selectTweet(){
+		Connection con = null;
+		con = createConnection();
 		try{
 			String sql="select * from tweet order by date desc";
 
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			
+			PreparedStatement stmt = con.prepareStatement(sql);
+
 			ResultSet rs=stmt.executeQuery();
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -59,7 +61,7 @@ public class TweetDAO extends DriverAccessor{
 
 			stmt.close();
 			rs.close();
-			connection = null;
+			con = null;
 
 			return list;
 
@@ -73,18 +75,20 @@ public class TweetDAO extends DriverAccessor{
 		    }
 	}
 
-	public ArrayList selectTweetbyCommenter(String commenter, Connection connection) {
-		// TODO Auto-generated method stub
+	public ArrayList<Tweet> selectTweetbyCommenter(String commenter) {
+
+		Connection con = null;
+		con = createConnection();
 		try{
 			String sql="select * from tweet where commenter = ? order by date desc";
 
-			PreparedStatement stmt = connection.prepareStatement(sql);
-			
+			PreparedStatement stmt = con.prepareStatement(sql);
+
 			stmt.setString(1,commenter);
-			
+
 			ResultSet rs=stmt.executeQuery();
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -98,9 +102,10 @@ public class TweetDAO extends DriverAccessor{
 
 			stmt.close();
 			rs.close();
+			con = null;
 
 		    return list;
-		    
+
 	    }catch(SQLException e){
 
 		   e.printStackTrace();
@@ -112,18 +117,19 @@ public class TweetDAO extends DriverAccessor{
     }
 
 
-	public ArrayList selectTweetbyUserIdandSlideName(String userId, String slideName,Connection connection) {
+	public ArrayList<Tweet> selectTweetbyUserIdandSlideName(String userId, String slideName) {
 
-		// TODO Auto-generated method stub
+		Connection con = null;
+		con = createConnection();
 		try{
 			String sql="select * from tweet where comment like '%@"+userId+"%' and comment like '%#"+slideName+"%' ";
 
-			Statement stmt = connection.createStatement();
+			Statement stmt = con.createStatement();
 
-		
+
 			ResultSet rs=stmt.executeQuery(sql);
 
-			ArrayList list = new ArrayList();
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -133,14 +139,15 @@ public class TweetDAO extends DriverAccessor{
 			tweet.setComment( rs.getString("comment") );
 			tweet.setAvator_path(rs.getString("avator_path"));
 			list.add(tweet);
-			
+
 			}
 
 			stmt.close();
 			rs.close();
+			con = null;
 
 		    return list;
-		    
+
 	    }catch(SQLException e){
 
 		   e.printStackTrace();
@@ -148,19 +155,21 @@ public class TweetDAO extends DriverAccessor{
 		return null;
 
         }finally{
-	        }		
+	        }
 	}
-	
-	public ArrayList selectTweetByComment(String searchWord,Connection connection){
-		
+
+	public ArrayList<Tweet> selectTweetByComment(String searchWord){
+
+		Connection con = null;
+		con = createConnection();
 		try{
 			String sql ="select * from tweet where comment like '%"+searchWord+"%' ";
-			
-			Statement stmt = connection.createStatement();
-			
+
+			Statement stmt = con.createStatement();
+
 			ResultSet rs=stmt.executeQuery(sql);
-			
-			ArrayList list = new ArrayList();
+
+			ArrayList<Tweet> list = new ArrayList<Tweet>();
 
 			while(rs.next())
 		    {
@@ -174,9 +183,10 @@ public class TweetDAO extends DriverAccessor{
 
 			stmt.close();
 			rs.close();
+			con = null;
 
 		    return list;
-		    
+
 	    }catch(SQLException e){
 
 		   e.printStackTrace();
@@ -184,7 +194,7 @@ public class TweetDAO extends DriverAccessor{
 		return null;
 
         }finally{
-	        }		
+	        }
 	}
 
 

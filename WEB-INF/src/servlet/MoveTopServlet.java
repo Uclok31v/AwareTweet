@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.LoginManager;
+import beans.Tweet;
 import beans.User;
 
 
@@ -32,7 +33,7 @@ public class MoveTopServlet extends HttpServlet{
 			LoginManager loginManager = new LoginManager();
 			
 			//tweetList
-			ArrayList tweetList = loginManager.selectTweet();
+			ArrayList<Tweet> tweetList = loginManager.selectTweet();
 
 			session.setAttribute("user",user);
 	        request.setAttribute("tweetList",tweetList);

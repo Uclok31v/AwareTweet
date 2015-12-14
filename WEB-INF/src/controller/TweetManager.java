@@ -9,7 +9,6 @@ import dao.TweetDAO;
 
 public class TweetManager{
 
-	private Connection connection = null;
 
 	public TweetManager(){
 	}
@@ -24,7 +23,7 @@ public class TweetManager{
 		String hour = decimal.format(cal.get(Calendar.HOUR_OF_DAY));
 		String minute = decimal.format(cal.get(Calendar.MINUTE));
 		String second = decimal.format(cal.get(Calendar.SECOND));
-		String date=year+"/"+month+"/"+day+"-"+hour+":"+minute+":"+second; 
+		String date=year+"/"+month+"/"+day+"-"+hour+":"+minute+":"+second;
 
 		Tweet tweet = new Tweet();
 		tweet.setDate(date);
@@ -32,14 +31,8 @@ public class TweetManager{
 		tweet.setComment(comment);
 		tweet.setAvator_path(avatorPath);
 
-		TweetDAO dao = new TweetDAO();
-		this.connection = dao.createConnection();
+		new TweetDAO().insertTweet(tweet);
 
-		dao.insertTweet(tweet, this.connection);
-
-		dao.closeConnection(this.connection);
-
-		this.connection = null;
 	}
 
 }

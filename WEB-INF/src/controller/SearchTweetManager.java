@@ -1,30 +1,21 @@
 package controller;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 
+import beans.Tweet;
 import dao.TweetDAO;
 
 public class SearchTweetManager {
 
-	private Connection connection = null;
-	
+
 	public SearchTweetManager() {
-		// TODO Auto-generated method stub
+
 	}
-	
-	public ArrayList selectTweetByComment(String searchWord) {
-		// TODO Auto-generated method stub
-		TweetDAO dao = new TweetDAO();
 
-		this.connection = dao.createConnection();
+	public ArrayList<Tweet> selectTweetByComment(String searchWord) {
 
-		ArrayList list = dao.selectTweetByComment(searchWord,this.connection);
+		ArrayList<Tweet> list = new TweetDAO().selectTweetByComment(searchWord);
 
-		dao.closeConnection(this.connection);
-
-		this.connection = null;
-		
 		return list;
 	}
 

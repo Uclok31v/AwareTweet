@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.SearchTweetManager;
+import beans.Tweet;
 import beans.User;
 
 public class SearchTweetServlet extends HttpServlet{
@@ -31,7 +32,7 @@ public class SearchTweetServlet extends HttpServlet{
 
 		SearchTweetManager searchTweetManager = new SearchTweetManager();
 		
-		ArrayList list = searchTweetManager.selectTweetByComment(searchWord);
+		ArrayList<Tweet> list = searchTweetManager.selectTweetByComment(searchWord);
 
         request.setAttribute("tweetList",list);
 		getServletContext().getRequestDispatcher("/jsp/community/viewusertweet.jsp").forward(request, response);

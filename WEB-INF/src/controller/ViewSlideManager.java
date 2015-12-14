@@ -11,16 +11,13 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 import utility.PropertiesComponent;
+import beans.Tweet;
 
 import com.ibm.icu.text.Transliterator;
 
 import dao.TweetDAO;
 
 public class ViewSlideManager {
-
-	//
-	private Connection connection = null;
-	//
 
 	public ViewSlideManager(){
 
@@ -54,36 +51,27 @@ public class ViewSlideManager {
 			}
 
 		}
-		File renameFile = new File(basePath);
-		File[] renameFiles = renameFile.listFiles();
-		System.out.println(renameFiles[1].getName());
+
+		File[] renameFiles = new File(basePath).listFiles();
+
 		Arrays.sort(renameFiles, new FileSort());
 		return renameFiles;
 	}
 
 	static class FileSort implements Comparator<File> {
 		  public int compare(File src, File target) {
-		   int diff = src.getName().compareTo(target.getName());
-		   return diff;
+			  int diff = src.getName().compareTo(target.getName());
+			  return diff;
 		  }
 	}
 
 	//スライドのツイート
-	public ArrayList getSlideTweetList(String userId, String slideName) {
-		// TODO Auto-generated method stub
-		TweetDAO dao = new TweetDAO();
+	public ArrayList<Tweet> getSlideTweetList(String userId, String slideName) {
 
-		this.connection = dao.createConnection();
-
-		ArrayList list = dao.selectTweetbyUserIdandSlideName(userId, slideName, connection);
-
-
-		dao.closeConnection(this.connection);
-
-		this.connection = null;
+		ArrayList<Tweet> list =  new TweetDAO().selectTweetbyUserIdandSlideName(userId, slideName);
 
 		return list;
 	}
-	//
+
 
 }

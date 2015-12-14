@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import controller.GetUserTweetManager;
+import beans.Tweet;
 import beans.User;
 
 public class GetUserTweetServlet extends HttpServlet{
@@ -31,7 +32,7 @@ public class GetUserTweetServlet extends HttpServlet{
 
 		GetUserTweetManager getUserTweetManager = new GetUserTweetManager();
 
-		ArrayList list = getUserTweetManager.selectTweetbyCommenter(commenter);
+		ArrayList<Tweet> list = getUserTweetManager.selectTweetbyCommenter(commenter);
 
         request.setAttribute("tweetList",list);
         request.setAttribute("author", commenter);

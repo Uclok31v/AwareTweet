@@ -60,7 +60,7 @@ public class RegistSlideServlet extends HttpServlet{
 		    Iterator<FileItem> iterator = list.iterator();
 
 		    while(iterator.hasNext()){
-		      FileItem fileItem = (FileItem)iterator.next();
+		      FileItem fileItem = iterator.next();
 
 		      if (!fileItem.isFormField()){
 		          fileName = fileItem.getName();
