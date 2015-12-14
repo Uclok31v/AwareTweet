@@ -1,37 +1,40 @@
 AwareTweet
 ===============
 
+AwareTweet is Knowledge Management System.
+
+This System can collect "Aware" in meeting as Tweet !
+
+## Install
+Coming Soon!!
+
+First, download `awaretweet.conf`, and put tomcat's home directory. (e.g. 'home/tomcat')
+
+You edit `awaretweet.conf`.
+
+```
+appRootPath=Full Path to AwareTweet (e.g. /usr/local/tomcat/webapps/AwareTweet/)
+hostPath=http host of your server and alpha (e.g. http://exsample.com/AwareTweet/)
+```
+
+war file you have downloaded put tomcat server. (e.g. `/usr/local/tomcat/webapps/AwareTweet/`)
+
+Then, you need to restart tomcat.
+
+...ok
+
 ## Usage
 
-default id and pass
+Default id and password as bellow.
 
 |id|pass|
 |:---:|:---:|
 |root|root|
 
+Then, you start Knowledge management using this system.
+
 ## Release Note
-
-### ver2.0 *Comming Soon*
-H2DBの組み込み
-warファイルで配布可能にする．
-
-### ver1.4 2015/12/10
-更新すると同じツイートされる問題の解決
-更新ボタンはつくらず`F5`とかでいいかなって感じ
-
-### ver1.3 2015/11/12
-他人のスライドが見れるようになった．
-`メンバーから他人をクリック，上のバーのスライドおす．`
-
-### ver1.2 2015/10/21
-UI調整
-MacのPowerPointからのzipの解凍へ対応
-
-### ver1.1 2015/10/20
-UI調整
-
-### ver1.0 2015/10/13
-初回リリース
+### ver1.0 *Comming Soon*
 
 ## Contributor
 #####*Shu Kutsuzawa*
