@@ -51,17 +51,17 @@ public class ViewSlideManager {
 			}
 
 		}
-		File renameFile = new File(basePath);
-		File[] renameFiles = renameFile.listFiles();
-		System.out.println(renameFiles[1].getName());
+
+		File[] renameFiles = new File(basePath).listFiles();
+
 		Arrays.sort(renameFiles, new FileSort());
 		return renameFiles;
 	}
 
 	static class FileSort implements Comparator<File> {
 		  public int compare(File src, File target) {
-		   int diff = src.getName().compareTo(target.getName());
-		   return diff;
+			  int diff = src.getName().compareTo(target.getName());
+			  return diff;
 		  }
 	}
 

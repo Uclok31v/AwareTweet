@@ -11,8 +11,7 @@ public class SettingManager {
 	public void apdateUserNamePassById(String userId, String userName,
 			String password) {
 
-		UserDAO userDAO = new UserDAO();
-		userDAO.updateUserNamePassById(userId, userName, password);
+		new UserDAO().updateUserNamePassById(userId, userName, password);
 	}
 
 }

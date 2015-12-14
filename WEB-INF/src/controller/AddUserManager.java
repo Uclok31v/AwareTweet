@@ -9,8 +9,8 @@ public class AddUserManager {
 	}
 
 	public void insertUser(String userId, String userName, String password) {
-		UserDAO userDAO = new UserDAO();
-		userDAO.insertUser(userId,userName,password);
+
+		new UserDAO().insertUser(userId,userName,password);
 
 	}
 
