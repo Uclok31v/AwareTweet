@@ -8,8 +8,11 @@ This System can collect "Aware" as Tweet !
 ## Install
 Coming Soon!!
 
+### Property File
+#### Download
 First, download `awaretweet.conf` from [release page](https://github.com/shu920921/AwareTweet/releases), and put to tomcat's home directory. (e.g. 'home/tomcat')
 
+#### Edit
 You edit `awaretweet.conf`.
 
 ```
@@ -25,9 +28,20 @@ Please check value of `appRootPath` and `hostPath`.
 
 You need not change `driverURL` ~ `dbUserPassword`. But, `dbUserName` and `dbUserPassword` might be better to change, because this system have no manager.
 
-war file you have downloaded put to tomcat server. (e.g. `/usr/local/tomcat/webapps/AwareTweet/`)
+#### Put on TOMCAT HOME
+You put `awaretweet.conf` to TOMCAT HOME(e.g. `/home/tomcat`)
+
+### AwareTweet.war
+#### Deploy
+You put `AwareTweet.war` to path you have edited (appRootPath).
 
 Then, you need to restart tomcat.
+
+#### Access
+Type on your browser `http://your.server.com/AwareTweet` !
+
+Please set of httpd setting , if necessary.
+
 
 ## Usage
 
@@ -45,4 +59,3 @@ Then, you can start Knowledge management using this system.
 ## Contributor
 #####*Shu Kutsuzawa*
 #####*Kenta Tanese*
-
