@@ -6,7 +6,6 @@ AwareTweet is Knowledge Management System.
 This System can collect "Aware" as Tweet !
 
 ## Install
-Coming Soon!!
 
 ### Property File
 #### Download
@@ -69,7 +68,8 @@ optional........ typing `pp.`
 
 
 ## Release Note
-### ver1.0 *Comming Soon*
+### ver1.0 2015/12/15
+* First Public Release
 
 ## Contributor
 #####*Shu Kutsuzawa*
