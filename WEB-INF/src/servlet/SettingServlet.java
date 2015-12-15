@@ -16,6 +16,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import utility.PasswordEncryption;
+import utility.PropertiesComponent;
 import beans.User;
 import controller.SettingManager;
 
@@ -40,8 +41,8 @@ public class SettingServlet extends HttpServlet{
 		String fileName=null;
 
 		//ここ直してください。
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
 		File path = new File(appRootPath + "avator/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
@@ -75,7 +76,7 @@ public class SettingServlet extends HttpServlet{
 		          fileName = fileItem.getName();
 
 		          if ((fileName != null) && (!fileName.equals(""))){
-		            fileItem.write(new File(path + "/" + fileName));
+		            fileItem.write(new File(path + "/avator.jpeg"));
 
 		            i++;
 		          }
