@@ -25,6 +25,7 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
+    <link href="../../css/SelectOS.css" rel="stylesheet">
 
     <script type="../../js/dropzone.js"></script>
 
@@ -119,17 +120,27 @@ File[] slideList =  (File[])request.getAttribute("slide-list");
           <%} %>
 		</form>
         </div>
+
+
         <%if(author.equals(LoginUser.getUser_id())) {%>
         <form action="./RegistSlideServlet" method="post" enctype="multipart/form-data">
-        <label>Regist your Slide</label>
+        <label><font size ="5">Regist your Slide</font></label>
+                <div class="sample">
+    <input type="radio" name="os" id="on" value="mac" checked="">
+    <label for="on" class="switch-on">Mac</label>
+    <input type="radio" name="os" id="off" value="win">
+    <label for="off" class="switch-off">Windows</label>
+</div>
+<br><br>
+
         <input type="file" name="filname" />
         <br>
-         <button type="submit" class="btn btn-success"  name="os" value="win"><i class="fui-windows-8"></i> Windows is here</button>
-         <button type="submit" class="btn btn-danger" name="os" value="mac"><i class="fui-apple" ></i> Mac is here</button>
+         <input type="submit" class="btn btn-success" value="Regist"/>
+
         </form>
         <%} %>
       </div>
      </div>
-  	</div>
+  	
   </body>
  </html>

@@ -27,6 +27,7 @@ File[] jpegList =  (File[])request.getAttribute("jpeg-list");
     <link href="../../css/vendor/bootstrap.min.css" rel="stylesheet">
     <link href="../../css/vendor/bootstrap.css" rel="stylesheet">
     <link href="../../css/flat-ui.css" rel="stylesheet">
+     <link href="../../css/SelectOS.css" rel="stylesheet">
     <link href="../../bxslider/jquery.bxslider.css" rel="stylesheet" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type="text/javascript"></script>
     <script src="../../bxslider/jquery.bxslider.min.js"></script>
