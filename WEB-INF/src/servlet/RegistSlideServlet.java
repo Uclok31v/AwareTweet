@@ -17,7 +17,6 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import utility.MacUnzipComponent;
-import utility.PropertiesComponent;
 import utility.WindowsUnzipComponent;
 import beans.User;
 
@@ -32,7 +31,6 @@ public class RegistSlideServlet extends HttpServlet{
 		throws ServletException, IOException{
 
 		request.setCharacterEncoding("UTF-8");
-		String comment=request.getParameter("os");
 
 		//保持されているユーザー情報を取得する
 		HttpSession session = request.getSession();
@@ -44,7 +42,9 @@ public class RegistSlideServlet extends HttpServlet{
 		String os=null;
 		String fileName=null;
 
-		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		//ここ直してください。
+		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
 		File path = new File(appRootPath + "slide/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();
@@ -61,22 +61,21 @@ public class RegistSlideServlet extends HttpServlet{
 
 		    while(iterator.hasNext()){
 		      FileItem fileItem = iterator.next();
-
-		      if (!fileItem.isFormField()){
+		      if(i==0){
+		        	os=fileItem.getString();
+		        	byte[] bytes= os.getBytes("iso-8859-1");
+		    		os = new String(bytes, "utf-8");
+		        	i++;
+		      }
+		      else if (!fileItem.isFormField()){
 		          fileName = fileItem.getName();
-
 		          if ((fileName != null) && (!fileName.equals(""))){
 		            fileItem.write(new File(path + "/" + fileName));
 
 		            i++;
 		          }
 		      }
-		      else if(i==1){
-		        	os=fileItem.getString();
-		        	byte[] bytes= os.getBytes("iso-8859-1");
-		    		os = new String(bytes, "utf-8");
-		        	i++;
-		      }
+
 		    }
 
 		  }catch (FileUploadException e) {
