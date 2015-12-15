@@ -118,7 +118,8 @@ public class Generate extends DriverAccessor{
 
     public void createHomeDir(){
 
-    	String home = System.getenv("HOME");
+//		String home = System.getenv("HOME");
+    	String home = "C:/Users/tanese kenta";
     	File homeDir = new File(home + "/.awaretweet");
 
 

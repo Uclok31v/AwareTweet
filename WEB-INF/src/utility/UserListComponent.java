@@ -8,8 +8,10 @@ public class UserListComponent{
 	public ArrayList<String> getUserList() {
 		// TODO Auto-generated method stub
 
-		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		String appRootPath="C:/Users/tanese kenta/awaretweet/";
 	    String userListPath = appRootPath + "avator";
+	    System.out.println(userListPath);
 
 	    File userList = new File(userListPath);
 	    File[] users = userList.listFiles();
@@ -21,7 +23,7 @@ public class UserListComponent{
 		// TODO Auto-generated method stub
 		ArrayList<String> userNameList = new ArrayList<String>();
 
-		if(!(users.length == 0)){
+ 		if(!(users.length == 0)){
 		for(int i=0; i< users.length; i++){
 			if(!(users[i].getName().startsWith("."))){
 				if(!(users[i].getName().equals("default"))) {
