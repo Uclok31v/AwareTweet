@@ -11,7 +11,6 @@ public class UserListComponent{
 //		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 		String appRootPath="C:/Users/tanese kenta/awaretweet/";
 	    String userListPath = appRootPath + "avator";
-	    System.out.println(userListPath);
 
 	    File userList = new File(userListPath);
 	    File[] users = userList.listFiles();

@@ -11,8 +11,9 @@ public class GetSlideManager {
 	}
 
 	public void checkDirectory(String user_id) {
-
-		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		//ここ直してください
+		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
 		File file = new File(appRootPath +"/slide/"+user_id);
 		if(file.exists()){
 
