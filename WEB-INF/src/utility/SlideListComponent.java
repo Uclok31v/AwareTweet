@@ -12,8 +12,8 @@ public class SlideListComponent{
 
 		//ホストによって異なるパス
 
-		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
 
 
 		//スライド名を格納する

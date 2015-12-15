@@ -11,8 +11,8 @@ public class PropertiesComponent{
 	//ホームディレクトリにawaretweet.confを
 	//ダウンロードしてもらってそこを参照する設定にする
 
-//	String home = System.getenv("HOME");
-	String home = "C:/Users/tanese kenta";
+	String home = System.getenv("HOME");
+//	String home = "C:/Users/tanese kenta";
 	Properties properties = new Properties();
 	String propertiesFile = home + "/awaretweet.conf";
 
