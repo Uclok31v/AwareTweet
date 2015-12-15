@@ -47,6 +47,7 @@ Please set of httpd setting , if necessary.
 
 ## Usage
 
+### Login
 Default id and password as bellow.
 
 |id|pass|
@@ -54,6 +55,18 @@ Default id and password as bellow.
 |root|root|
 
 Then, you can start Knowledge management using this system.
+
+![image](READMEIMAGES/TOP.png)
+
+### Tweet
+You can post your awareness.
+
+When you want to reply other, you type `@`.
+
+If you want to refer to other slide, you type `#`.
+
+optional........ typing `pp.`
+
 
 ## Release Note
 ### ver1.0 *Comming Soon*
