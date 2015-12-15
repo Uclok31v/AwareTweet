@@ -93,10 +93,9 @@
 
       <div class="box">
         <div class="box-header">Account Settings</div>
-        <form method="post" action="./SettingServlet">
+        <form method="post" action="./SettingServlet" enctype="multipart/form-data">
         <div class="box-content">
           <div class="row-fluid">
-          <form action="./SettingServlet" method="post">
             <div class="span6">
               <fieldset>
                 <label for="fullName" class="strong">Full Name: <input type="text" name="user_name" required value="<%=LoginUser.getUser_name() %>"/></label>
@@ -116,7 +115,6 @@
  				<input type="file" name="filname" />
               </fieldset>
             </div>
-         </form>
           </div>
           <div style="margin-top: 20px;">
             <input type="submit" class="btn btn-success" value="Save"/>

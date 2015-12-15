@@ -10,7 +10,9 @@ public class PropertiesComponent{
 
 	//ホームディレクトリにawaretweet.confを
 	//ダウンロードしてもらってそこを参照する設定にする
-	String home = System.getenv("HOME");
+
+//	String home = System.getenv("HOME");
+	String home = "C:/Users/tanese kenta";
 	Properties properties = new Properties();
 	String propertiesFile = home + "/awaretweet.conf";
 
@@ -30,6 +32,7 @@ public class PropertiesComponent{
         }
 
 		String referProperties = properties.getProperty(prop);
+		System.out.println(referProperties);
 		return referProperties;
 	}
 
