@@ -17,6 +17,7 @@ import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import utility.MacUnzipComponent;
+import utility.PropertiesComponent;
 import utility.WindowsUnzipComponent;
 import beans.User;
 
@@ -43,8 +44,8 @@ public class RegistSlideServlet extends HttpServlet{
 		String fileName=null;
 
 		//ここ直してください。
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
 		File path = new File(appRootPath + "slide/"+userId);
 
 		DiskFileItemFactory factory   = new DiskFileItemFactory();

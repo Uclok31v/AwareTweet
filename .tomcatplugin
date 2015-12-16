@@ -5,7 +5,7 @@
     <reloadable>true</reloadable>
     <redirectLogger>false</redirectLogger>
     <updateXml>true</updateXml>
-    <warLocation></warLocation>
+    <warLocation>/Library/Tomcat/apache-tomcat-7.0.61/webapps/AwareTweet.war</warLocation>
     <extraInfo></extraInfo>
     <webPath>/AwareTweet</webPath>
 </tomcatProjectProperties>

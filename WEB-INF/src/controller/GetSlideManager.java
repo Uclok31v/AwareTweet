@@ -2,6 +2,8 @@ package controller;
 
 import java.io.File;
 
+import utility.PropertiesComponent;
+
 public class GetSlideManager {
 
 	public GetSlideManager(){
@@ -10,8 +12,8 @@ public class GetSlideManager {
 
 	public void checkDirectory(String user_id) {
 		//ここ直してください
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath = "C:/Users/tanese kenta/awaretweet";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet";
 		File file = new File(appRootPath +"/slide/"+user_id);
 		if(file.exists()){
 
@@ -24,8 +26,8 @@ public class GetSlideManager {
 	public File[] getSlideList(String user_id) {
 		// TODO Auto-generated method stub
 		//ここ直してください
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath = "C:/Users/tanese kenta/awaretweet";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet";
 
 		//探索するパス
 		String basePath = appRootPath + "/slide/" + user_id;

@@ -8,8 +8,8 @@ public class UserListComponent{
 	public ArrayList<String> getUserList() {
 		// TODO Auto-generated method stub
 
-//		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath="C:/Users/tanese kenta/awaretweet/";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath="C:/Users/tanese kenta/awaretweet/";
 	    String userListPath = appRootPath + "avator";
 
 	    File userList = new File(userListPath);

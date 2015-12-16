@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 
+import utility.PropertiesComponent;
 import beans.Tweet;
 
 import com.ibm.icu.text.Transliterator;
@@ -24,8 +25,8 @@ public class ViewSlideManager {
 	public File[] getJpegList(String userId, String slideName) {
 
 		//ここ直してください。
-		//String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
-		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
+		String appRootPath =  new PropertiesComponent().referProperties("appRootPath");
+//		String appRootPath = "C:/Users/tanese kenta/awaretweet/";
 
 		//探索するパス
 		String basePath = appRootPath + "slide/" + userId +"/"+ slideName + "/";
